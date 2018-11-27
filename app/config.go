@@ -2,33 +2,32 @@ package app
 
 import (
 	"encoding/json"
-	"os"
-
+	"errors"
+	"fmt"
 	"github.com/TIBCOSoftware/flogo-lib/app/resource"
 	"github.com/TIBCOSoftware/flogo-lib/config"
 	"github.com/TIBCOSoftware/flogo-lib/core/action"
 	"github.com/TIBCOSoftware/flogo-lib/core/data"
 	"github.com/TIBCOSoftware/flogo-lib/core/trigger"
+	"github.com/TIBCOSoftware/flogo-lib/logger"
 	"io/ioutil"
+	"os"
 	"regexp"
 	"strings"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
-	"fmt"
-	"errors"
 )
 
 // Config is the configuration for the App
 type Config struct {
-	Name        string             `json:"name"`
-	Type        string             `json:"type"`
-	Version     string             `json:"version"`
-	Description string             `json:"description"`
+	Name        string `json:"name"`
+	Type        string `json:"type"`
+	Version     string `json:"version"`
+	Description string `json:"description"`
 
-	Properties  []*data.Attribute  `json:"properties"`
-	Channels    []string           `json:"channels"`
-	Triggers    []*trigger.Config  `json:"triggers"`
-	Resources   []*resource.Config `json:"resources"`
-	Actions     []*action.Config   `json:"actions"`
+	Properties []*data.Attribute  `json:"properties"`
+	Channels   []string           `json:"channels"`
+	Triggers   []*trigger.Config  `json:"triggers"`
+	Resources  []*resource.Config `json:"resources"`
+	Actions    []*action.Config   `json:"actions"`
 }
 
 var appName, appVersion string
@@ -171,13 +170,9 @@ func loadExternalProperties() (map[string]interface{}, error) {
 			}
 		} else if strings.ContainsRune(propFile, '=') {
 			// Override through P1=V1,P2=V2
-			for _, pair := range strings.Split(propFile, ",") {
-				kv := strings.Split(pair, "=")
-				if len(kv) == 2 && kv[0] != "" &&  kv[1] != "" {
-					props[kv[0]] = kv[1]
-				} else {
-					logger.Warnf("'%s' is not valid override value. It must be in PropName=PropValue format.", pair)
-				}
+			overrideProps := getOverrideAppProperty(propFile)
+			for k, v := range overrideProps {
+				props[k] = v
 			}
 		}
 
@@ -192,7 +187,7 @@ func loadExternalProperties() (map[string]interface{}, error) {
 					return nil, errors.New(errMag)
 				}
 
-				for k, v := range  props {
+				for k, v := range props {
 					strVal, ok := v.(string)
 					if ok && len(strVal) > 0 {
 						if strVal[0] == '$' {
@@ -207,7 +202,7 @@ func loadExternalProperties() (map[string]interface{}, error) {
 							strVal, _ = newVal.(string)
 						}
 
-						if len(strVal) > 0 &&  strings.HasPrefix(strVal, "SECRET:") {
+						if len(strVal) > 0 && strings.HasPrefix(strVal, "SECRET:") {
 							// Resolve secret value
 							newVal, err := resolveSecretValue(strVal)
 							if err != nil {
@@ -222,6 +217,63 @@ func loadExternalProperties() (map[string]interface{}, error) {
 
 	}
 	return props, nil
+}
+
+func getOverrideAppProperty(cmd string) map[string]string {
+	m := make(map[string]string)
+	parseOverride(removeQuote(cmd), m)
+	return m
+}
+
+func parseOverride(cmd string, m map[string]string) {
+	var key, value, rest string
+	eidx := strings.Index(cmd, "=")
+	if eidx >= 1 {
+		key = cmd[:eidx]
+	}
+
+	startVIdx := eidx + 1
+	if startVIdx < len(cmd) {
+		//TODO space between =
+		nextChar := cmd[startVIdx : startVIdx+1]
+		if nextChar == "\"" || nextChar == "'" {
+			//String value
+			reststring := cmd[startVIdx+1:]
+			endStrIdx := strings.Index(reststring, nextChar)
+			value = reststring[:endStrIdx]
+			rest = reststring[endStrIdx+1:]
+			if strings.Index(rest, ",") == 0 {
+				rest = rest[1:]
+			}
+		} else {
+			cIdx := strings.Index(cmd, ",")
+			if cIdx <= 0 {
+				value = cmd[startVIdx:]
+				rest = ""
+			} else {
+				value = cmd[startVIdx:cIdx]
+				if cIdx < len(cmd) {
+					rest = cmd[cIdx+1:]
+				}
+			}
+
+		}
+		m[key] = value
+		if rest != "" {
+			parseOverride(rest, m)
+		}
+		return
+	} else {
+		return
+
+	}
+}
+
+func removeQuote(quoteStr string) string {
+	if (strings.HasPrefix(quoteStr, `"`) && strings.HasSuffix(quoteStr, `"`)) || (strings.HasPrefix(quoteStr, `'`) && strings.HasSuffix(quoteStr, `'`)) {
+		quoteStr = quoteStr[1 : len(quoteStr)-1]
+	}
+	return quoteStr
 }
 
 //used for old action config
