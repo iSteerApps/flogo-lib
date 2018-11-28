@@ -10,6 +10,7 @@ import (
 	"github.com/TIBCOSoftware/flogo-lib/core/data"
 	"github.com/TIBCOSoftware/flogo-lib/core/trigger"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
+	"github.com/TIBCOSoftware/flogo-lib/util"
 	"io/ioutil"
 	"os"
 	"regexp"
@@ -170,7 +171,7 @@ func loadExternalProperties() (map[string]interface{}, error) {
 			}
 		} else if strings.ContainsRune(propFile, '=') {
 			// Override through P1=V1,P2=V2
-			overrideProps := getOverrideAppProperty(propFile)
+			overrideProps := util.GetCmdOverrideAppProperty(propFile)
 			for k, v := range overrideProps {
 				props[k] = v
 			}
@@ -217,67 +218,6 @@ func loadExternalProperties() (map[string]interface{}, error) {
 
 	}
 	return props, nil
-}
-
-//getOverrideAppProperty get override app property from cmdstr,  it is key=value,  if value have , please use quotes
-func getOverrideAppProperty(cmdstr string) map[string]string {
-	m := make(map[string]string)
-	parseOverrideProperty(removeQuote(cmdstr), m)
-	return m
-}
-
-func parseOverrideProperty(cmdstr string, m map[string]string) {
-	var key, value, rest string
-	eidx := strings.Index(cmdstr, "=")
-	if eidx >= 1 {
-		//Remove space in case it has space between =
-		key = strings.TrimSpace(cmdstr[:eidx])
-	}
-
-	afterKeyStr := strings.TrimSpace(cmdstr[eidx+1:])
-
-	if len(afterKeyStr) > 0 {
-		nextChar := afterKeyStr[0:1]
-		if nextChar == "\"" || nextChar == "'" {
-			//String value
-			reststring := afterKeyStr[1:]
-			endStrIdx := strings.Index(reststring, nextChar)
-			value = reststring[:endStrIdx]
-			rest = reststring[endStrIdx+1:]
-			if strings.Index(rest, ",") == 0 {
-				rest = rest[1:]
-			}
-		} else {
-			cIdx := strings.Index(afterKeyStr, ",")
-			//No value provide
-			if cIdx == 0 {
-				value = ""
-				rest = afterKeyStr[1:]
-			} else if cIdx < 0 {
-				//no more properties
-				value = afterKeyStr
-				rest = ""
-			} else {
-				//more properties
-				value = afterKeyStr[:cIdx]
-				if cIdx < len(afterKeyStr) {
-					rest = afterKeyStr[cIdx+1:]
-				}
-			}
-
-		}
-		m[key] = value
-		if rest != "" {
-			parseOverrideProperty(rest, m)
-		}
-	}
-}
-
-func removeQuote(quoteStr string) string {
-	if (strings.HasPrefix(quoteStr, `"`) && strings.HasSuffix(quoteStr, `"`)) || (strings.HasPrefix(quoteStr, `'`) && strings.HasSuffix(quoteStr, `'`)) {
-		quoteStr = quoteStr[1 : len(quoteStr)-1]
-	}
-	return quoteStr
 }
 
 //used for old action config
