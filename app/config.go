@@ -219,26 +219,28 @@ func loadExternalProperties() (map[string]interface{}, error) {
 	return props, nil
 }
 
-func getOverrideAppProperty(cmd string) map[string]string {
+//getOverrideAppProperty get override app property from cmdstr,  it is key=value,  if value have , please use quotes
+func getOverrideAppProperty(cmdstr string) map[string]string {
 	m := make(map[string]string)
-	parseOverride(removeQuote(cmd), m)
+	parseOverrideProperty(removeQuote(cmdstr), m)
 	return m
 }
 
-func parseOverride(cmd string, m map[string]string) {
+func parseOverrideProperty(cmdstr string, m map[string]string) {
 	var key, value, rest string
-	eidx := strings.Index(cmd, "=")
+	eidx := strings.Index(cmdstr, "=")
 	if eidx >= 1 {
-		key = cmd[:eidx]
+		//Remove space in case it has space between =
+		key = strings.TrimSpace(cmdstr[:eidx])
 	}
 
-	startVIdx := eidx + 1
-	if startVIdx < len(cmd) {
-		//TODO space between =
-		nextChar := cmd[startVIdx : startVIdx+1]
+	afterKeyStr := strings.TrimSpace(cmdstr[eidx+1:])
+
+	if len(afterKeyStr) > 0 {
+		nextChar := afterKeyStr[0:1]
 		if nextChar == "\"" || nextChar == "'" {
 			//String value
-			reststring := cmd[startVIdx+1:]
+			reststring := afterKeyStr[1:]
 			endStrIdx := strings.Index(reststring, nextChar)
 			value = reststring[:endStrIdx]
 			rest = reststring[endStrIdx+1:]
@@ -246,26 +248,28 @@ func parseOverride(cmd string, m map[string]string) {
 				rest = rest[1:]
 			}
 		} else {
-			cIdx := strings.Index(cmd, ",")
-			if cIdx <= 0 {
-				value = cmd[startVIdx:]
+			cIdx := strings.Index(afterKeyStr, ",")
+			//No value provide
+			if cIdx == 0 {
+				value = ""
+				rest = afterKeyStr[1:]
+			} else if cIdx < 0 {
+				//no more properties
+				value = afterKeyStr
 				rest = ""
 			} else {
-				value = cmd[startVIdx:cIdx]
-				if cIdx < len(cmd) {
-					rest = cmd[cIdx+1:]
+				//more properties
+				value = afterKeyStr[:cIdx]
+				if cIdx < len(afterKeyStr) {
+					rest = afterKeyStr[cIdx+1:]
 				}
 			}
 
 		}
 		m[key] = value
 		if rest != "" {
-			parseOverride(rest, m)
+			parseOverrideProperty(rest, m)
 		}
-		return
-	} else {
-		return
-
 	}
 }
 
