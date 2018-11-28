@@ -171,7 +171,7 @@ func loadExternalProperties() (map[string]interface{}, error) {
 			}
 		} else if strings.ContainsRune(propFile, '=') {
 			// Override through P1=V1,P2=V2
-			overrideProps := util.GetCmdOverrideAppProperty(propFile)
+			overrideProps := util.ParseKeyValuePairs(propFile)
 			for k, v := range overrideProps {
 				props[k] = v
 			}

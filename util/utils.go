@@ -47,22 +47,22 @@ func URLStringToFilePath(fileURL string) (string, bool) {
 	return "", false
 }
 
-//GetCmdOverrideAppProperty get override app property from cmd str,  it is key=value,  if value have , please use quotes
-func GetCmdOverrideAppProperty(cmdstr string) map[string]string {
+//ParseKeyValuePairs get key-value map from "key=value,key1=value1" str, if value have , please use quotes
+func ParseKeyValuePairs(keyvalueStr string) map[string]string {
 	m := make(map[string]string)
-	parseOverrideProperty(removeQuote(cmdstr), m)
+	parseKeyValue(removeQuote(keyvalueStr), m)
 	return m
 }
 
-func parseOverrideProperty(cmdstr string, m map[string]string) {
+func parseKeyValue(keyvalueStr string, m map[string]string) {
 	var key, value, rest string
-	eidx := strings.Index(cmdstr, "=")
+	eidx := strings.Index(keyvalueStr, "=")
 	if eidx >= 1 {
 		//Remove space in case it has space between =
-		key = strings.TrimSpace(cmdstr[:eidx])
+		key = strings.TrimSpace(keyvalueStr[:eidx])
 	}
 
-	afterKeyStr := strings.TrimSpace(cmdstr[eidx+1:])
+	afterKeyStr := strings.TrimSpace(keyvalueStr[eidx+1:])
 
 	if len(afterKeyStr) > 0 {
 		nextChar := afterKeyStr[0:1]
@@ -96,7 +96,7 @@ func parseOverrideProperty(cmdstr string, m map[string]string) {
 		}
 		m[key] = value
 		if rest != "" {
-			parseOverrideProperty(rest, m)
+			parseKeyValue(rest, m)
 		}
 	}
 }
