@@ -17,7 +17,7 @@ func TestEnvValueResolver(t *testing.T) {
 
 	resolver := GetPropertyValueResolver("env")
 	assert.NotNil(t, resolver)
-	resolvedVal, err := resolver.ResolveValue("TEST_PROP")
-	assert.Nil(t, err)
+	resolvedVal, found := resolver.ResolveValue("TEST_PROP")
+	assert.True(t, true, found)
 	assert.Equal(t, "testprop", resolvedVal)
 }
