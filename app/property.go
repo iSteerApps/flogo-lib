@@ -42,7 +42,7 @@ type EnvVariableValueResolver struct {
 	
 }
 
-func (resolver *EnvVariableValueResolver) ResolveValue(toResolve string) (interface{}, bool) {
+func (resolver *EnvVariableValueResolver) LookupValue(toResolve string) (interface{}, bool) {
 	return os.LookupEnv(toResolve)
 }
 
@@ -57,8 +57,8 @@ type PropertyProvider struct {
 
 // PropertyValueResolver used to resolve value from external configuration like env, file etc
 type PropertyValueResolver interface {
-	// Should return value and true if the given key exists in the external configuration otherwise nil and false.
-	ResolveValue(key string) (interface{}, bool)
+	// Should return value and true if the given key exists in the external configuration otherwise should return nil and false.
+	LookupValue(key string) (interface{}, bool)
 }
 
 func (pp *PropertyProvider) GetProperty(property string) (interface{}, bool) {

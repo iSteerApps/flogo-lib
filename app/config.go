@@ -214,7 +214,7 @@ func loadExternalProperties(properties []*data.Attribute) (map[string]interface{
 				if ok {
 					if len(strVal) > 0 && strVal[0] == '$' {
 						// Use resolver
-						newVal, found := resolver.ResolveValue(strVal[1:])
+						newVal, found := resolver.LookupValue(strVal[1:])
 						if !found {
 							logger.Warnf("Property '%s' could not be resolved using resolver '%s'. Using default value.", strVal[1:], resolverType)
 						} else {
@@ -228,7 +228,7 @@ func loadExternalProperties(properties []*data.Attribute) (map[string]interface{
 		} else {
 			// Resolver is set. Get values using app prop name
 			for _, prop := range properties {
-				newVal, found := resolver.ResolveValue(prop.Name())
+				newVal, found := resolver.LookupValue(prop.Name())
 				if found {
 					// Use new value
 					props[prop.Name()] = newVal
