@@ -146,16 +146,18 @@ func GetProperties(properties []*data.Attribute) (map[string]interface{}, error)
 				return props, err
 			}
 
-			strVal, _ := value.(string)
-			if len(strVal) > 0 && strings.HasPrefix(strVal, "SECRET:") {
-				// Resolve secret value
-				newVal, err := resolveSecretValue(strVal)
-				if err != nil {
-					return nil, err
+			if property.Type() == data.TypeString {
+				strVal := value.(string)
+				if strings.HasPrefix(strVal, "SECRET:") {
+					// Resolve secret value
+					newVal, err := resolveSecretValue(value.(string))
+					if err != nil {
+						return nil, err
+					}
+					props[property.Name()] = newVal
+				} else {
+					props[property.Name()] = value
 				}
-				props[property.Name()] = newVal
-			} else {
-				props[property.Name()] = value
 			}
 		}
 		return props, nil
