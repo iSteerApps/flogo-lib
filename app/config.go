@@ -196,10 +196,9 @@ func loadExternalProperties(properties []*data.Attribute) (map[string]interface{
 	}
 
 	resolverType := config.GetAppPropertiesValueResolver()
-	var resolver PropertyValueResolver
 	if resolverType != "" {
 		logger.Infof("'%s' is set to '%s'. ", config.ENV_APP_PROPERTY_RESOLVER_KEY, resolverType)
-		resolver = GetPropertyValueResolver(resolverType)
+		resolver := GetPropertyValueResolver(resolverType)
 		if resolver == nil {
 			errMag := fmt.Sprintf("Unsupported resolver type - %s. Resolver not registered.", resolverType)
 			return nil, errors.New(errMag)
