@@ -204,9 +204,7 @@ func loadExternalProperties(properties []*data.Attribute) (map[string]interface{
 			errMag := fmt.Sprintf("Unsupported resolver type - %s. Resolver not registered.", resolverType)
 			return nil, errors.New(errMag)
 		}
-	}
 
-	if resolverType != "" {
 		if len(props) > 0 {
 			// Get value using overridden property name
 			for k, v := range props {
@@ -215,10 +213,10 @@ func loadExternalProperties(properties []*data.Attribute) (map[string]interface{
 					if len(strVal) > 0 && strVal[0] == '$' {
 						// Use resolver
 						newVal, found := resolver.LookupValue(strVal[1:])
-						if !found {
-							logger.Warnf("Property '%s' could not be resolved using resolver '%s'. Using default value.", strVal[1:], resolverType)
-						} else {
+						if found {
 							props[k] = newVal
+						} else {
+							logger.Warnf("Property '%s' could not be resolved using resolver '%s'. Using default value.", strVal[1:], resolverType)
 						}
 					}
 				} else {
@@ -238,6 +236,7 @@ func loadExternalProperties(properties []*data.Attribute) (map[string]interface{
 			}
 		}
 	}
+
 	return props, nil
 }
 
