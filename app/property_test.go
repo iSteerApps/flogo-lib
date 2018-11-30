@@ -20,4 +20,7 @@ func TestEnvValueResolver(t *testing.T) {
 	resolvedVal, found := resolver.LookupValue("TEST_PROP")
 	assert.True(t, true, found)
 	assert.Equal(t, "testprop", resolvedVal)
+
+	_, found = resolver.LookupValue("TEST_PROP1")
+	assert.False(t, false, found)
 }
