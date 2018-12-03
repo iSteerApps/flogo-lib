@@ -2,33 +2,33 @@ package app
 
 import (
 	"encoding/json"
-	"os"
-
+	"errors"
+	"fmt"
 	"github.com/TIBCOSoftware/flogo-lib/app/resource"
 	"github.com/TIBCOSoftware/flogo-lib/config"
 	"github.com/TIBCOSoftware/flogo-lib/core/action"
 	"github.com/TIBCOSoftware/flogo-lib/core/data"
 	"github.com/TIBCOSoftware/flogo-lib/core/trigger"
+	"github.com/TIBCOSoftware/flogo-lib/logger"
+	"github.com/TIBCOSoftware/flogo-lib/util"
 	"io/ioutil"
+	"os"
 	"regexp"
 	"strings"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
-	"fmt"
-	"errors"
 )
 
 // Config is the configuration for the App
 type Config struct {
-	Name        string             `json:"name"`
-	Type        string             `json:"type"`
-	Version     string             `json:"version"`
-	Description string             `json:"description"`
+	Name        string `json:"name"`
+	Type        string `json:"type"`
+	Version     string `json:"version"`
+	Description string `json:"description"`
 
-	Properties  []*data.Attribute  `json:"properties"`
-	Channels    []string           `json:"channels"`
-	Triggers    []*trigger.Config  `json:"triggers"`
-	Resources   []*resource.Config `json:"resources"`
-	Actions     []*action.Config   `json:"actions"`
+	Properties []*data.Attribute  `json:"properties"`
+	Channels   []string           `json:"channels"`
+	Triggers   []*trigger.Config  `json:"triggers"`
+	Resources  []*resource.Config `json:"resources"`
+	Actions    []*action.Config   `json:"actions"`
 }
 
 var appName, appVersion string
@@ -171,13 +171,9 @@ func loadExternalProperties() (map[string]interface{}, error) {
 			}
 		} else if strings.ContainsRune(propFile, '=') {
 			// Override through P1=V1,P2=V2
-			for _, pair := range strings.Split(propFile, ",") {
-				kv := strings.Split(pair, "=")
-				if len(kv) == 2 && kv[0] != "" &&  kv[1] != "" {
-					props[kv[0]] = kv[1]
-				} else {
-					logger.Warnf("'%s' is not valid override value. It must be in PropName=PropValue format.", pair)
-				}
+			overrideProps := util.ParseKeyValuePairs(propFile)
+			for k, v := range overrideProps {
+				props[k] = v
 			}
 		}
 
@@ -192,7 +188,7 @@ func loadExternalProperties() (map[string]interface{}, error) {
 					return nil, errors.New(errMag)
 				}
 
-				for k, v := range  props {
+				for k, v := range props {
 					strVal, ok := v.(string)
 					if ok && len(strVal) > 0 {
 						if strVal[0] == '$' {
@@ -207,7 +203,7 @@ func loadExternalProperties() (map[string]interface{}, error) {
 							strVal, _ = newVal.(string)
 						}
 
-						if len(strVal) > 0 &&  strings.HasPrefix(strVal, "SECRET:") {
+						if len(strVal) > 0 && strings.HasPrefix(strVal, "SECRET:") {
 							// Resolve secret value
 							newVal, err := resolveSecretValue(strVal)
 							if err != nil {
