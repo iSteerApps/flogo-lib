@@ -2,19 +2,26 @@ package app
 
 import (
 	"encoding/json"
+
+	"os"
+
 	"errors"
 	"fmt"
+	"io/ioutil"
+	"regexp"
+	"strings"
+
+
+
 	"github.com/TIBCOSoftware/flogo-lib/app/resource"
 	"github.com/TIBCOSoftware/flogo-lib/config"
 	"github.com/TIBCOSoftware/flogo-lib/core/action"
 	"github.com/TIBCOSoftware/flogo-lib/core/data"
 	"github.com/TIBCOSoftware/flogo-lib/core/trigger"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
+
 	"github.com/TIBCOSoftware/flogo-lib/util"
-	"io/ioutil"
-	"os"
-	"regexp"
-	"strings"
+
 )
 
 // Config is the configuration for the App
@@ -131,7 +138,7 @@ func GetProperties(properties []*data.Attribute) (map[string]interface{}, error)
 
 	props := make(map[string]interface{})
 	if properties != nil {
-		overriddenProps, err := loadExternalProperties()
+		overriddenProps, err := loadExternalProperties(properties)
 		if err != nil {
 			return props, err
 		}
@@ -144,7 +151,18 @@ func GetProperties(properties []*data.Attribute) (map[string]interface{}, error)
 			if err != nil {
 				return props, err
 			}
-			props[property.Name()] = value
+
+			strVal, ok := value.(string)
+			if ok && strings.HasPrefix(strVal, "SECRET:") {
+				// Resolve secret value
+				newVal, err := resolveSecretValue(value.(string))
+				if err != nil {
+					return nil, err
+				}
+				props[property.Name()] = newVal
+			} else {
+				props[property.Name()] = value
+			}
 		}
 		return props, nil
 	}
@@ -152,12 +170,13 @@ func GetProperties(properties []*data.Attribute) (map[string]interface{}, error)
 	return props, nil
 }
 
-func loadExternalProperties() (map[string]interface{}, error) {
+func loadExternalProperties(properties []*data.Attribute) (map[string]interface{}, error) {
 
 	props := make(map[string]interface{})
 	propFile := config.GetAppPropertiesOverride()
 	if propFile != "" {
 		logger.Infof("'%s' is set. Loading overridden properties", config.ENV_APP_PROPERTY_OVERRIDE_KEY)
+		//TODO move to file resolver
 		if strings.HasSuffix(propFile, ".json") {
 			// Override through file
 			file, e := ioutil.ReadFile(propFile)
@@ -165,7 +184,6 @@ func loadExternalProperties() (map[string]interface{}, error) {
 				return nil, e
 			}
 			e = json.Unmarshal(file, &props)
-
 			if e != nil {
 				return nil, e
 			}
@@ -176,47 +194,49 @@ func loadExternalProperties() (map[string]interface{}, error) {
 				props[k] = v
 			}
 		}
+	}
+
+	resolverType := config.GetAppPropertiesValueResolver()
+	if resolverType != "" {
+		logger.Infof("'%s' is set to '%s'. ", config.ENV_APP_PROPERTY_RESOLVER_KEY, resolverType)
+		resolver := GetPropertyValueResolver(resolverType)
+		if resolver == nil {
+			errMag := fmt.Sprintf("Unsupported resolver type - %s. Resolver not registered.", resolverType)
+			return nil, errors.New(errMag)
+		}
 
 		if len(props) > 0 {
-			// Resolve property values
-			resolverType := config.GetAppPropertiesValueResolver()
-			if resolverType != "" {
-				logger.Infof("'%s' is set to '%s'. ", config.ENV_APP_PROPERTY_RESOLVER_KEY, resolverType)
-				resolver := GetPropertyValueResolver(resolverType)
-				if resolver == nil {
-					errMag := fmt.Sprintf("Unsupported resolver type - %s. Resolver not registered.", resolverType)
-					return nil, errors.New(errMag)
-				}
-
-				for k, v := range props {
-					strVal, ok := v.(string)
-					if ok && len(strVal) > 0 {
-						if strVal[0] == '$' {
-							// Use resolver
-							newVal, err := resolver.ResolveValue(strVal[1:])
-							if err != nil {
-								return nil, err
-							}
+			// Get value using overridden property name
+			for k, v := range props {
+				strVal, ok := v.(string)
+				if ok {
+					if len(strVal) > 0 && strVal[0] == '$' {
+						// Use resolver
+						newVal, found := resolver.LookupValue(strVal[1:])
+						if found {
 							props[k] = newVal
-
-							// May be a secret??
-							strVal, _ = newVal.(string)
-						}
-
-						if len(strVal) > 0 && strings.HasPrefix(strVal, "SECRET:") {
-							// Resolve secret value
-							newVal, err := resolveSecretValue(strVal)
-							if err != nil {
-								return nil, err
-							}
-							props[k] = newVal
+						} else {
+							logger.Warnf("Property '%s' could not be resolved using resolver '%s'. Using default value.", strVal[1:], resolverType)
 						}
 					}
+				} else {
+					props[k] = v
+				}
+			}
+		} else {
+			// Resolver is set. Get values using app prop name
+			for _, prop := range properties {
+				newVal, found := resolver.LookupValue(prop.Name())
+				if found {
+					// Use new value
+					props[prop.Name()] = newVal
+				} else {
+					logger.Warnf("Property - '%s' could not be resolved using resolver - '%s'. Using default value.", prop.Name(), resolverType)
 				}
 			}
 		}
-
 	}
+
 	return props, nil
 }
 
