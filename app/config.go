@@ -2,6 +2,7 @@ package app
 
 import (
 	"encoding/json"
+
 	"os"
 
 	"errors"
@@ -10,12 +11,17 @@ import (
 	"regexp"
 	"strings"
 
+
+
 	"github.com/TIBCOSoftware/flogo-lib/app/resource"
 	"github.com/TIBCOSoftware/flogo-lib/config"
 	"github.com/TIBCOSoftware/flogo-lib/core/action"
 	"github.com/TIBCOSoftware/flogo-lib/core/data"
 	"github.com/TIBCOSoftware/flogo-lib/core/trigger"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
+
+	"github.com/TIBCOSoftware/flogo-lib/util"
+
 )
 
 // Config is the configuration for the App
@@ -178,19 +184,14 @@ func loadExternalProperties(properties []*data.Attribute) (map[string]interface{
 				return nil, e
 			}
 			e = json.Unmarshal(file, &props)
-
 			if e != nil {
 				return nil, e
 			}
 		} else if strings.ContainsRune(propFile, '=') {
 			// Override through P1=V1,P2=V2
-			for _, pair := range strings.Split(propFile, ",") {
-				kv := strings.Split(pair, "=")
-				if len(kv) == 2 && kv[0] != "" && kv[1] != "" {
-					props[kv[0]] = kv[1]
-				} else {
-					logger.Warnf("'%s' is not valid override value. It must be in PropName=PropValue format.", pair)
-				}
+			overrideProps := util.ParseKeyValuePairs(propFile)
+			for k, v := range overrideProps {
+				props[k] = v
 			}
 		}
 	}
