@@ -24,22 +24,6 @@ float : (_float_lit);
 number : (_number) | (_negnumber);
 _function_name:  'a'-'z' | 'A'-'Z' | '0'-'9' | '.' | '_' | '-';
 
-/*Expression Operator*/
-/*
-    Expression which support operators so far
-        eq          -> ==
-           or          -> ||
-           and         -> &&
-           ne          -> !=
-           gt          -> >
-           lt          -> <
-           ge          -> >=
-           le          -> <=
-           +           -> +
-           -           -> -
-           *           -> *
-*/
-
 _refbracket : '[' {.} ']';
 _ref : 'a'-'z' | 'A'-'Z' | '.' | '0'-'9' | '-' | '[' | ']' | '_' | ' ' | '$' | '{' | '}' | _refbracket;
 _flogostring : {_ref};
@@ -77,38 +61,34 @@ Expr
     : OrExpr
   ;
 OrExpr
-    : OrExpr "||" AndExpr                          <<direction.NewExpression($0, $1, $2) >>
+    : OrExpr "||" AndExpr                                        <<direction.NewExpression($0, $1, $2) >>
     | AndExpr
     ;
 AndExpr
-    : AndExpr "&&" ConditionalExpr                            <<direction.NewExpression($0, $1, $2) >>
+    : AndExpr "&&" ConditionalExpr                               <<direction.NewExpression($0, $1, $2) >>
     | ConditionalExpr
     ;
 ConditionalExpr
-    : ConditionalExpr RelOp AddExpr                             <<direction.NewExpression($0, $1, $2) >>
+    : ConditionalExpr RelOp AddExpr                              <<direction.NewExpression($0, $1, $2) >>
     | AddExpr
     ;
 AddExpr
-    : AddExpr AddOp MulExpr                       <<direction.NewExpression($0, $1, $2) >>
+    : AddExpr AddOp MulExpr                                      <<direction.NewExpression($0, $1, $2) >>
     | MulExpr
     ;
 MulExpr
-    : MulExpr MulOp ParenthesesExpr                       <<direction.NewExpression($0, $1, $2) >>
+    : MulExpr MulOp ParenthesesExpr                              <<direction.NewExpression($0, $1, $2) >>
     | ParenthesesExpr
     ;
 ParenthesesExpr
     : ExprLiteral
-    | "(" Expr ")"                   <<direction.NewExpressionField($1)>>
+    | "(" Expr ")"                                               <<direction.NewExpressionField($1)>>
     ;
 
 RelOp : "==" | "!=" | "<" | "<=" | ">" | ">=";
 AddOp : "+" | "-";
 MulOp : "*" | "/" | "%";
 
-ExprLiteral
-    : Literal                                    <<direction.NewLiteralExpr($0)>>
-    | Func
-    ;
 
 Func
    : function_name "(" ArgsList ")"             << direction.NewFunction($0, $2) >>
@@ -121,9 +101,13 @@ ArgsList
     ;
 
 TernaryExpr
-    : Expr "?" Expr ":" Expr     <<direction.NewTernaryExpression($0, $2, $4)>>
+    : Expr "?" Expr ":" Expr                    <<direction.NewTernaryExpression($0, $2, $4)>>
     ;
 
+ExprLiteral
+    : Literal                                    <<direction.NewLiteralExpr($0)>>
+    | Func
+    ;
 
 Literal
      : Int                          <<direction.NewIntLit($0)>>

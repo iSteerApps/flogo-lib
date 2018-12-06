@@ -291,30 +291,10 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ExprLiteral : Literal	<< direction.NewLiteralExpr(X[0]) >>`,
-		Id:         "ExprLiteral",
-		NTType:     12,
-		Index:      27,
-		NumSymbols: 1,
-		ReduceFunc: func(X []Attrib) (Attrib, error) {
-			return direction.NewLiteralExpr(X[0])
-		},
-	},
-	ProdTabEntry{
-		String: `ExprLiteral : Func	<<  >>`,
-		Id:         "ExprLiteral",
-		NTType:     12,
-		Index:      28,
-		NumSymbols: 1,
-		ReduceFunc: func(X []Attrib) (Attrib, error) {
-			return X[0], nil
-		},
-	},
-	ProdTabEntry{
 		String: `Func : function_name "(" ArgsList ")"	<< direction.NewFunction(X[0], X[2]) >>`,
 		Id:         "Func",
-		NTType:     13,
-		Index:      29,
+		NTType:     12,
+		Index:      27,
 		NumSymbols: 4,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return direction.NewFunction(X[0], X[2])
@@ -323,8 +303,8 @@ var productionsTable = ProdTab{
 	ProdTabEntry{
 		String: `Func : function_name "()"	<< direction.NewFunction(X[0], "") >>`,
 		Id:         "Func",
-		NTType:     13,
-		Index:      30,
+		NTType:     12,
+		Index:      28,
 		NumSymbols: 2,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return direction.NewFunction(X[0], "")
@@ -333,8 +313,8 @@ var productionsTable = ProdTab{
 	ProdTabEntry{
 		String: `ArgsList : ExprLiteral	<< direction.NewArgument(X[0]) >>`,
 		Id:         "ArgsList",
-		NTType:     14,
-		Index:      31,
+		NTType:     13,
+		Index:      29,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return direction.NewArgument(X[0])
@@ -343,8 +323,8 @@ var productionsTable = ProdTab{
 	ProdTabEntry{
 		String: `ArgsList : ArgsList "," ArgsList	<< direction.NewArguments(X[0], X[2]) >>`,
 		Id:         "ArgsList",
-		NTType:     14,
-		Index:      32,
+		NTType:     13,
+		Index:      30,
 		NumSymbols: 3,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return direction.NewArguments(X[0], X[2])
@@ -353,11 +333,31 @@ var productionsTable = ProdTab{
 	ProdTabEntry{
 		String: `TernaryExpr : Expr "?" Expr ":" Expr	<< direction.NewTernaryExpression(X[0], X[2], X[4]) >>`,
 		Id:         "TernaryExpr",
-		NTType:     15,
-		Index:      33,
+		NTType:     14,
+		Index:      31,
 		NumSymbols: 5,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return direction.NewTernaryExpression(X[0], X[2], X[4])
+		},
+	},
+	ProdTabEntry{
+		String: `ExprLiteral : Literal	<< direction.NewLiteralExpr(X[0]) >>`,
+		Id:         "ExprLiteral",
+		NTType:     15,
+		Index:      32,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib) (Attrib, error) {
+			return direction.NewLiteralExpr(X[0])
+		},
+	},
+	ProdTabEntry{
+		String: `ExprLiteral : Func	<<  >>`,
+		Id:         "ExprLiteral",
+		NTType:     15,
+		Index:      33,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib) (Attrib, error) {
+			return X[0], nil
 		},
 	},
 	ProdTabEntry{

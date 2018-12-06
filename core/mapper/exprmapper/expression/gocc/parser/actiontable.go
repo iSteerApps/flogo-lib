@@ -31,7 +31,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(14), /* function_name */
+			shift(13), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -427,7 +427,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(59), /* function_name */
+			shift(58), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -447,26 +447,26 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(27), /* $, reduce: ExprLiteral */
-			reduce(27), /* ||, reduce: ExprLiteral */
-			reduce(27), /* &&, reduce: ExprLiteral */
+			reduce(33), /* $, reduce: ExprLiteral */
+			reduce(33), /* ||, reduce: ExprLiteral */
+			reduce(33), /* &&, reduce: ExprLiteral */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(27), /* ==, reduce: ExprLiteral */
-			reduce(27), /* !=, reduce: ExprLiteral */
-			reduce(27), /* <, reduce: ExprLiteral */
-			reduce(27), /* <=, reduce: ExprLiteral */
-			reduce(27), /* >, reduce: ExprLiteral */
-			reduce(27), /* >=, reduce: ExprLiteral */
-			reduce(27), /* +, reduce: ExprLiteral */
-			reduce(27), /* -, reduce: ExprLiteral */
-			reduce(27), /* *, reduce: ExprLiteral */
-			reduce(27), /* /, reduce: ExprLiteral */
-			reduce(27), /* %, reduce: ExprLiteral */
+			reduce(33), /* ==, reduce: ExprLiteral */
+			reduce(33), /* !=, reduce: ExprLiteral */
+			reduce(33), /* <, reduce: ExprLiteral */
+			reduce(33), /* <=, reduce: ExprLiteral */
+			reduce(33), /* >, reduce: ExprLiteral */
+			reduce(33), /* >=, reduce: ExprLiteral */
+			reduce(33), /* +, reduce: ExprLiteral */
+			reduce(33), /* -, reduce: ExprLiteral */
+			reduce(33), /* *, reduce: ExprLiteral */
+			reduce(33), /* /, reduce: ExprLiteral */
+			reduce(33), /* %, reduce: ExprLiteral */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(27), /* ?, reduce: ExprLiteral */
+			reduce(33), /* ?, reduce: ExprLiteral */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -480,42 +480,6 @@ var actionTab = actionTable{
 		},
 	},
 	actionRow{ // S13
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(28), /* $, reduce: ExprLiteral */
-			reduce(28), /* ||, reduce: ExprLiteral */
-			reduce(28), /* &&, reduce: ExprLiteral */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(28), /* ==, reduce: ExprLiteral */
-			reduce(28), /* !=, reduce: ExprLiteral */
-			reduce(28), /* <, reduce: ExprLiteral */
-			reduce(28), /* <=, reduce: ExprLiteral */
-			reduce(28), /* >, reduce: ExprLiteral */
-			reduce(28), /* >=, reduce: ExprLiteral */
-			reduce(28), /* +, reduce: ExprLiteral */
-			reduce(28), /* -, reduce: ExprLiteral */
-			reduce(28), /* *, reduce: ExprLiteral */
-			reduce(28), /* /, reduce: ExprLiteral */
-			reduce(28), /* %, reduce: ExprLiteral */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			reduce(28), /* ?, reduce: ExprLiteral */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S14
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -549,6 +513,42 @@ var actionTab = actionTable{
 			nil,       /* float */
 			nil,       /* nil */
 			nil,       /* null */
+		},
+	},
+	actionRow{ // S14
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(32), /* $, reduce: ExprLiteral */
+			reduce(32), /* ||, reduce: ExprLiteral */
+			reduce(32), /* &&, reduce: ExprLiteral */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(32), /* ==, reduce: ExprLiteral */
+			reduce(32), /* !=, reduce: ExprLiteral */
+			reduce(32), /* <, reduce: ExprLiteral */
+			reduce(32), /* <=, reduce: ExprLiteral */
+			reduce(32), /* >, reduce: ExprLiteral */
+			reduce(32), /* >=, reduce: ExprLiteral */
+			reduce(32), /* +, reduce: ExprLiteral */
+			reduce(32), /* -, reduce: ExprLiteral */
+			reduce(32), /* *, reduce: ExprLiteral */
+			reduce(32), /* /, reduce: ExprLiteral */
+			reduce(32), /* %, reduce: ExprLiteral */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(32), /* ?, reduce: ExprLiteral */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
 		},
 	},
 	actionRow{ // S15
@@ -1147,7 +1147,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(89),  /* function_name */
+			shift(88),  /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -1183,7 +1183,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(14), /* function_name */
+			shift(13), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -1219,7 +1219,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(14), /* function_name */
+			shift(13), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -1255,7 +1255,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(14), /* function_name */
+			shift(13), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -1507,7 +1507,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(14), /* function_name */
+			shift(13), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -1615,7 +1615,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(14), /* function_name */
+			shift(13), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -2047,7 +2047,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(59), /* function_name */
+			shift(58), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -2068,21 +2068,21 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(27), /* ||, reduce: ExprLiteral */
-			reduce(27), /* &&, reduce: ExprLiteral */
+			reduce(33), /* ||, reduce: ExprLiteral */
+			reduce(33), /* &&, reduce: ExprLiteral */
 			nil,        /* ( */
-			reduce(27), /* ), reduce: ExprLiteral */
-			reduce(27), /* ==, reduce: ExprLiteral */
-			reduce(27), /* !=, reduce: ExprLiteral */
-			reduce(27), /* <, reduce: ExprLiteral */
-			reduce(27), /* <=, reduce: ExprLiteral */
-			reduce(27), /* >, reduce: ExprLiteral */
-			reduce(27), /* >=, reduce: ExprLiteral */
-			reduce(27), /* +, reduce: ExprLiteral */
-			reduce(27), /* -, reduce: ExprLiteral */
-			reduce(27), /* *, reduce: ExprLiteral */
-			reduce(27), /* /, reduce: ExprLiteral */
-			reduce(27), /* %, reduce: ExprLiteral */
+			reduce(33), /* ), reduce: ExprLiteral */
+			reduce(33), /* ==, reduce: ExprLiteral */
+			reduce(33), /* !=, reduce: ExprLiteral */
+			reduce(33), /* <, reduce: ExprLiteral */
+			reduce(33), /* <=, reduce: ExprLiteral */
+			reduce(33), /* >, reduce: ExprLiteral */
+			reduce(33), /* >=, reduce: ExprLiteral */
+			reduce(33), /* +, reduce: ExprLiteral */
+			reduce(33), /* -, reduce: ExprLiteral */
+			reduce(33), /* *, reduce: ExprLiteral */
+			reduce(33), /* /, reduce: ExprLiteral */
+			reduce(33), /* %, reduce: ExprLiteral */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
@@ -2104,23 +2104,23 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(28), /* ||, reduce: ExprLiteral */
-			reduce(28), /* &&, reduce: ExprLiteral */
-			nil,        /* ( */
-			reduce(28), /* ), reduce: ExprLiteral */
-			reduce(28), /* ==, reduce: ExprLiteral */
-			reduce(28), /* !=, reduce: ExprLiteral */
-			reduce(28), /* <, reduce: ExprLiteral */
-			reduce(28), /* <=, reduce: ExprLiteral */
-			reduce(28), /* >, reduce: ExprLiteral */
-			reduce(28), /* >=, reduce: ExprLiteral */
-			reduce(28), /* +, reduce: ExprLiteral */
-			reduce(28), /* -, reduce: ExprLiteral */
-			reduce(28), /* *, reduce: ExprLiteral */
-			reduce(28), /* /, reduce: ExprLiteral */
-			reduce(28), /* %, reduce: ExprLiteral */
+			nil,        /* || */
+			nil,        /* && */
+			shift(118), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
 			nil,        /* function_name */
-			nil,        /* () */
+			shift(119), /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
@@ -2140,23 +2140,23 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			shift(118), /* ( */
-			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			reduce(32), /* ||, reduce: ExprLiteral */
+			reduce(32), /* &&, reduce: ExprLiteral */
+			nil,        /* ( */
+			reduce(32), /* ), reduce: ExprLiteral */
+			reduce(32), /* ==, reduce: ExprLiteral */
+			reduce(32), /* !=, reduce: ExprLiteral */
+			reduce(32), /* <, reduce: ExprLiteral */
+			reduce(32), /* <=, reduce: ExprLiteral */
+			reduce(32), /* >, reduce: ExprLiteral */
+			reduce(32), /* >=, reduce: ExprLiteral */
+			reduce(32), /* +, reduce: ExprLiteral */
+			reduce(32), /* -, reduce: ExprLiteral */
+			reduce(32), /* *, reduce: ExprLiteral */
+			reduce(32), /* /, reduce: ExprLiteral */
+			reduce(32), /* %, reduce: ExprLiteral */
 			nil,        /* function_name */
-			shift(119), /* () */
+			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
@@ -2767,7 +2767,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(123), /* function_name */
+			shift(122), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -2787,26 +2787,26 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(30), /* $, reduce: Func */
-			reduce(30), /* ||, reduce: Func */
-			reduce(30), /* &&, reduce: Func */
+			reduce(28), /* $, reduce: Func */
+			reduce(28), /* ||, reduce: Func */
+			reduce(28), /* &&, reduce: Func */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(30), /* ==, reduce: Func */
-			reduce(30), /* !=, reduce: Func */
-			reduce(30), /* <, reduce: Func */
-			reduce(30), /* <=, reduce: Func */
-			reduce(30), /* >, reduce: Func */
-			reduce(30), /* >=, reduce: Func */
-			reduce(30), /* +, reduce: Func */
-			reduce(30), /* -, reduce: Func */
-			reduce(30), /* *, reduce: Func */
-			reduce(30), /* /, reduce: Func */
-			reduce(30), /* %, reduce: Func */
+			reduce(28), /* ==, reduce: Func */
+			reduce(28), /* !=, reduce: Func */
+			reduce(28), /* <, reduce: Func */
+			reduce(28), /* <=, reduce: Func */
+			reduce(28), /* >, reduce: Func */
+			reduce(28), /* >=, reduce: Func */
+			reduce(28), /* +, reduce: Func */
+			reduce(28), /* -, reduce: Func */
+			reduce(28), /* *, reduce: Func */
+			reduce(28), /* /, reduce: Func */
+			reduce(28), /* %, reduce: Func */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(30), /* ?, reduce: Func */
+			reduce(28), /* ?, reduce: Func */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -3127,7 +3127,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(59), /* function_name */
+			shift(58), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -3148,26 +3148,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(27), /* ||, reduce: ExprLiteral */
-			reduce(27), /* &&, reduce: ExprLiteral */
+			reduce(33), /* ||, reduce: ExprLiteral */
+			reduce(33), /* &&, reduce: ExprLiteral */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(27), /* ==, reduce: ExprLiteral */
-			reduce(27), /* !=, reduce: ExprLiteral */
-			reduce(27), /* <, reduce: ExprLiteral */
-			reduce(27), /* <=, reduce: ExprLiteral */
-			reduce(27), /* >, reduce: ExprLiteral */
-			reduce(27), /* >=, reduce: ExprLiteral */
-			reduce(27), /* +, reduce: ExprLiteral */
-			reduce(27), /* -, reduce: ExprLiteral */
-			reduce(27), /* *, reduce: ExprLiteral */
-			reduce(27), /* /, reduce: ExprLiteral */
-			reduce(27), /* %, reduce: ExprLiteral */
+			reduce(33), /* ==, reduce: ExprLiteral */
+			reduce(33), /* !=, reduce: ExprLiteral */
+			reduce(33), /* <, reduce: ExprLiteral */
+			reduce(33), /* <=, reduce: ExprLiteral */
+			reduce(33), /* >, reduce: ExprLiteral */
+			reduce(33), /* >=, reduce: ExprLiteral */
+			reduce(33), /* +, reduce: ExprLiteral */
+			reduce(33), /* -, reduce: ExprLiteral */
+			reduce(33), /* *, reduce: ExprLiteral */
+			reduce(33), /* /, reduce: ExprLiteral */
+			reduce(33), /* %, reduce: ExprLiteral */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
-			reduce(27), /* :, reduce: ExprLiteral */
+			reduce(33), /* :, reduce: ExprLiteral */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -3180,42 +3180,6 @@ var actionTab = actionTable{
 		},
 	},
 	actionRow{ // S88
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(28), /* ||, reduce: ExprLiteral */
-			reduce(28), /* &&, reduce: ExprLiteral */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(28), /* ==, reduce: ExprLiteral */
-			reduce(28), /* !=, reduce: ExprLiteral */
-			reduce(28), /* <, reduce: ExprLiteral */
-			reduce(28), /* <=, reduce: ExprLiteral */
-			reduce(28), /* >, reduce: ExprLiteral */
-			reduce(28), /* >=, reduce: ExprLiteral */
-			reduce(28), /* +, reduce: ExprLiteral */
-			reduce(28), /* -, reduce: ExprLiteral */
-			reduce(28), /* *, reduce: ExprLiteral */
-			reduce(28), /* /, reduce: ExprLiteral */
-			reduce(28), /* %, reduce: ExprLiteral */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(28), /* :, reduce: ExprLiteral */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S89
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -3240,6 +3204,42 @@ var actionTab = actionTable{
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S89
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(32), /* ||, reduce: ExprLiteral */
+			reduce(32), /* &&, reduce: ExprLiteral */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(32), /* ==, reduce: ExprLiteral */
+			reduce(32), /* !=, reduce: ExprLiteral */
+			reduce(32), /* <, reduce: ExprLiteral */
+			reduce(32), /* <=, reduce: ExprLiteral */
+			reduce(32), /* >, reduce: ExprLiteral */
+			reduce(32), /* >=, reduce: ExprLiteral */
+			reduce(32), /* +, reduce: ExprLiteral */
+			reduce(32), /* -, reduce: ExprLiteral */
+			reduce(32), /* *, reduce: ExprLiteral */
+			reduce(32), /* /, reduce: ExprLiteral */
+			reduce(32), /* %, reduce: ExprLiteral */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			reduce(32), /* :, reduce: ExprLiteral */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -4063,7 +4063,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(59), /* function_name */
+			shift(58), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -4099,7 +4099,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(59), /* function_name */
+			shift(58), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -4135,7 +4135,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(59), /* function_name */
+			shift(58), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -4171,7 +4171,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(59), /* function_name */
+			shift(58), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -4207,7 +4207,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(59), /* function_name */
+			shift(58), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -4279,7 +4279,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(123), /* function_name */
+			shift(122), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -4300,21 +4300,21 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(30), /* ||, reduce: Func */
-			reduce(30), /* &&, reduce: Func */
+			reduce(28), /* ||, reduce: Func */
+			reduce(28), /* &&, reduce: Func */
 			nil,        /* ( */
-			reduce(30), /* ), reduce: Func */
-			reduce(30), /* ==, reduce: Func */
-			reduce(30), /* !=, reduce: Func */
-			reduce(30), /* <, reduce: Func */
-			reduce(30), /* <=, reduce: Func */
-			reduce(30), /* >, reduce: Func */
-			reduce(30), /* >=, reduce: Func */
-			reduce(30), /* +, reduce: Func */
-			reduce(30), /* -, reduce: Func */
-			reduce(30), /* *, reduce: Func */
-			reduce(30), /* /, reduce: Func */
-			reduce(30), /* %, reduce: Func */
+			reduce(28), /* ), reduce: Func */
+			reduce(28), /* ==, reduce: Func */
+			reduce(28), /* !=, reduce: Func */
+			reduce(28), /* <, reduce: Func */
+			reduce(28), /* <=, reduce: Func */
+			reduce(28), /* >, reduce: Func */
+			reduce(28), /* >=, reduce: Func */
+			reduce(28), /* +, reduce: Func */
+			reduce(28), /* -, reduce: Func */
+			reduce(28), /* *, reduce: Func */
+			reduce(28), /* /, reduce: Func */
+			reduce(28), /* %, reduce: Func */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
@@ -4339,7 +4339,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			reduce(31), /* ), reduce: ArgsList */
+			reduce(29), /* ), reduce: ArgsList */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -4353,7 +4353,7 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(31), /* ,, reduce: ArgsList */
+			reduce(29), /* ,, reduce: ArgsList */
 			nil,        /* ? */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
@@ -4375,7 +4375,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			reduce(27), /* ), reduce: ExprLiteral */
+			reduce(33), /* ), reduce: ExprLiteral */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -4389,7 +4389,7 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(27), /* ,, reduce: ExprLiteral */
+			reduce(33), /* ,, reduce: ExprLiteral */
 			nil,        /* ? */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
@@ -4404,42 +4404,6 @@ var actionTab = actionTable{
 		},
 	},
 	actionRow{ // S122
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			nil,        /* ( */
-			reduce(28), /* ), reduce: ExprLiteral */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			reduce(28), /* ,, reduce: ExprLiteral */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S123
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4475,7 +4439,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S124
+	actionRow{ // S123
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4498,6 +4462,42 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			shift(160), /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S124
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(32), /* ), reduce: ExprLiteral */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(32), /* ,, reduce: ExprLiteral */
 			nil,        /* ? */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
@@ -5107,7 +5107,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(172), /* function_name */
+			shift(171), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -5143,7 +5143,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(89),  /* function_name */
+			shift(88),  /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -5179,7 +5179,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(89),  /* function_name */
+			shift(88),  /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -5215,7 +5215,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(89),  /* function_name */
+			shift(88),  /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -5251,7 +5251,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(89),  /* function_name */
+			shift(88),  /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -5287,7 +5287,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(89),  /* function_name */
+			shift(88),  /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -5359,7 +5359,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(123), /* function_name */
+			shift(122), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -5380,26 +5380,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(30), /* ||, reduce: Func */
-			reduce(30), /* &&, reduce: Func */
+			reduce(28), /* ||, reduce: Func */
+			reduce(28), /* &&, reduce: Func */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(30), /* ==, reduce: Func */
-			reduce(30), /* !=, reduce: Func */
-			reduce(30), /* <, reduce: Func */
-			reduce(30), /* <=, reduce: Func */
-			reduce(30), /* >, reduce: Func */
-			reduce(30), /* >=, reduce: Func */
-			reduce(30), /* +, reduce: Func */
-			reduce(30), /* -, reduce: Func */
-			reduce(30), /* *, reduce: Func */
-			reduce(30), /* /, reduce: Func */
-			reduce(30), /* %, reduce: Func */
+			reduce(28), /* ==, reduce: Func */
+			reduce(28), /* !=, reduce: Func */
+			reduce(28), /* <, reduce: Func */
+			reduce(28), /* <=, reduce: Func */
+			reduce(28), /* >, reduce: Func */
+			reduce(28), /* >=, reduce: Func */
+			reduce(28), /* +, reduce: Func */
+			reduce(28), /* -, reduce: Func */
+			reduce(28), /* *, reduce: Func */
+			reduce(28), /* /, reduce: Func */
+			reduce(28), /* %, reduce: Func */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
-			reduce(30), /* :, reduce: Func */
+			reduce(28), /* :, reduce: Func */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -5683,7 +5683,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(123), /* function_name */
+			shift(122), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -5707,7 +5707,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			reduce(30), /* ), reduce: Func */
+			reduce(28), /* ), reduce: Func */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -5721,7 +5721,7 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(30), /* ,, reduce: Func */
+			reduce(28), /* ,, reduce: Func */
 			nil,        /* ? */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
@@ -5739,26 +5739,26 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(29), /* $, reduce: Func */
-			reduce(29), /* ||, reduce: Func */
-			reduce(29), /* &&, reduce: Func */
+			reduce(27), /* $, reduce: Func */
+			reduce(27), /* ||, reduce: Func */
+			reduce(27), /* &&, reduce: Func */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(29), /* ==, reduce: Func */
-			reduce(29), /* !=, reduce: Func */
-			reduce(29), /* <, reduce: Func */
-			reduce(29), /* <=, reduce: Func */
-			reduce(29), /* >, reduce: Func */
-			reduce(29), /* >=, reduce: Func */
-			reduce(29), /* +, reduce: Func */
-			reduce(29), /* -, reduce: Func */
-			reduce(29), /* *, reduce: Func */
-			reduce(29), /* /, reduce: Func */
-			reduce(29), /* %, reduce: Func */
+			reduce(27), /* ==, reduce: Func */
+			reduce(27), /* !=, reduce: Func */
+			reduce(27), /* <, reduce: Func */
+			reduce(27), /* <=, reduce: Func */
+			reduce(27), /* >, reduce: Func */
+			reduce(27), /* >=, reduce: Func */
+			reduce(27), /* +, reduce: Func */
+			reduce(27), /* -, reduce: Func */
+			reduce(27), /* *, reduce: Func */
+			reduce(27), /* /, reduce: Func */
+			reduce(27), /* %, reduce: Func */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(29), /* ?, reduce: Func */
+			reduce(27), /* ?, reduce: Func */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -5791,7 +5791,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(123), /* function_name */
+			shift(122), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -5811,7 +5811,7 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(33), /* $, reduce: TernaryExpr */
+			reduce(31), /* $, reduce: TernaryExpr */
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
@@ -6115,7 +6115,7 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(59), /* function_name */
+			shift(58), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
@@ -6135,22 +6135,22 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(27), /* $, reduce: ExprLiteral */
-			reduce(27), /* ||, reduce: ExprLiteral */
-			reduce(27), /* &&, reduce: ExprLiteral */
+			reduce(33), /* $, reduce: ExprLiteral */
+			reduce(33), /* ||, reduce: ExprLiteral */
+			reduce(33), /* &&, reduce: ExprLiteral */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(27), /* ==, reduce: ExprLiteral */
-			reduce(27), /* !=, reduce: ExprLiteral */
-			reduce(27), /* <, reduce: ExprLiteral */
-			reduce(27), /* <=, reduce: ExprLiteral */
-			reduce(27), /* >, reduce: ExprLiteral */
-			reduce(27), /* >=, reduce: ExprLiteral */
-			reduce(27), /* +, reduce: ExprLiteral */
-			reduce(27), /* -, reduce: ExprLiteral */
-			reduce(27), /* *, reduce: ExprLiteral */
-			reduce(27), /* /, reduce: ExprLiteral */
-			reduce(27), /* %, reduce: ExprLiteral */
+			reduce(33), /* ==, reduce: ExprLiteral */
+			reduce(33), /* !=, reduce: ExprLiteral */
+			reduce(33), /* <, reduce: ExprLiteral */
+			reduce(33), /* <=, reduce: ExprLiteral */
+			reduce(33), /* >, reduce: ExprLiteral */
+			reduce(33), /* >=, reduce: ExprLiteral */
+			reduce(33), /* +, reduce: ExprLiteral */
+			reduce(33), /* -, reduce: ExprLiteral */
+			reduce(33), /* *, reduce: ExprLiteral */
+			reduce(33), /* /, reduce: ExprLiteral */
+			reduce(33), /* %, reduce: ExprLiteral */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
@@ -6168,42 +6168,6 @@ var actionTab = actionTable{
 		},
 	},
 	actionRow{ // S171
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(28), /* $, reduce: ExprLiteral */
-			reduce(28), /* ||, reduce: ExprLiteral */
-			reduce(28), /* &&, reduce: ExprLiteral */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(28), /* ==, reduce: ExprLiteral */
-			reduce(28), /* !=, reduce: ExprLiteral */
-			reduce(28), /* <, reduce: ExprLiteral */
-			reduce(28), /* <=, reduce: ExprLiteral */
-			reduce(28), /* >, reduce: ExprLiteral */
-			reduce(28), /* >=, reduce: ExprLiteral */
-			reduce(28), /* +, reduce: ExprLiteral */
-			reduce(28), /* -, reduce: ExprLiteral */
-			reduce(28), /* *, reduce: ExprLiteral */
-			reduce(28), /* /, reduce: ExprLiteral */
-			reduce(28), /* %, reduce: ExprLiteral */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S172
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -6225,6 +6189,42 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			shift(206), /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S172
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(32), /* $, reduce: ExprLiteral */
+			reduce(32), /* ||, reduce: ExprLiteral */
+			reduce(32), /* &&, reduce: ExprLiteral */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(32), /* ==, reduce: ExprLiteral */
+			reduce(32), /* !=, reduce: ExprLiteral */
+			reduce(32), /* <, reduce: ExprLiteral */
+			reduce(32), /* <=, reduce: ExprLiteral */
+			reduce(32), /* >, reduce: ExprLiteral */
+			reduce(32), /* >=, reduce: ExprLiteral */
+			reduce(32), /* +, reduce: ExprLiteral */
+			reduce(32), /* -, reduce: ExprLiteral */
+			reduce(32), /* *, reduce: ExprLiteral */
+			reduce(32), /* /, reduce: ExprLiteral */
+			reduce(32), /* %, reduce: ExprLiteral */
+			nil,        /* function_name */
+			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
@@ -7072,21 +7072,21 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(29), /* ||, reduce: Func */
-			reduce(29), /* &&, reduce: Func */
+			reduce(27), /* ||, reduce: Func */
+			reduce(27), /* &&, reduce: Func */
 			nil,        /* ( */
-			reduce(29), /* ), reduce: Func */
-			reduce(29), /* ==, reduce: Func */
-			reduce(29), /* !=, reduce: Func */
-			reduce(29), /* <, reduce: Func */
-			reduce(29), /* <=, reduce: Func */
-			reduce(29), /* >, reduce: Func */
-			reduce(29), /* >=, reduce: Func */
-			reduce(29), /* +, reduce: Func */
-			reduce(29), /* -, reduce: Func */
-			reduce(29), /* *, reduce: Func */
-			reduce(29), /* /, reduce: Func */
-			reduce(29), /* %, reduce: Func */
+			reduce(27), /* ), reduce: Func */
+			reduce(27), /* ==, reduce: Func */
+			reduce(27), /* !=, reduce: Func */
+			reduce(27), /* <, reduce: Func */
+			reduce(27), /* <=, reduce: Func */
+			reduce(27), /* >, reduce: Func */
+			reduce(27), /* >=, reduce: Func */
+			reduce(27), /* +, reduce: Func */
+			reduce(27), /* -, reduce: Func */
+			reduce(27), /* *, reduce: Func */
+			reduce(27), /* /, reduce: Func */
+			reduce(27), /* %, reduce: Func */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
@@ -7147,7 +7147,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			reduce(32), /* ), reduce: ArgsList */
+			reduce(30), /* ), reduce: ArgsList */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -7195,7 +7195,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(172), /* function_name */
+			shift(171), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -7231,7 +7231,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(172), /* function_name */
+			shift(171), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -7267,7 +7267,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(172), /* function_name */
+			shift(171), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -7303,7 +7303,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(172), /* function_name */
+			shift(171), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -7339,7 +7339,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(172), /* function_name */
+			shift(171), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -7411,7 +7411,7 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(123), /* function_name */
+			shift(122), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
@@ -7431,22 +7431,22 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(30), /* $, reduce: Func */
-			reduce(30), /* ||, reduce: Func */
-			reduce(30), /* &&, reduce: Func */
+			reduce(28), /* $, reduce: Func */
+			reduce(28), /* ||, reduce: Func */
+			reduce(28), /* &&, reduce: Func */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(30), /* ==, reduce: Func */
-			reduce(30), /* !=, reduce: Func */
-			reduce(30), /* <, reduce: Func */
-			reduce(30), /* <=, reduce: Func */
-			reduce(30), /* >, reduce: Func */
-			reduce(30), /* >=, reduce: Func */
-			reduce(30), /* +, reduce: Func */
-			reduce(30), /* -, reduce: Func */
-			reduce(30), /* *, reduce: Func */
-			reduce(30), /* /, reduce: Func */
-			reduce(30), /* %, reduce: Func */
+			reduce(28), /* ==, reduce: Func */
+			reduce(28), /* !=, reduce: Func */
+			reduce(28), /* <, reduce: Func */
+			reduce(28), /* <=, reduce: Func */
+			reduce(28), /* >, reduce: Func */
+			reduce(28), /* >=, reduce: Func */
+			reduce(28), /* +, reduce: Func */
+			reduce(28), /* -, reduce: Func */
+			reduce(28), /* *, reduce: Func */
+			reduce(28), /* /, reduce: Func */
+			reduce(28), /* %, reduce: Func */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
@@ -7468,26 +7468,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(29), /* ||, reduce: Func */
-			reduce(29), /* &&, reduce: Func */
+			reduce(27), /* ||, reduce: Func */
+			reduce(27), /* &&, reduce: Func */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(29), /* ==, reduce: Func */
-			reduce(29), /* !=, reduce: Func */
-			reduce(29), /* <, reduce: Func */
-			reduce(29), /* <=, reduce: Func */
-			reduce(29), /* >, reduce: Func */
-			reduce(29), /* >=, reduce: Func */
-			reduce(29), /* +, reduce: Func */
-			reduce(29), /* -, reduce: Func */
-			reduce(29), /* *, reduce: Func */
-			reduce(29), /* /, reduce: Func */
-			reduce(29), /* %, reduce: Func */
+			reduce(27), /* ==, reduce: Func */
+			reduce(27), /* !=, reduce: Func */
+			reduce(27), /* <, reduce: Func */
+			reduce(27), /* <=, reduce: Func */
+			reduce(27), /* >, reduce: Func */
+			reduce(27), /* >=, reduce: Func */
+			reduce(27), /* +, reduce: Func */
+			reduce(27), /* -, reduce: Func */
+			reduce(27), /* *, reduce: Func */
+			reduce(27), /* /, reduce: Func */
+			reduce(27), /* %, reduce: Func */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
-			reduce(29), /* :, reduce: Func */
+			reduce(27), /* :, reduce: Func */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -7507,7 +7507,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			reduce(29), /* ), reduce: Func */
+			reduce(27), /* ), reduce: Func */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -7521,7 +7521,7 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(29), /* ,, reduce: Func */
+			reduce(27), /* ,, reduce: Func */
 			nil,        /* ? */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
@@ -7791,22 +7791,22 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(29), /* $, reduce: Func */
-			reduce(29), /* ||, reduce: Func */
-			reduce(29), /* &&, reduce: Func */
+			reduce(27), /* $, reduce: Func */
+			reduce(27), /* ||, reduce: Func */
+			reduce(27), /* &&, reduce: Func */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(29), /* ==, reduce: Func */
-			reduce(29), /* !=, reduce: Func */
-			reduce(29), /* <, reduce: Func */
-			reduce(29), /* <=, reduce: Func */
-			reduce(29), /* >, reduce: Func */
-			reduce(29), /* >=, reduce: Func */
-			reduce(29), /* +, reduce: Func */
-			reduce(29), /* -, reduce: Func */
-			reduce(29), /* *, reduce: Func */
-			reduce(29), /* /, reduce: Func */
-			reduce(29), /* %, reduce: Func */
+			reduce(27), /* ==, reduce: Func */
+			reduce(27), /* !=, reduce: Func */
+			reduce(27), /* <, reduce: Func */
+			reduce(27), /* <=, reduce: Func */
+			reduce(27), /* >, reduce: Func */
+			reduce(27), /* >=, reduce: Func */
+			reduce(27), /* +, reduce: Func */
+			reduce(27), /* -, reduce: Func */
+			reduce(27), /* *, reduce: Func */
+			reduce(27), /* /, reduce: Func */
+			reduce(27), /* %, reduce: Func */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
