@@ -14,10 +14,10 @@ func NewLiteralExpr(v interface{}) *LiteralExpr {
 	return &LiteralExpr{V: v}
 }
 func (iffl *LiteralExpr) EvalWithScope(inputScope data.Scope, resolver data.Resolver) (interface{}, error) {
-	return iffl.V, nil
+	return iffl.EvalWithData(nil, inputScope, resolver)
 }
 func (iffl *LiteralExpr) Eval() (interface{}, error) {
-	return iffl.V, nil
+	return iffl.EvalWithData(nil, nil, nil)
 }
 func (iffl *LiteralExpr) EvalWithData(value interface{}, inputScope data.Scope, resolver data.Resolver) (interface{}, error) {
 	switch t := iffl.V.(type) {

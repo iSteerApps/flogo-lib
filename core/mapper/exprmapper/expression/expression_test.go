@@ -65,8 +65,9 @@ func TestExpressionString(t *testing.T) {
 		t.Fatal(err)
 		t.Failed()
 	}
-	_, err = v.EvalWithScope(nil, nil)
-	assert.NotNil(t, err)
+	r, err := v.EvalWithScope(nil, nil)
+	assert.Nil(t, err)
+	assert.Equal(t, false, r)
 }
 
 func TestExpressionWithOldWay(t *testing.T) {
@@ -88,8 +89,9 @@ func TestTernaryExpressionWithNagtive(t *testing.T) {
 		t.Fatal(err)
 		t.Failed()
 	}
-	_, err = v.EvalWithScope(nil, nil)
-	assert.NotNil(t, err)
+	r, err := v.EvalWithScope(nil, nil)
+	assert.Nil(t, err)
+	assert.Equal(t, "$.content.ParamNb3", r)
 
 }
 
@@ -297,18 +299,6 @@ func TestFunc(t *testing.T) {
 	}
 	fmt.Println("Result:", v)
 	assert.Equal(t, v, true)
-	e, err = ParseExpression(`string.length("lixingwang") == 10`)
-	if err != nil {
-		t.Fatal(err)
-		t.Failed()
-	}
-	v, err = e.Eval()
-	if err != nil {
-		t.Fatal(err)
-		t.Failed()
-	}
-	fmt.Println("Result:", v)
-	assert.Equal(t, v, true)
 }
 
 func TestExpressionGT(t *testing.T) {
@@ -380,7 +370,7 @@ func TestIsExpression(t *testing.T) {
 	assert.True(t, b)
 
 	b = IsExpression(`$A3.name.fields`)
-	assert.False(t, b)
+	assert.True(t, b)
 
 }
 
@@ -398,7 +388,7 @@ func TestIsTernayExpression(t *testing.T) {
 	assert.True(t, b)
 
 	b = IsExpression(`$A3.name.fields`)
-	assert.False(t, b)
+	assert.True(t, b)
 
 }
 
@@ -416,7 +406,7 @@ func TestIsFunction(t *testing.T) {
 	assert.True(t, b)
 
 	b = IsExpression(`$A3.name.fields`)
-	assert.False(t, b)
+	assert.True(t, b)
 }
 
 func TestNewExpressionBoolean(t *testing.T) {

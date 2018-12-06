@@ -265,15 +265,21 @@ func ensureArguments(method reflect.Value, in []reflect.Value) ([]reflect.Value,
 		elem := methodType.In(n - 1).Elem()
 		for j := 0; j < m; j++ {
 			x := in[n+j]
-			if xt := x.Type(); !xt.AssignableTo(elem) {
-				v, err := convertArgs(elem, x)
-				if err != nil {
-					return nil, fmt.Errorf("argument type mismatch. Can not convert type %s to type %s. ", xt.String(), elem.String())
-				}
-				retInputs = append(retInputs, reflect.ValueOf(v))
+			emtpy := reflect.Value{}
+			if x == emtpy {
+				retInputs = append(retInputs, reflect.Zero(elem))
 			} else {
-				retInputs = append(retInputs, x)
+				if xt := x.Type(); !xt.AssignableTo(elem) {
+					v, err := convertArgs(elem, x)
+					if err != nil {
+						return nil, fmt.Errorf("argument type mismatch. Can not convert type %s to type %s. ", xt.String(), elem.String())
+					}
+					retInputs = append(retInputs, reflect.ValueOf(v))
+				} else {
+					retInputs = append(retInputs, x)
+				}
 			}
+
 		}
 	}
 
