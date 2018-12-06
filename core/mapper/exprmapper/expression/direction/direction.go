@@ -11,7 +11,6 @@ import (
 	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/expr"
 	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/function"
 	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/gocc/token"
-	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/funcexprtype"
 	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/ref"
 )
 
@@ -94,31 +93,25 @@ func NewFunction(name Attribute, parameters Attribute) (interface{}, error) {
 		f_func.Params = append(f_func.Params, parameters.(*function.Parameter))
 	case []*function.Parameter:
 		for _, p := range parameters.([]*function.Parameter) {
-			if !p.IsEmtpy() {
-				f_func.Params = append(f_func.Params, p)
-			}
+			f_func.Params = append(f_func.Params, p)
 		}
 	}
 
-	log.Debug(f_func.Tostring())
 	return f_func, nil
 }
 
 func NewArgument(a Attribute) (interface{}, error) {
-	param := &function.Parameter{}
 	parameters := []*function.Parameter{}
 	switch a.(type) {
 	case *NIL:
-		param.Type = funcexprtype.NIL
-		param.Value = nil
+		param := &function.Parameter{Value: expr.NewLiteralExpr(nil)}
+		parameters = append(parameters, param)
 	case expr.Expr:
-		param.Type = funcexprtype.EXPRESSION
-		param.Expr = a.(expr.Expr)
+		param := &function.Parameter{Value: a.(expr.Expr)}
+		parameters = append(parameters, param)
 	case []*function.Parameter:
 		for _, p := range a.([]*function.Parameter) {
-			if !p.IsEmtpy() {
-				parameters = append(parameters, p)
-			}
+			parameters = append(parameters, p)
 		}
 	case []interface{}:
 		//TODO
@@ -127,30 +120,27 @@ func NewArgument(a Attribute) (interface{}, error) {
 		//TODO
 		log.Debugf("New Arguments type is interface{}, [%+v]", reflect.TypeOf(a))
 	}
-	parameters = append(parameters, param)
 	return parameters, nil
 }
 
 func NewArguments(as ...Attribute) (interface{}, error) {
 	parameters := []*function.Parameter{}
 	for _, a := range as {
-		param := &function.Parameter{}
 		switch a.(type) {
+		case *NIL:
+			param := &function.Parameter{Value: expr.NewLiteralExpr(nil)}
+			parameters = append(parameters, param)
 		case expr.Expr:
-			param.Type = funcexprtype.EXPRESSION
-			param.Expr = a.(expr.Expr)
+			param := &function.Parameter{Value: a.(expr.Expr)}
+			parameters = append(parameters, param)
 		case []*function.Parameter:
 			for _, p := range a.([]*function.Parameter) {
-				if !p.IsEmtpy() {
-					parameters = append(parameters, p)
-				}
+				parameters = append(parameters, p)
 			}
-		case []interface{}:
-			log.Debugf("New Arguments type is []interface{}")
-		case interface{}:
-			log.Debugf("New Arguments type is interface{} %+v", a)
+		default:
+			param := &function.Parameter{Value: expr.NewLiteralExpr(a)}
+			parameters = append(parameters, param)
 		}
-		parameters = append(parameters, param)
 	}
 	return parameters, nil
 }
@@ -180,7 +170,7 @@ func NewExpression(left Attribute, op Attribute, right Attribute) (interface{}, 
 
 	expression.Left = getExpression(left)
 	expression.Right = getExpression(right)
-	log.Infof("New expression left [%+v] right [%s+v and operator [%s]", expression.Left, expression.Right, operator)
+	log.Debugf("New expression left [%+v] right [%s+v and operator [%s]", expression.Left, expression.Right, operator)
 	return expression, nil
 }
 

@@ -8,7 +8,6 @@ import (
 	"fmt"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/data"
-	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/funcexprtype"
 	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/ref"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
@@ -133,31 +132,6 @@ func (e *Expression) String() string {
 	return string(v)
 }
 
-func (e *Expression) UnmarshalJSON(exprData []byte) error {
-	ser := &struct {
-		Left     Expr              `json:"left"`
-		Operator string            `json:"operator"`
-		Right    Expr              `json:"right"`
-		Value    Expr              `json:"value"`
-		Type     funcexprtype.Type `json:"type"`
-	}{}
-
-	if err := json.Unmarshal(exprData, ser); err != nil {
-		return err
-	}
-
-	e.Left = ser.Left
-	e.Right = ser.Right
-	e.Operator = ser.Operator
-
-	//v, err := ConvertToValue(ser.Value, ser.Type)
-	//if err != nil {
-	//	return err
-	//}
-	e.Value = ser.Value
-	return nil
-}
-
 func NewExpression() *Expression {
 	return &Expression{}
 }
@@ -249,6 +223,8 @@ func (f *Expression) run(left interface{}, op string, right interface{}) (interf
 		return multiplication(left, right)
 	case DIVIDE:
 		return div(left, right)
+	case MODE:
+		return mod(left, right)
 	default:
 		return nil, errors.New("Unknow operator " + op)
 	}
@@ -578,7 +554,7 @@ func lt(left interface{}, right interface{}, includeEquals bool) (bool, error) {
 
 func add(left interface{}, right interface{}) (bool, error) {
 
-	log.Infof("Add condition -> left expression value %+v, right expression value %+v", left, right)
+	log.Debugf("Add condition -> left expression value %+v, right expression value %+v", left, right)
 
 	switch le := left.(type) {
 	case bool:
@@ -596,7 +572,7 @@ func add(left interface{}, right interface{}) (bool, error) {
 
 func or(left interface{}, right interface{}) (bool, error) {
 
-	log.Infof("Or condition -> left expression value %+v, right expression value %+v", left, right)
+	log.Debugf("Or condition -> left expression value %+v, right expression value %+v", left, right)
 	switch le := left.(type) {
 	case bool:
 		rightValue, err := data.CoerceToBoolean(right)
@@ -613,7 +589,7 @@ func or(left interface{}, right interface{}) (bool, error) {
 
 func additon(left interface{}, right interface{}) (interface{}, error) {
 
-	log.Infof("Addition condition -> left expression value %+v, right expression value %+v", left, right)
+	log.Debugf("Addition condition -> left expression value %+v, right expression value %+v", left, right)
 	if left == nil && right == nil {
 		return false, nil
 	} else if left == nil && right != nil {
@@ -750,7 +726,7 @@ func sub(left interface{}, right interface{}) (interface{}, error) {
 
 func multiplication(left interface{}, right interface{}) (interface{}, error) {
 
-	log.Infof("Multiplication condition -> left expression value %+v, right expression value %+v", left, right)
+	log.Debugf("Multiplication condition -> left expression value %+v, right expression value %+v", left, right)
 	if left == nil && right == nil {
 		return false, nil
 	} else if left == nil && right != nil {
@@ -855,6 +831,52 @@ func div(left interface{}, right interface{}) (interface{}, error) {
 		}
 
 		return leftValue / rightValue, nil
+	default:
+		return false, errors.New(fmt.Sprintf("Unknow type use to div, left [%s] and right [%s] ", getType(left).String(), getType(right).String()))
+	}
+
+	return false, nil
+}
+
+func mod(left interface{}, right interface{}) (interface{}, error) {
+
+	log.Debugf("% condition -> left expression value %+v, right expression value %+v", left, right)
+	if left == nil || right == nil {
+		return nil, fmt.Errorf("Cannot run mod operation on empty value")
+	}
+
+	switch le := left.(type) {
+	case int:
+		rightValue, err := data.CoerceToInteger(right)
+		if err != nil {
+			return false, fmt.Errorf("Convert right expression to type int failed, due to %s", err.Error())
+		}
+		return le % rightValue, nil
+	case int64:
+		rightValue, err := data.CoerceToInteger(right)
+		if err != nil {
+			return false, fmt.Errorf("Convert right expression to type int failed, due to %s", err.Error())
+		}
+		return int(le) % rightValue, nil
+	case float64:
+		rightValue, err := data.CoerceToLong(right)
+		if err != nil {
+			return false, fmt.Errorf("Convert right expression to type int failed, due to %s", err.Error())
+		}
+		lev := int64(le)
+		return lev % rightValue, nil
+	case json.Number:
+		rightValue, err := data.CoerceToLong(right)
+		if err != nil {
+			return false, fmt.Errorf("Convert right expression to type long failed, due to %s", err.Error())
+		}
+
+		leftValue, err := data.CoerceToLong(left)
+		if err != nil {
+			return false, fmt.Errorf("Convert right expression to type long failed, due to %s", err.Error())
+		}
+
+		return leftValue % rightValue, nil
 	default:
 		return false, errors.New(fmt.Sprintf("Unknow type use to div, left [%s] and right [%s] ", getType(left).String(), getType(right).String()))
 	}
