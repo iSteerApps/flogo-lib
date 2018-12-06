@@ -70,15 +70,16 @@ func TestExpressionString(t *testing.T) {
 }
 
 func TestExpressionWithOldWay(t *testing.T) {
-	v, err := ParseExpression(`"ddd" + "dddd"`)
+	v, err := ParseExpression(`1 + 2 * 3 + 2 * 6`)
 	if err != nil {
 		t.Fatal(err)
 		t.Failed()
 	}
-	_, err = v.EvalWithScope(nil, nil)
-	fmt.Println(err)
-	assert.NotNil(t, err)
-
+	s, _ := json.Marshal(v)
+	fmt.Println(string(s))
+	vv, err := v.EvalWithScope(nil, nil)
+	assert.Nil(t, err)
+	assert.Equal(t, 19, vv)
 }
 
 func TestTernaryExpressionWithNagtive(t *testing.T) {

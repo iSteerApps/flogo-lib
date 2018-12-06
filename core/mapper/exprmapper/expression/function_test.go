@@ -2,6 +2,7 @@ package expression
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"strconv"
 	"testing"
@@ -28,6 +29,7 @@ func TestFunctionConcatWithSpace(t *testing.T) {
 		t.Fatal(err)
 		t.Failed()
 	}
+
 	assert.Equal(t, "Thisismyfirstgocclexerandparsergoprogram!!!", function.HandleToSingleOutput(v).(string))
 	fmt.Println("Result:", v)
 }
@@ -127,6 +129,8 @@ func TestFunctionWithRefMapping(t *testing.T) {
 		t.Fatal(err)
 		t.Failed()
 	}
+	s, _ := json.Marshal(e)
+	fmt.Println(string(s))
 	v, err := e.Eval()
 	if err != nil {
 		t.Fatal(err)
@@ -202,24 +206,24 @@ func TestFunctionWithPackage(t *testing.T) {
 }
 
 func TestFunctionWithNil(t *testing.T) {
-	e, err := ParseExpression(`string.concat("test","nil")`)
+	//e, err := ParseExpression(`string.concat("test","nil")`)
+	//if err != nil {
+	//	t.Fatal(err)
+	//	t.Failed()
+	//}
+	//v, err := e.Eval()
+	//if err != nil {
+	//	t.Fatal(err)
+	//	t.Failed()
+	//}
+	//assert.Equal(t, "testnil", function.HandleToSingleOutput(v).(string))
+
+	e, err := ParseExpression(`string.concat("test",nil)`)
 	if err != nil {
 		t.Fatal(err)
 		t.Failed()
 	}
 	v, err := e.Eval()
-	if err != nil {
-		t.Fatal(err)
-		t.Failed()
-	}
-	assert.Equal(t, "testnil", function.HandleToSingleOutput(v).(string))
-
-	e, err = ParseExpression(`string.concat("test",nil)`)
-	if err != nil {
-		t.Fatal(err)
-		t.Failed()
-	}
-	v, err = e.Eval()
 	if err != nil {
 		t.Fatal(err)
 		t.Failed()
@@ -268,7 +272,7 @@ func (s *Concat) GetCategory() string {
 }
 
 func (s *Concat) Eval(strs ...string) string {
-	log.Debugf("Start flogo:concat function with parameters %s", strs)
+	log.Infof("Start flogo:concat function with parameters %s", strs)
 	var buffer bytes.Buffer
 
 	for _, v := range strs {

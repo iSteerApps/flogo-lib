@@ -4,16 +4,13 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
+	"fmt"
+	"github.com/TIBCOSoftware/flogo-lib/core/data"
+	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/expr"
+	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/funcexprtype"
+	"github.com/TIBCOSoftware/flogo-lib/logger"
 	"reflect"
 	"runtime/debug"
-	"strings"
-
-	"fmt"
-
-	"github.com/TIBCOSoftware/flogo-lib/core/data"
-	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/funcexprtype"
-	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/ref"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
 
 var logrus = logger.GetLogger("function")
@@ -29,9 +26,9 @@ type FunctionExp struct {
 }
 
 type Parameter struct {
-	Function *FunctionExp      `json:"function"`
-	Type     funcexprtype.Type `json:"type"`
-	Value    interface{}       `json:"value"`
+	Expr  expr.Expr         `json:"function"`
+	Type  funcexprtype.Type `json:"type"`
+	Value interface{}       `json:"value"`
 }
 
 func (p *Parameter) UnmarshalJSON(paramData []byte) error {
@@ -45,10 +42,10 @@ func (p *Parameter) UnmarshalJSON(paramData []byte) error {
 		return err
 	}
 
-	p.Function = ser.Function
+	p.Expr = ser.Function
 	p.Type = ser.Type
 
-	v, err := ConvertToValue(ser.Value, ser.Type)
+	v, err := expr.ConvertToValue(ser.Value, ser.Type)
 	if err != nil {
 		return err
 	}
@@ -59,8 +56,8 @@ func (p *Parameter) UnmarshalJSON(paramData []byte) error {
 }
 
 func (p *Parameter) IsEmtpy() bool {
-	if p.Function != nil {
-		if p.Function.Name == "" && p.Type == 0 && p.Value == nil && len(p.Function.Params) <= 0 {
+	if p.Expr != nil {
+		if p.Type == 0 && p.Value == nil {
 			return true
 		}
 	} else {
@@ -72,8 +69,8 @@ func (p *Parameter) IsEmtpy() bool {
 	return false
 }
 
-func (p *Parameter) IsFunction() bool {
-	return funcexprtype.FUNCTION == p.Type
+func (p *Parameter) IsExpr() bool {
+	return funcexprtype.EXPRESSION == p.Type
 }
 
 func (f *FunctionExp) Eval() (interface{}, error) {
@@ -179,97 +176,50 @@ func (f *FunctionExp) callFunction(fdata interface{}, inputScope data.Scope, res
 
 	inputs := []reflect.Value{}
 	for i, p := range f.Params {
-		if p.IsFunction() {
-			result, err := p.Function.callFunction(fdata, inputScope, resolver)
+		if p.IsExpr() {
+			result, err := p.Expr.EvalWithData(fdata, inputScope, resolver)
 			if err != nil {
 				return reflect.Value{}, err
 			}
-			logrus.Debugf("function [%s] [%d]'s argument type [%s] and value [%+v]", f.Name, i, p.Type, result)
-			inputs = append(inputs, result)
+
+			logrus.Infof("function [%s] [%d]'s argument type [%s] and value [%+v]", f.Name, i, p.Type, result)
+
+			//if result == nil {
+			//	fmt.Println(method.Type().NumIn())
+			//	t := method.Type().In(i)
+			//	funcStr := method.Type().String()
+			//	if strings.Contains(funcStr, "...") {
+			//		parameterNum := method.Type().NumIn()
+			//		if parameterNum > 1 {
+			//			//2. Variadic as latest parameter
+			//			//func(name string, id int, ids ...string)
+			//			if i == parameterNum-1 {
+			//				inputs = append(inputs, reflect.Zero(t.Elem()))
+			//			} else {
+			//				inputs = append(inputs, reflect.Zero(t))
+			//			}
+			//		} else {
+			//			//1. only one variadic parameter
+			//			//func(...string)
+			//			inputs = append(inputs, reflect.Zero(t.Elem()))
+			//		}
+			//	} else {
+			//		inputs = append(inputs, reflect.Zero(t))
+			//	}
+			//} else {
+			inputs = append(inputs, reflect.ValueOf(result))
+			//}
+
 		} else {
-			if !p.IsEmtpy() {
-				if p.Type == funcexprtype.REF {
-					var field *ref.MappingRef
-					switch p.Value.(type) {
-					case string:
-						field = ref.NewMappingRef(p.Value.(string))
-					case *ref.MappingRef:
-						field = p.Value.(*ref.MappingRef)
-					}
-					if inputScope == nil {
-						p.Value = field.GetRef()
-					} else {
-
-						v, err := field.Eval(inputScope, resolver)
-						if err != nil {
-							return reflect.Value{}, err
-						}
-						p.Value = v
-					}
-
-				} else if p.Type == funcexprtype.ARRAYREF {
-					var field *ref.ArrayRef
-					switch p.Value.(type) {
-					case string:
-						field = ref.NewArrayRef(p.Value.(string))
-					case *ref.ArrayRef:
-						field = p.Value.(*ref.ArrayRef)
-					}
-					if inputScope == nil {
-						p.Value = field.GetRef()
-					} else {
-						if fdata == nil {
-							//Array mapping should not go here for today, take is as get current scope.
-							//TODO how to know it is array mapping or get current scope
-							ref := ref.NewMappingRef(field.GetRef())
-							v, err := ref.Eval(inputScope, resolver)
-							if err != nil {
-								return reflect.Value{}, err
-							}
-							p.Value = v
-
-						} else {
-							v, err := field.EvalFromData(fdata)
-							if err != nil {
-								return reflect.Value{}, err
-							}
-							p.Value = v
-
-						}
-
-					}
-				}
-
-				logrus.Debugf("function [%s] [%d]'s argument type [%s] and value [%+v]", f.Name, i, p.Type, p.Value)
-				if p.Value != nil {
-					inputs = append(inputs, reflect.ValueOf(p.Value))
-				} else {
-					t := method.Type().In(i)
-					funcStr := method.Type().String()
-					if strings.Contains(funcStr, "...") {
-						parameterNum := method.Type().NumIn()
-						if parameterNum > 1 {
-							//2. Variadic as latest parameter
-							//func(name string, id int, ids ...string)
-							if i == parameterNum-1 {
-								inputs = append(inputs, reflect.Zero(t.Elem()))
-							} else {
-								inputs = append(inputs, reflect.Zero(t))
-							}
-						} else {
-							//1. only one variadic parameter
-							//func(...string)
-							inputs = append(inputs, reflect.Zero(t.Elem()))
-						}
-					} else {
-						inputs = append(inputs, reflect.Zero(t))
-					}
-				}
+			logrus.Debugf("function [%s] [%d]'s argument type [%s] and value [%+v]", f.Name, i, p.Type, p.Value)
+			if p.Value != nil {
+				inputs = append(inputs, reflect.ValueOf(p.Value))
 			}
 		}
+
 	}
 
-	logrus.Debugf("Input Parameters: %+v", inputs)
+	logrus.Infof("Input Parameters: %+v", inputs)
 	args, err := ensureArguments(method, inputs)
 	if err != nil {
 		return reflect.Value{}, fmt.Errorf("Function '%s' argument validation failed due to error %s", f.Name, err.Error())

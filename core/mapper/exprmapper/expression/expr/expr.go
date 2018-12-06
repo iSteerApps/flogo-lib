@@ -8,7 +8,6 @@ import (
 	"fmt"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/data"
-	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/function"
 	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/funcexprtype"
 	"github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/ref"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
@@ -152,13 +151,7 @@ func (t *TernaryExpressio) EvalWithData(value interface{}, inputScope data.Scope
 func (t *TernaryExpressio) HandleParameter(param interface{}, value interface{}, inputScope data.Scope, resolver data.Resolver) (interface{}, error) {
 	var firstValue interface{}
 	switch t := param.(type) {
-	case *function.FunctionExp:
-		vss, err := t.EvalWithData(value, inputScope, resolver)
-		if err != nil {
-			return nil, err
-		}
-		return function.HandleToSingleOutput(vss), nil
-	case *Expression:
+	case Expr:
 		vss, err := t.EvalWithData(value, inputScope, resolver)
 		if err != nil {
 			return nil, err
@@ -220,7 +213,7 @@ func (e *Expression) UnmarshalJSON(exprData []byte) error {
 	e.Right = ser.Right
 	e.Operator = ser.Operator
 
-	v, err := function.ConvertToValue(ser.Value, ser.Type)
+	v, err := ConvertToValue(ser.Value, ser.Type)
 	if err != nil {
 		return err
 	}
@@ -232,13 +225,6 @@ func (e *Expression) UnmarshalJSON(exprData []byte) error {
 
 func NewExpression() *Expression {
 	return &Expression{}
-}
-
-func (e *Expression) IsFunction() bool {
-	if funcexprtype.FUNCTION == e.Type {
-		return true
-	}
-	return false
 }
 
 func (f *Expression) Eval() (interface{}, error) {
@@ -289,14 +275,7 @@ func (f *Expression) do(edata interface{}, inputScope data.Scope, resolver data.
 		resultChan <- nil
 	}
 	var leftValue interface{}
-	if f.IsFunction() {
-		funct := f.Value.(*function.FunctionExp)
-		funcReturn, err := funct.EvalWithScope(inputScope, resolver)
-		if err != nil {
-			resultChan <- errors.New("Eval left expression error: " + err.Error())
-		}
-		leftValue = function.HandleToSingleOutput(funcReturn)
-	} else if f.Type == funcexprtype.EXPRESSION {
+	if f.Type == funcexprtype.EXPRESSION {
 		var err error
 		leftValue, err = f.evaluate(edata, inputScope, resolver)
 		if err != nil {

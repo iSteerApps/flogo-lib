@@ -127,9 +127,9 @@ func NewArgument(a Attribute) (interface{}, error) {
 	case *NIL:
 		param.Type = funcexprtype.NIL
 		param.Value = nil
-	case *function.FunctionExp:
-		param.Type = funcexprtype.FUNCTION
-		param.Function = a.(*function.FunctionExp)
+	case expr.Expr:
+		param.Type = funcexprtype.EXPRESSION
+		param.Expr = a.(expr.Expr)
 	case []*function.Parameter:
 		for _, p := range a.([]*function.Parameter) {
 			if !p.IsEmtpy() {
@@ -161,9 +161,9 @@ func exprFieldToArgument(ex *expr.Expression, param *function.Parameter) {
 		case funcexprtype.INTEGER, funcexprtype.ARRAYREF, funcexprtype.BOOLEAN, funcexprtype.FLOAT, funcexprtype.REF, funcexprtype.STRING:
 			param.Type = ex.Type
 			param.Value = ex.Value
-		case funcexprtype.FUNCTION:
+		case funcexprtype.EXPRESSION:
 			param.Type = ex.Type
-			param.Function = ex.Value.(*function.FunctionExp)
+			param.Expr = ex.Value.(expr.Expr)
 		}
 	}
 }
@@ -186,8 +186,8 @@ func NewArguments(as ...Attribute) (interface{}, error) {
 			param.Type = funcexprtype.STRING
 			param.Value = a.(string)
 		case *function.FunctionExp:
-			param.Type = funcexprtype.FUNCTION
-			param.Function = a.(*function.FunctionExp)
+			param.Type = funcexprtype.EXPRESSION
+			param.Expr = a.(*function.FunctionExp)
 		case *ref.MappingRef:
 			param.Type = funcexprtype.REF
 			param.Value = a
@@ -215,9 +215,23 @@ func NewExpressionField(a Attribute) (interface{}, error) {
 	return expression, nil
 }
 
+func NewLiteralExpr(a Attribute) (interface{}, error) {
+	var literalExpr expr.Expr
+	switch t := a.(type) {
+	case expr.Expr:
+		literalExpr = t
+	case *NIL:
+		literalExpr = expr.NewLiteralExpr(nil)
+	default:
+		literalExpr = expr.NewLiteralExpr(t)
+	}
+	return literalExpr, nil
+}
+
 func NewExpression(left Attribute, op Attribute, right Attribute) (interface{}, error) {
 	expression := expr.NewExpression()
-	operator, found := expr.ToOperator(strings.TrimSpace(string(op.(*token.Token).Lit)))
+	operatorStr := strings.TrimSpace(string(op.(*token.Token).Lit))
+	operator, found := expr.ToOperator(operatorStr)
 	if found {
 		expression.Operator = operator
 	} else {
@@ -227,7 +241,7 @@ func NewExpression(left Attribute, op Attribute, right Attribute) (interface{}, 
 	expression.Left = getExpression(left)
 	expression.Right = getExpression(right)
 	expression.Type = funcexprtype.EXPRESSION
-	log.Debugf("New expression left [%+v] right [%s+v and operator [%s]", expression.Left, expression.Right, expression.Operator)
+	log.Infof("New expression left [%+v] right [%s+v and operator [%s]", expression.Left, expression.Right, operator)
 	return expression, nil
 }
 
@@ -260,8 +274,8 @@ func getExpression(ex Attribute) *expr.Expression {
 		expression.Type = funcexprtype.ARRAYREF
 		expression.Value = ex.(*ref.ArrayRef).GetRef()
 	case *function.FunctionExp:
-		expression.Type = funcexprtype.FUNCTION
-		expression.Value = ex.(*function.FunctionExp)
+		expression.Type = funcexprtype.EXPRESSION
+		expression.Value = ex.(expr.Expr)
 	case *expr.Expression:
 		expression = ex.(*expr.Expression)
 	default:

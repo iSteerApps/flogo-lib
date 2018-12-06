@@ -8,7 +8,6 @@ const (
 	REF
 	ARRAYREF
 	FLOAT
-	FUNCTION
 	EXPRESSION
 	BOOLEAN
 	NIL
@@ -26,8 +25,6 @@ func (t Type) String() string {
 		return "arrayRef"
 	case FLOAT:
 		return "float"
-	case FUNCTION:
-		return "function"
 	case EXPRESSION:
 		return "expression"
 	case BOOLEAN:
