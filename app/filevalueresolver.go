@@ -14,7 +14,9 @@ var preload = make(map[string]interface{})
 
 var log = logger.GetLogger("app-props-resolver-file")
 
-const ENV_APP_PROPERTY_FILE_CONFIG_KEY = "FLOGO_APP_PROPS_FILE_CONFIG"
+// Comma separated list of json files overriding default application property values
+// e.g. FLOGO_APP_PROPS_FILE_CONFIG=app1.json,common.json
+const EnvAppPropertyFileConfigKey = "FLOGO_APP_PROPS_FILE_CONFIG"
 
 func init() {
 
@@ -24,12 +26,12 @@ func init() {
 		RegisterPropertyValueResolver("file", &FileValueResolver{})
 
 		//load props from external files
-		valueResolvers := config.GetAppPropertiesValueResolver()
-		if valueResolvers == "" {
-			//Make file default resolver since FLOGO_APP_PROPS_FILE_CONFIG is set
+		if config.GetAppPropertiesValueResolver() == "" {
+			//Make file resolver default since FLOGO_APP_PROPS_FILE_CONFIG is set
 			os.Setenv(config.ENV_APP_PROPERTY_RESOLVER_KEY, "file")
 		}
 
+		// preload to props from files
 		files := strings.Split(filePaths, ",")
 		if len(files) > 0 {
 			for _, filePath := range files {
@@ -61,7 +63,7 @@ func init() {
 }
 
 func getExternalFiles() string {
-	key := os.Getenv(ENV_APP_PROPERTY_FILE_CONFIG_KEY)
+	key := os.Getenv(EnvAppPropertyFileConfigKey)
 	if len(key) > 0 {
 		return key
 	}
@@ -70,12 +72,9 @@ func getExternalFiles() string {
 
 // Resolve property value from external files
 type FileValueResolver struct {
-
 }
 
 func (resolver *FileValueResolver) LookupValue(toResolve string) (interface{}, bool) {
 	val, found := preload[toResolve]
 	return val, found
 }
-
-
