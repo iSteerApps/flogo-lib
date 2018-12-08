@@ -12,7 +12,7 @@ import (
 
 var preload = make(map[string]interface{})
 
-var log = logger.GetLogger("app-props-value-resolver-file")
+var log = logger.GetLogger("app-props-resolver-file")
 
 const ENV_APP_PROPERTY_FILE_CONFIG_KEY = "FLOGO_APP_PROPS_FILE_CONFIG"
 
