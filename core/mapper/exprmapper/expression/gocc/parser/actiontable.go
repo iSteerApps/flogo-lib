@@ -36,15 +36,15 @@ var actionTab = actionTable{
 			nil,       /* , */
 			nil,       /* ? */
 			nil,       /* : */
-			shift(22), /* doublequotes_string */
-			shift(23), /* singlequote_string */
-			shift(24), /* number */
-			shift(25), /* argument */
-			shift(26), /* true */
-			shift(27), /* false */
-			shift(28), /* float */
-			shift(29), /* nil */
-			shift(30), /* null */
+			shift(23), /* doublequotes_string */
+			shift(24), /* singlequote_string */
+			shift(25), /* number */
+			shift(26), /* argument */
+			shift(27), /* true */
+			shift(28), /* false */
+			shift(29), /* float */
+			shift(30), /* nil */
+			shift(31), /* null */
 		},
 	},
 	actionRow{ // S1
@@ -86,73 +86,73 @@ var actionTab = actionTable{
 	actionRow{ // S2
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			reduce(1), /* $, reduce: Flogo */
-			nil,       /* || */
-			nil,       /* && */
-			nil,       /* ( */
-			nil,       /* ) */
-			nil,       /* == */
-			nil,       /* != */
-			nil,       /* < */
-			nil,       /* <= */
-			nil,       /* > */
-			nil,       /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			nil,       /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			shift(31), /* ? */
-			nil,       /* : */
-			nil,       /* doublequotes_string */
-			nil,       /* singlequote_string */
-			nil,       /* number */
-			nil,       /* argument */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* float */
-			nil,       /* nil */
-			nil,       /* null */
+			nil,        /* INVALID */
+			reduce(1),  /* $, reduce: Flogo */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(32), /* ?, reduce: TernaryArgument */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
 		},
 	},
 	actionRow{ // S3
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			reduce(2), /* $, reduce: Flogo */
-			nil,       /* || */
-			nil,       /* && */
-			nil,       /* ( */
-			nil,       /* ) */
-			nil,       /* == */
-			nil,       /* != */
-			nil,       /* < */
-			nil,       /* <= */
-			nil,       /* > */
-			nil,       /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			nil,       /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			nil,       /* doublequotes_string */
-			nil,       /* singlequote_string */
-			nil,       /* number */
-			nil,       /* argument */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* float */
-			nil,       /* nil */
-			nil,       /* null */
+			nil,        /* INVALID */
+			reduce(2),  /* $, reduce: Flogo */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(33), /* ?, reduce: TernaryArgument */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
 		},
 	},
 	actionRow{ // S4
@@ -414,7 +414,7 @@ var actionTab = actionTable{
 			nil,       /* $ */
 			nil,       /* || */
 			nil,       /* && */
-			shift(56), /* ( */
+			shift(57), /* ( */
 			nil,       /* ) */
 			nil,       /* == */
 			nil,       /* != */
@@ -427,46 +427,46 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(58), /* function_name */
+			shift(59), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
 			nil,       /* : */
-			shift(67), /* doublequotes_string */
-			shift(68), /* singlequote_string */
-			shift(69), /* number */
-			shift(70), /* argument */
-			shift(71), /* true */
-			shift(72), /* false */
-			shift(73), /* float */
-			shift(74), /* nil */
-			shift(75), /* null */
+			shift(69), /* doublequotes_string */
+			shift(70), /* singlequote_string */
+			shift(71), /* number */
+			shift(72), /* argument */
+			shift(73), /* true */
+			shift(74), /* false */
+			shift(75), /* float */
+			shift(76), /* nil */
+			shift(77), /* null */
 		},
 	},
 	actionRow{ // S12
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(33), /* $, reduce: ExprLiteral */
-			reduce(33), /* ||, reduce: ExprLiteral */
-			reduce(33), /* &&, reduce: ExprLiteral */
+			reduce(36), /* $, reduce: ExprLiteral */
+			reduce(36), /* ||, reduce: ExprLiteral */
+			reduce(36), /* &&, reduce: ExprLiteral */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(33), /* ==, reduce: ExprLiteral */
-			reduce(33), /* !=, reduce: ExprLiteral */
-			reduce(33), /* <, reduce: ExprLiteral */
-			reduce(33), /* <=, reduce: ExprLiteral */
-			reduce(33), /* >, reduce: ExprLiteral */
-			reduce(33), /* >=, reduce: ExprLiteral */
-			reduce(33), /* +, reduce: ExprLiteral */
-			reduce(33), /* -, reduce: ExprLiteral */
-			reduce(33), /* *, reduce: ExprLiteral */
-			reduce(33), /* /, reduce: ExprLiteral */
-			reduce(33), /* %, reduce: ExprLiteral */
+			reduce(36), /* ==, reduce: ExprLiteral */
+			reduce(36), /* !=, reduce: ExprLiteral */
+			reduce(36), /* <, reduce: ExprLiteral */
+			reduce(36), /* <=, reduce: ExprLiteral */
+			reduce(36), /* >, reduce: ExprLiteral */
+			reduce(36), /* >=, reduce: ExprLiteral */
+			reduce(36), /* +, reduce: ExprLiteral */
+			reduce(36), /* -, reduce: ExprLiteral */
+			reduce(36), /* *, reduce: ExprLiteral */
+			reduce(36), /* /, reduce: ExprLiteral */
+			reduce(36), /* %, reduce: ExprLiteral */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(33), /* ?, reduce: ExprLiteral */
+			reduce(36), /* ?, reduce: ExprLiteral */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -486,7 +486,7 @@ var actionTab = actionTable{
 			nil,       /* $ */
 			nil,       /* || */
 			nil,       /* && */
-			shift(76), /* ( */
+			shift(78), /* ( */
 			nil,       /* ) */
 			nil,       /* == */
 			nil,       /* != */
@@ -500,7 +500,7 @@ var actionTab = actionTable{
 			nil,       /* / */
 			nil,       /* % */
 			nil,       /* function_name */
-			shift(77), /* () */
+			shift(79), /* () */
 			nil,       /* , */
 			nil,       /* ? */
 			nil,       /* : */
@@ -518,63 +518,63 @@ var actionTab = actionTable{
 	actionRow{ // S14
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(32), /* $, reduce: ExprLiteral */
-			reduce(32), /* ||, reduce: ExprLiteral */
-			reduce(32), /* &&, reduce: ExprLiteral */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(32), /* ==, reduce: ExprLiteral */
-			reduce(32), /* !=, reduce: ExprLiteral */
-			reduce(32), /* <, reduce: ExprLiteral */
-			reduce(32), /* <=, reduce: ExprLiteral */
-			reduce(32), /* >, reduce: ExprLiteral */
-			reduce(32), /* >=, reduce: ExprLiteral */
-			reduce(32), /* +, reduce: ExprLiteral */
-			reduce(32), /* -, reduce: ExprLiteral */
-			reduce(32), /* *, reduce: ExprLiteral */
-			reduce(32), /* /, reduce: ExprLiteral */
-			reduce(32), /* %, reduce: ExprLiteral */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			reduce(32), /* ?, reduce: ExprLiteral */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* || */
+			nil,       /* && */
+			nil,       /* ( */
+			nil,       /* ) */
+			nil,       /* == */
+			nil,       /* != */
+			nil,       /* < */
+			nil,       /* <= */
+			nil,       /* > */
+			nil,       /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			shift(80), /* ? */
+			nil,       /* : */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
 		},
 	},
 	actionRow{ // S15
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(34), /* $, reduce: Literal */
-			reduce(34), /* ||, reduce: Literal */
-			reduce(34), /* &&, reduce: Literal */
+			reduce(35), /* $, reduce: ExprLiteral */
+			reduce(35), /* ||, reduce: ExprLiteral */
+			reduce(35), /* &&, reduce: ExprLiteral */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(34), /* ==, reduce: Literal */
-			reduce(34), /* !=, reduce: Literal */
-			reduce(34), /* <, reduce: Literal */
-			reduce(34), /* <=, reduce: Literal */
-			reduce(34), /* >, reduce: Literal */
-			reduce(34), /* >=, reduce: Literal */
-			reduce(34), /* +, reduce: Literal */
-			reduce(34), /* -, reduce: Literal */
-			reduce(34), /* *, reduce: Literal */
-			reduce(34), /* /, reduce: Literal */
-			reduce(34), /* %, reduce: Literal */
+			reduce(35), /* ==, reduce: ExprLiteral */
+			reduce(35), /* !=, reduce: ExprLiteral */
+			reduce(35), /* <, reduce: ExprLiteral */
+			reduce(35), /* <=, reduce: ExprLiteral */
+			reduce(35), /* >, reduce: ExprLiteral */
+			reduce(35), /* >=, reduce: ExprLiteral */
+			reduce(35), /* +, reduce: ExprLiteral */
+			reduce(35), /* -, reduce: ExprLiteral */
+			reduce(35), /* *, reduce: ExprLiteral */
+			reduce(35), /* /, reduce: ExprLiteral */
+			reduce(35), /* %, reduce: ExprLiteral */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(34), /* ?, reduce: Literal */
+			reduce(35), /* ?, reduce: ExprLiteral */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -588,78 +588,6 @@ var actionTab = actionTable{
 		},
 	},
 	actionRow{ // S16
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(35), /* $, reduce: Literal */
-			reduce(35), /* ||, reduce: Literal */
-			reduce(35), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(35), /* ==, reduce: Literal */
-			reduce(35), /* !=, reduce: Literal */
-			reduce(35), /* <, reduce: Literal */
-			reduce(35), /* <=, reduce: Literal */
-			reduce(35), /* >, reduce: Literal */
-			reduce(35), /* >=, reduce: Literal */
-			reduce(35), /* +, reduce: Literal */
-			reduce(35), /* -, reduce: Literal */
-			reduce(35), /* *, reduce: Literal */
-			reduce(35), /* /, reduce: Literal */
-			reduce(35), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			reduce(35), /* ?, reduce: Literal */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S17
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(36), /* $, reduce: Literal */
-			reduce(36), /* ||, reduce: Literal */
-			reduce(36), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(36), /* ==, reduce: Literal */
-			reduce(36), /* !=, reduce: Literal */
-			reduce(36), /* <, reduce: Literal */
-			reduce(36), /* <=, reduce: Literal */
-			reduce(36), /* >, reduce: Literal */
-			reduce(36), /* >=, reduce: Literal */
-			reduce(36), /* +, reduce: Literal */
-			reduce(36), /* -, reduce: Literal */
-			reduce(36), /* *, reduce: Literal */
-			reduce(36), /* /, reduce: Literal */
-			reduce(36), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			reduce(36), /* ?, reduce: Literal */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S18
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -695,7 +623,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S19
+	actionRow{ // S17
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -731,7 +659,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S20
+	actionRow{ // S18
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -767,7 +695,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S21
+	actionRow{ // S19
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -803,30 +731,102 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
+	actionRow{ // S20
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(41), /* $, reduce: Literal */
+			reduce(41), /* ||, reduce: Literal */
+			reduce(41), /* &&, reduce: Literal */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(41), /* ==, reduce: Literal */
+			reduce(41), /* !=, reduce: Literal */
+			reduce(41), /* <, reduce: Literal */
+			reduce(41), /* <=, reduce: Literal */
+			reduce(41), /* >, reduce: Literal */
+			reduce(41), /* >=, reduce: Literal */
+			reduce(41), /* +, reduce: Literal */
+			reduce(41), /* -, reduce: Literal */
+			reduce(41), /* *, reduce: Literal */
+			reduce(41), /* /, reduce: Literal */
+			reduce(41), /* %, reduce: Literal */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(41), /* ?, reduce: Literal */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S21
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(42), /* $, reduce: Literal */
+			reduce(42), /* ||, reduce: Literal */
+			reduce(42), /* &&, reduce: Literal */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(42), /* ==, reduce: Literal */
+			reduce(42), /* !=, reduce: Literal */
+			reduce(42), /* <, reduce: Literal */
+			reduce(42), /* <=, reduce: Literal */
+			reduce(42), /* >, reduce: Literal */
+			reduce(42), /* >=, reduce: Literal */
+			reduce(42), /* +, reduce: Literal */
+			reduce(42), /* -, reduce: Literal */
+			reduce(42), /* *, reduce: Literal */
+			reduce(42), /* /, reduce: Literal */
+			reduce(42), /* %, reduce: Literal */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(42), /* ?, reduce: Literal */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
 	actionRow{ // S22
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(41), /* $, reduce: DoubleQString */
-			reduce(41), /* ||, reduce: DoubleQString */
-			reduce(41), /* &&, reduce: DoubleQString */
+			reduce(43), /* $, reduce: Literal */
+			reduce(43), /* ||, reduce: Literal */
+			reduce(43), /* &&, reduce: Literal */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(41), /* ==, reduce: DoubleQString */
-			reduce(41), /* !=, reduce: DoubleQString */
-			reduce(41), /* <, reduce: DoubleQString */
-			reduce(41), /* <=, reduce: DoubleQString */
-			reduce(41), /* >, reduce: DoubleQString */
-			reduce(41), /* >=, reduce: DoubleQString */
-			reduce(41), /* +, reduce: DoubleQString */
-			reduce(41), /* -, reduce: DoubleQString */
-			reduce(41), /* *, reduce: DoubleQString */
-			reduce(41), /* /, reduce: DoubleQString */
-			reduce(41), /* %, reduce: DoubleQString */
+			reduce(43), /* ==, reduce: Literal */
+			reduce(43), /* !=, reduce: Literal */
+			reduce(43), /* <, reduce: Literal */
+			reduce(43), /* <=, reduce: Literal */
+			reduce(43), /* >, reduce: Literal */
+			reduce(43), /* >=, reduce: Literal */
+			reduce(43), /* +, reduce: Literal */
+			reduce(43), /* -, reduce: Literal */
+			reduce(43), /* *, reduce: Literal */
+			reduce(43), /* /, reduce: Literal */
+			reduce(43), /* %, reduce: Literal */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(41), /* ?, reduce: DoubleQString */
+			reduce(43), /* ?, reduce: Literal */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -843,26 +843,26 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(42), /* $, reduce: SingleQString */
-			reduce(42), /* ||, reduce: SingleQString */
-			reduce(42), /* &&, reduce: SingleQString */
+			reduce(44), /* $, reduce: DoubleQString */
+			reduce(44), /* ||, reduce: DoubleQString */
+			reduce(44), /* &&, reduce: DoubleQString */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(42), /* ==, reduce: SingleQString */
-			reduce(42), /* !=, reduce: SingleQString */
-			reduce(42), /* <, reduce: SingleQString */
-			reduce(42), /* <=, reduce: SingleQString */
-			reduce(42), /* >, reduce: SingleQString */
-			reduce(42), /* >=, reduce: SingleQString */
-			reduce(42), /* +, reduce: SingleQString */
-			reduce(42), /* -, reduce: SingleQString */
-			reduce(42), /* *, reduce: SingleQString */
-			reduce(42), /* /, reduce: SingleQString */
-			reduce(42), /* %, reduce: SingleQString */
+			reduce(44), /* ==, reduce: DoubleQString */
+			reduce(44), /* !=, reduce: DoubleQString */
+			reduce(44), /* <, reduce: DoubleQString */
+			reduce(44), /* <=, reduce: DoubleQString */
+			reduce(44), /* >, reduce: DoubleQString */
+			reduce(44), /* >=, reduce: DoubleQString */
+			reduce(44), /* +, reduce: DoubleQString */
+			reduce(44), /* -, reduce: DoubleQString */
+			reduce(44), /* *, reduce: DoubleQString */
+			reduce(44), /* /, reduce: DoubleQString */
+			reduce(44), /* %, reduce: DoubleQString */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(42), /* ?, reduce: SingleQString */
+			reduce(44), /* ?, reduce: DoubleQString */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -879,26 +879,26 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(43), /* $, reduce: Int */
-			reduce(43), /* ||, reduce: Int */
-			reduce(43), /* &&, reduce: Int */
+			reduce(45), /* $, reduce: SingleQString */
+			reduce(45), /* ||, reduce: SingleQString */
+			reduce(45), /* &&, reduce: SingleQString */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(43), /* ==, reduce: Int */
-			reduce(43), /* !=, reduce: Int */
-			reduce(43), /* <, reduce: Int */
-			reduce(43), /* <=, reduce: Int */
-			reduce(43), /* >, reduce: Int */
-			reduce(43), /* >=, reduce: Int */
-			reduce(43), /* +, reduce: Int */
-			reduce(43), /* -, reduce: Int */
-			reduce(43), /* *, reduce: Int */
-			reduce(43), /* /, reduce: Int */
-			reduce(43), /* %, reduce: Int */
+			reduce(45), /* ==, reduce: SingleQString */
+			reduce(45), /* !=, reduce: SingleQString */
+			reduce(45), /* <, reduce: SingleQString */
+			reduce(45), /* <=, reduce: SingleQString */
+			reduce(45), /* >, reduce: SingleQString */
+			reduce(45), /* >=, reduce: SingleQString */
+			reduce(45), /* +, reduce: SingleQString */
+			reduce(45), /* -, reduce: SingleQString */
+			reduce(45), /* *, reduce: SingleQString */
+			reduce(45), /* /, reduce: SingleQString */
+			reduce(45), /* %, reduce: SingleQString */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(43), /* ?, reduce: Int */
+			reduce(45), /* ?, reduce: SingleQString */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -915,26 +915,26 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(44), /* $, reduce: MappingRef */
-			reduce(44), /* ||, reduce: MappingRef */
-			reduce(44), /* &&, reduce: MappingRef */
+			reduce(46), /* $, reduce: Int */
+			reduce(46), /* ||, reduce: Int */
+			reduce(46), /* &&, reduce: Int */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(44), /* ==, reduce: MappingRef */
-			reduce(44), /* !=, reduce: MappingRef */
-			reduce(44), /* <, reduce: MappingRef */
-			reduce(44), /* <=, reduce: MappingRef */
-			reduce(44), /* >, reduce: MappingRef */
-			reduce(44), /* >=, reduce: MappingRef */
-			reduce(44), /* +, reduce: MappingRef */
-			reduce(44), /* -, reduce: MappingRef */
-			reduce(44), /* *, reduce: MappingRef */
-			reduce(44), /* /, reduce: MappingRef */
-			reduce(44), /* %, reduce: MappingRef */
+			reduce(46), /* ==, reduce: Int */
+			reduce(46), /* !=, reduce: Int */
+			reduce(46), /* <, reduce: Int */
+			reduce(46), /* <=, reduce: Int */
+			reduce(46), /* >, reduce: Int */
+			reduce(46), /* >=, reduce: Int */
+			reduce(46), /* +, reduce: Int */
+			reduce(46), /* -, reduce: Int */
+			reduce(46), /* *, reduce: Int */
+			reduce(46), /* /, reduce: Int */
+			reduce(46), /* %, reduce: Int */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(44), /* ?, reduce: MappingRef */
+			reduce(46), /* ?, reduce: Int */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -951,26 +951,26 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(45), /* $, reduce: Bool */
-			reduce(45), /* ||, reduce: Bool */
-			reduce(45), /* &&, reduce: Bool */
+			reduce(47), /* $, reduce: MappingRef */
+			reduce(47), /* ||, reduce: MappingRef */
+			reduce(47), /* &&, reduce: MappingRef */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(45), /* ==, reduce: Bool */
-			reduce(45), /* !=, reduce: Bool */
-			reduce(45), /* <, reduce: Bool */
-			reduce(45), /* <=, reduce: Bool */
-			reduce(45), /* >, reduce: Bool */
-			reduce(45), /* >=, reduce: Bool */
-			reduce(45), /* +, reduce: Bool */
-			reduce(45), /* -, reduce: Bool */
-			reduce(45), /* *, reduce: Bool */
-			reduce(45), /* /, reduce: Bool */
-			reduce(45), /* %, reduce: Bool */
+			reduce(47), /* ==, reduce: MappingRef */
+			reduce(47), /* !=, reduce: MappingRef */
+			reduce(47), /* <, reduce: MappingRef */
+			reduce(47), /* <=, reduce: MappingRef */
+			reduce(47), /* >, reduce: MappingRef */
+			reduce(47), /* >=, reduce: MappingRef */
+			reduce(47), /* +, reduce: MappingRef */
+			reduce(47), /* -, reduce: MappingRef */
+			reduce(47), /* *, reduce: MappingRef */
+			reduce(47), /* /, reduce: MappingRef */
+			reduce(47), /* %, reduce: MappingRef */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(45), /* ?, reduce: Bool */
+			reduce(47), /* ?, reduce: MappingRef */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -987,26 +987,26 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(46), /* $, reduce: Bool */
-			reduce(46), /* ||, reduce: Bool */
-			reduce(46), /* &&, reduce: Bool */
+			reduce(48), /* $, reduce: Bool */
+			reduce(48), /* ||, reduce: Bool */
+			reduce(48), /* &&, reduce: Bool */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(46), /* ==, reduce: Bool */
-			reduce(46), /* !=, reduce: Bool */
-			reduce(46), /* <, reduce: Bool */
-			reduce(46), /* <=, reduce: Bool */
-			reduce(46), /* >, reduce: Bool */
-			reduce(46), /* >=, reduce: Bool */
-			reduce(46), /* +, reduce: Bool */
-			reduce(46), /* -, reduce: Bool */
-			reduce(46), /* *, reduce: Bool */
-			reduce(46), /* /, reduce: Bool */
-			reduce(46), /* %, reduce: Bool */
+			reduce(48), /* ==, reduce: Bool */
+			reduce(48), /* !=, reduce: Bool */
+			reduce(48), /* <, reduce: Bool */
+			reduce(48), /* <=, reduce: Bool */
+			reduce(48), /* >, reduce: Bool */
+			reduce(48), /* >=, reduce: Bool */
+			reduce(48), /* +, reduce: Bool */
+			reduce(48), /* -, reduce: Bool */
+			reduce(48), /* *, reduce: Bool */
+			reduce(48), /* /, reduce: Bool */
+			reduce(48), /* %, reduce: Bool */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(46), /* ?, reduce: Bool */
+			reduce(48), /* ?, reduce: Bool */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -1023,26 +1023,26 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(47), /* $, reduce: Float */
-			reduce(47), /* ||, reduce: Float */
-			reduce(47), /* &&, reduce: Float */
+			reduce(49), /* $, reduce: Bool */
+			reduce(49), /* ||, reduce: Bool */
+			reduce(49), /* &&, reduce: Bool */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(47), /* ==, reduce: Float */
-			reduce(47), /* !=, reduce: Float */
-			reduce(47), /* <, reduce: Float */
-			reduce(47), /* <=, reduce: Float */
-			reduce(47), /* >, reduce: Float */
-			reduce(47), /* >=, reduce: Float */
-			reduce(47), /* +, reduce: Float */
-			reduce(47), /* -, reduce: Float */
-			reduce(47), /* *, reduce: Float */
-			reduce(47), /* /, reduce: Float */
-			reduce(47), /* %, reduce: Float */
+			reduce(49), /* ==, reduce: Bool */
+			reduce(49), /* !=, reduce: Bool */
+			reduce(49), /* <, reduce: Bool */
+			reduce(49), /* <=, reduce: Bool */
+			reduce(49), /* >, reduce: Bool */
+			reduce(49), /* >=, reduce: Bool */
+			reduce(49), /* +, reduce: Bool */
+			reduce(49), /* -, reduce: Bool */
+			reduce(49), /* *, reduce: Bool */
+			reduce(49), /* /, reduce: Bool */
+			reduce(49), /* %, reduce: Bool */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(47), /* ?, reduce: Float */
+			reduce(49), /* ?, reduce: Bool */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -1059,26 +1059,26 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(48), /* $, reduce: Nil */
-			reduce(48), /* ||, reduce: Nil */
-			reduce(48), /* &&, reduce: Nil */
+			reduce(50), /* $, reduce: Float */
+			reduce(50), /* ||, reduce: Float */
+			reduce(50), /* &&, reduce: Float */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(48), /* ==, reduce: Nil */
-			reduce(48), /* !=, reduce: Nil */
-			reduce(48), /* <, reduce: Nil */
-			reduce(48), /* <=, reduce: Nil */
-			reduce(48), /* >, reduce: Nil */
-			reduce(48), /* >=, reduce: Nil */
-			reduce(48), /* +, reduce: Nil */
-			reduce(48), /* -, reduce: Nil */
-			reduce(48), /* *, reduce: Nil */
-			reduce(48), /* /, reduce: Nil */
-			reduce(48), /* %, reduce: Nil */
+			reduce(50), /* ==, reduce: Float */
+			reduce(50), /* !=, reduce: Float */
+			reduce(50), /* <, reduce: Float */
+			reduce(50), /* <=, reduce: Float */
+			reduce(50), /* >, reduce: Float */
+			reduce(50), /* >=, reduce: Float */
+			reduce(50), /* +, reduce: Float */
+			reduce(50), /* -, reduce: Float */
+			reduce(50), /* *, reduce: Float */
+			reduce(50), /* /, reduce: Float */
+			reduce(50), /* %, reduce: Float */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(48), /* ?, reduce: Nil */
+			reduce(50), /* ?, reduce: Float */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -1095,26 +1095,26 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(49), /* $, reduce: Nil */
-			reduce(49), /* ||, reduce: Nil */
-			reduce(49), /* &&, reduce: Nil */
+			reduce(51), /* $, reduce: Nil */
+			reduce(51), /* ||, reduce: Nil */
+			reduce(51), /* &&, reduce: Nil */
 			nil,        /* ( */
 			nil,        /* ) */
-			reduce(49), /* ==, reduce: Nil */
-			reduce(49), /* !=, reduce: Nil */
-			reduce(49), /* <, reduce: Nil */
-			reduce(49), /* <=, reduce: Nil */
-			reduce(49), /* >, reduce: Nil */
-			reduce(49), /* >=, reduce: Nil */
-			reduce(49), /* +, reduce: Nil */
-			reduce(49), /* -, reduce: Nil */
-			reduce(49), /* *, reduce: Nil */
-			reduce(49), /* /, reduce: Nil */
-			reduce(49), /* %, reduce: Nil */
+			reduce(51), /* ==, reduce: Nil */
+			reduce(51), /* !=, reduce: Nil */
+			reduce(51), /* <, reduce: Nil */
+			reduce(51), /* <=, reduce: Nil */
+			reduce(51), /* >, reduce: Nil */
+			reduce(51), /* >=, reduce: Nil */
+			reduce(51), /* +, reduce: Nil */
+			reduce(51), /* -, reduce: Nil */
+			reduce(51), /* *, reduce: Nil */
+			reduce(51), /* /, reduce: Nil */
+			reduce(51), /* %, reduce: Nil */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			reduce(49), /* ?, reduce: Nil */
+			reduce(51), /* ?, reduce: Nil */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -1131,36 +1131,36 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			shift(86),  /* ( */
+			reduce(52), /* $, reduce: Nil */
+			reduce(52), /* ||, reduce: Nil */
+			reduce(52), /* &&, reduce: Nil */
+			nil,        /* ( */
 			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			shift(88),  /* function_name */
+			reduce(52), /* ==, reduce: Nil */
+			reduce(52), /* !=, reduce: Nil */
+			reduce(52), /* <, reduce: Nil */
+			reduce(52), /* <=, reduce: Nil */
+			reduce(52), /* >, reduce: Nil */
+			reduce(52), /* >=, reduce: Nil */
+			reduce(52), /* +, reduce: Nil */
+			reduce(52), /* -, reduce: Nil */
+			reduce(52), /* *, reduce: Nil */
+			reduce(52), /* /, reduce: Nil */
+			reduce(52), /* %, reduce: Nil */
+			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(52), /* ?, reduce: Nil */
 			nil,        /* : */
-			shift(97),  /* doublequotes_string */
-			shift(98),  /* singlequote_string */
-			shift(99),  /* number */
-			shift(100), /* argument */
-			shift(101), /* true */
-			shift(102), /* false */
-			shift(103), /* float */
-			shift(104), /* nil */
-			shift(105), /* null */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
 		},
 	},
 	actionRow{ // S32
@@ -1170,7 +1170,7 @@ var actionTab = actionTable{
 			nil,       /* $ */
 			nil,       /* || */
 			nil,       /* && */
-			shift(11), /* ( */
+			shift(82), /* ( */
 			nil,       /* ) */
 			nil,       /* == */
 			nil,       /* != */
@@ -1188,15 +1188,15 @@ var actionTab = actionTable{
 			nil,       /* , */
 			nil,       /* ? */
 			nil,       /* : */
-			shift(22), /* doublequotes_string */
-			shift(23), /* singlequote_string */
-			shift(24), /* number */
-			shift(25), /* argument */
-			shift(26), /* true */
-			shift(27), /* false */
-			shift(28), /* float */
-			shift(29), /* nil */
-			shift(30), /* null */
+			shift(23), /* doublequotes_string */
+			shift(24), /* singlequote_string */
+			shift(25), /* number */
+			shift(26), /* argument */
+			shift(27), /* true */
+			shift(28), /* false */
+			shift(29), /* float */
+			shift(30), /* nil */
+			shift(31), /* null */
 		},
 	},
 	actionRow{ // S33
@@ -1206,7 +1206,7 @@ var actionTab = actionTable{
 			nil,       /* $ */
 			nil,       /* || */
 			nil,       /* && */
-			shift(11), /* ( */
+			shift(82), /* ( */
 			nil,       /* ) */
 			nil,       /* == */
 			nil,       /* != */
@@ -1224,15 +1224,15 @@ var actionTab = actionTable{
 			nil,       /* , */
 			nil,       /* ? */
 			nil,       /* : */
-			shift(22), /* doublequotes_string */
-			shift(23), /* singlequote_string */
-			shift(24), /* number */
-			shift(25), /* argument */
-			shift(26), /* true */
-			shift(27), /* false */
-			shift(28), /* float */
-			shift(29), /* nil */
-			shift(30), /* null */
+			shift(23), /* doublequotes_string */
+			shift(24), /* singlequote_string */
+			shift(25), /* number */
+			shift(26), /* argument */
+			shift(27), /* true */
+			shift(28), /* false */
+			shift(29), /* float */
+			shift(30), /* nil */
+			shift(31), /* null */
 		},
 	},
 	actionRow{ // S34
@@ -1242,7 +1242,7 @@ var actionTab = actionTable{
 			nil,       /* $ */
 			nil,       /* || */
 			nil,       /* && */
-			shift(11), /* ( */
+			shift(82), /* ( */
 			nil,       /* ) */
 			nil,       /* == */
 			nil,       /* != */
@@ -1260,15 +1260,15 @@ var actionTab = actionTable{
 			nil,       /* , */
 			nil,       /* ? */
 			nil,       /* : */
-			shift(22), /* doublequotes_string */
-			shift(23), /* singlequote_string */
-			shift(24), /* number */
-			shift(25), /* argument */
-			shift(26), /* true */
-			shift(27), /* false */
-			shift(28), /* float */
-			shift(29), /* nil */
-			shift(30), /* null */
+			shift(23), /* doublequotes_string */
+			shift(24), /* singlequote_string */
+			shift(25), /* number */
+			shift(26), /* argument */
+			shift(27), /* true */
+			shift(28), /* false */
+			shift(29), /* float */
+			shift(30), /* nil */
+			shift(31), /* null */
 		},
 	},
 	actionRow{ // S35
@@ -1494,7 +1494,7 @@ var actionTab = actionTable{
 			nil,       /* $ */
 			nil,       /* || */
 			nil,       /* && */
-			shift(11), /* ( */
+			shift(82), /* ( */
 			nil,       /* ) */
 			nil,       /* == */
 			nil,       /* != */
@@ -1512,15 +1512,15 @@ var actionTab = actionTable{
 			nil,       /* , */
 			nil,       /* ? */
 			nil,       /* : */
-			shift(22), /* doublequotes_string */
-			shift(23), /* singlequote_string */
-			shift(24), /* number */
-			shift(25), /* argument */
-			shift(26), /* true */
-			shift(27), /* false */
-			shift(28), /* float */
-			shift(29), /* nil */
-			shift(30), /* null */
+			shift(23), /* doublequotes_string */
+			shift(24), /* singlequote_string */
+			shift(25), /* number */
+			shift(26), /* argument */
+			shift(27), /* true */
+			shift(28), /* false */
+			shift(29), /* float */
+			shift(30), /* nil */
+			shift(31), /* null */
 		},
 	},
 	actionRow{ // S42
@@ -1602,7 +1602,7 @@ var actionTab = actionTable{
 			nil,       /* $ */
 			nil,       /* || */
 			nil,       /* && */
-			shift(11), /* ( */
+			shift(82), /* ( */
 			nil,       /* ) */
 			nil,       /* == */
 			nil,       /* != */
@@ -1620,15 +1620,15 @@ var actionTab = actionTable{
 			nil,       /* , */
 			nil,       /* ? */
 			nil,       /* : */
-			shift(22), /* doublequotes_string */
-			shift(23), /* singlequote_string */
-			shift(24), /* number */
-			shift(25), /* argument */
-			shift(26), /* true */
-			shift(27), /* false */
-			shift(28), /* float */
-			shift(29), /* nil */
-			shift(30), /* null */
+			shift(23), /* doublequotes_string */
+			shift(24), /* singlequote_string */
+			shift(25), /* number */
+			shift(26), /* argument */
+			shift(27), /* true */
+			shift(28), /* false */
+			shift(29), /* float */
+			shift(30), /* nil */
+			shift(31), /* null */
 		},
 	},
 	actionRow{ // S45
@@ -1747,7 +1747,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			shift(111), /* ) */
+			shift(87),  /* ) */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -1762,7 +1762,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(32), /* ?, reduce: TernaryArgument */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -1780,10 +1780,10 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			shift(112), /* || */
+			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			reduce(3),  /* ), reduce: Expr */
+			shift(88),  /* ) */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -1798,7 +1798,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(33), /* ?, reduce: TernaryArgument */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -1814,40 +1814,76 @@ var actionTab = actionTable{
 	actionRow{ // S50
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(5),  /* ||, reduce: OrExpr */
-			shift(113), /* && */
-			nil,        /* ( */
-			reduce(5),  /* ), reduce: OrExpr */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
+			nil,       /* INVALID */
+			nil,       /* $ */
+			shift(89), /* || */
+			nil,       /* && */
+			nil,       /* ( */
+			reduce(3), /* ), reduce: Expr */
+			nil,       /* == */
+			nil,       /* != */
+			nil,       /* < */
+			nil,       /* <= */
+			nil,       /* > */
+			nil,       /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			reduce(3), /* ?, reduce: Expr */
+			nil,       /* : */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
 		},
 	},
 	actionRow{ // S51
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			reduce(5), /* ||, reduce: OrExpr */
+			shift(90), /* && */
+			nil,       /* ( */
+			reduce(5), /* ), reduce: OrExpr */
+			nil,       /* == */
+			nil,       /* != */
+			nil,       /* < */
+			nil,       /* <= */
+			nil,       /* > */
+			nil,       /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			reduce(5), /* ?, reduce: OrExpr */
+			nil,       /* : */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
+		},
+	},
+	actionRow{ // S52
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -1870,7 +1906,7 @@ var actionTab = actionTable{
 			nil,       /* function_name */
 			nil,       /* () */
 			nil,       /* , */
-			nil,       /* ? */
+			reduce(7), /* ?, reduce: AndExpr */
 			nil,       /* : */
 			nil,       /* doublequotes_string */
 			nil,       /* singlequote_string */
@@ -1883,7 +1919,7 @@ var actionTab = actionTable{
 			nil,       /* null */
 		},
 	},
-	actionRow{ // S52
+	actionRow{ // S53
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -1906,7 +1942,7 @@ var actionTab = actionTable{
 			nil,       /* function_name */
 			nil,       /* () */
 			nil,       /* , */
-			nil,       /* ? */
+			reduce(9), /* ?, reduce: ConditionalExpr */
 			nil,       /* : */
 			nil,       /* doublequotes_string */
 			nil,       /* singlequote_string */
@@ -1919,7 +1955,7 @@ var actionTab = actionTable{
 			nil,       /* null */
 		},
 	},
-	actionRow{ // S53
+	actionRow{ // S54
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -1942,7 +1978,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(11), /* ?, reduce: AddExpr */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -1955,7 +1991,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S54
+	actionRow{ // S55
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -1978,7 +2014,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(13), /* ?, reduce: MulExpr */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -1991,7 +2027,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S55
+	actionRow{ // S56
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2014,7 +2050,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(14), /* ?, reduce: ParenthesesExpr */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2027,14 +2063,14 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S56
+	actionRow{ // S57
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
 			nil,       /* $ */
 			nil,       /* || */
 			nil,       /* && */
-			shift(56), /* ( */
+			shift(57), /* ( */
 			nil,       /* ) */
 			nil,       /* == */
 			nil,       /* != */
@@ -2047,56 +2083,20 @@ var actionTab = actionTable{
 			nil,       /* * */
 			nil,       /* / */
 			nil,       /* % */
-			shift(58), /* function_name */
+			shift(59), /* function_name */
 			nil,       /* () */
 			nil,       /* , */
 			nil,       /* ? */
 			nil,       /* : */
-			shift(67), /* doublequotes_string */
-			shift(68), /* singlequote_string */
-			shift(69), /* number */
-			shift(70), /* argument */
-			shift(71), /* true */
-			shift(72), /* false */
-			shift(73), /* float */
-			shift(74), /* nil */
-			shift(75), /* null */
-		},
-	},
-	actionRow{ // S57
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(33), /* ||, reduce: ExprLiteral */
-			reduce(33), /* &&, reduce: ExprLiteral */
-			nil,        /* ( */
-			reduce(33), /* ), reduce: ExprLiteral */
-			reduce(33), /* ==, reduce: ExprLiteral */
-			reduce(33), /* !=, reduce: ExprLiteral */
-			reduce(33), /* <, reduce: ExprLiteral */
-			reduce(33), /* <=, reduce: ExprLiteral */
-			reduce(33), /* >, reduce: ExprLiteral */
-			reduce(33), /* >=, reduce: ExprLiteral */
-			reduce(33), /* +, reduce: ExprLiteral */
-			reduce(33), /* -, reduce: ExprLiteral */
-			reduce(33), /* *, reduce: ExprLiteral */
-			reduce(33), /* /, reduce: ExprLiteral */
-			reduce(33), /* %, reduce: ExprLiteral */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
+			shift(69), /* doublequotes_string */
+			shift(70), /* singlequote_string */
+			shift(71), /* number */
+			shift(72), /* argument */
+			shift(73), /* true */
+			shift(74), /* false */
+			shift(75), /* float */
+			shift(76), /* nil */
+			shift(77), /* null */
 		},
 	},
 	actionRow{ // S58
@@ -2104,25 +2104,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			shift(118), /* ( */
-			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			reduce(36), /* ||, reduce: ExprLiteral */
+			reduce(36), /* &&, reduce: ExprLiteral */
+			nil,        /* ( */
+			reduce(36), /* ), reduce: ExprLiteral */
+			reduce(36), /* ==, reduce: ExprLiteral */
+			reduce(36), /* !=, reduce: ExprLiteral */
+			reduce(36), /* <, reduce: ExprLiteral */
+			reduce(36), /* <=, reduce: ExprLiteral */
+			reduce(36), /* >, reduce: ExprLiteral */
+			reduce(36), /* >=, reduce: ExprLiteral */
+			reduce(36), /* +, reduce: ExprLiteral */
+			reduce(36), /* -, reduce: ExprLiteral */
+			reduce(36), /* *, reduce: ExprLiteral */
+			reduce(36), /* /, reduce: ExprLiteral */
+			reduce(36), /* %, reduce: ExprLiteral */
 			nil,        /* function_name */
-			shift(119), /* () */
+			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(36), /* ?, reduce: ExprLiteral */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2138,73 +2138,73 @@ var actionTab = actionTable{
 	actionRow{ // S59
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(32), /* ||, reduce: ExprLiteral */
-			reduce(32), /* &&, reduce: ExprLiteral */
-			nil,        /* ( */
-			reduce(32), /* ), reduce: ExprLiteral */
-			reduce(32), /* ==, reduce: ExprLiteral */
-			reduce(32), /* !=, reduce: ExprLiteral */
-			reduce(32), /* <, reduce: ExprLiteral */
-			reduce(32), /* <=, reduce: ExprLiteral */
-			reduce(32), /* >, reduce: ExprLiteral */
-			reduce(32), /* >=, reduce: ExprLiteral */
-			reduce(32), /* +, reduce: ExprLiteral */
-			reduce(32), /* -, reduce: ExprLiteral */
-			reduce(32), /* *, reduce: ExprLiteral */
-			reduce(32), /* /, reduce: ExprLiteral */
-			reduce(32), /* %, reduce: ExprLiteral */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* || */
+			nil,       /* && */
+			shift(95), /* ( */
+			nil,       /* ) */
+			nil,       /* == */
+			nil,       /* != */
+			nil,       /* < */
+			nil,       /* <= */
+			nil,       /* > */
+			nil,       /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			shift(96), /* () */
+			nil,       /* , */
+			nil,       /* ? */
+			nil,       /* : */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
 		},
 	},
 	actionRow{ // S60
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(34), /* ||, reduce: Literal */
-			reduce(34), /* &&, reduce: Literal */
-			nil,        /* ( */
-			reduce(34), /* ), reduce: Literal */
-			reduce(34), /* ==, reduce: Literal */
-			reduce(34), /* !=, reduce: Literal */
-			reduce(34), /* <, reduce: Literal */
-			reduce(34), /* <=, reduce: Literal */
-			reduce(34), /* >, reduce: Literal */
-			reduce(34), /* >=, reduce: Literal */
-			reduce(34), /* +, reduce: Literal */
-			reduce(34), /* -, reduce: Literal */
-			reduce(34), /* *, reduce: Literal */
-			reduce(34), /* /, reduce: Literal */
-			reduce(34), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* || */
+			nil,       /* && */
+			nil,       /* ( */
+			nil,       /* ) */
+			nil,       /* == */
+			nil,       /* != */
+			nil,       /* < */
+			nil,       /* <= */
+			nil,       /* > */
+			nil,       /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			shift(97), /* ? */
+			nil,       /* : */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
 		},
 	},
 	actionRow{ // S61
@@ -2212,25 +2212,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(35), /* ||, reduce: Literal */
-			reduce(35), /* &&, reduce: Literal */
+			reduce(35), /* ||, reduce: ExprLiteral */
+			reduce(35), /* &&, reduce: ExprLiteral */
 			nil,        /* ( */
-			reduce(35), /* ), reduce: Literal */
-			reduce(35), /* ==, reduce: Literal */
-			reduce(35), /* !=, reduce: Literal */
-			reduce(35), /* <, reduce: Literal */
-			reduce(35), /* <=, reduce: Literal */
-			reduce(35), /* >, reduce: Literal */
-			reduce(35), /* >=, reduce: Literal */
-			reduce(35), /* +, reduce: Literal */
-			reduce(35), /* -, reduce: Literal */
-			reduce(35), /* *, reduce: Literal */
-			reduce(35), /* /, reduce: Literal */
-			reduce(35), /* %, reduce: Literal */
+			reduce(35), /* ), reduce: ExprLiteral */
+			reduce(35), /* ==, reduce: ExprLiteral */
+			reduce(35), /* !=, reduce: ExprLiteral */
+			reduce(35), /* <, reduce: ExprLiteral */
+			reduce(35), /* <=, reduce: ExprLiteral */
+			reduce(35), /* >, reduce: ExprLiteral */
+			reduce(35), /* >=, reduce: ExprLiteral */
+			reduce(35), /* +, reduce: ExprLiteral */
+			reduce(35), /* -, reduce: ExprLiteral */
+			reduce(35), /* *, reduce: ExprLiteral */
+			reduce(35), /* /, reduce: ExprLiteral */
+			reduce(35), /* %, reduce: ExprLiteral */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(35), /* ?, reduce: ExprLiteral */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2244,42 +2244,6 @@ var actionTab = actionTable{
 		},
 	},
 	actionRow{ // S62
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(36), /* ||, reduce: Literal */
-			reduce(36), /* &&, reduce: Literal */
-			nil,        /* ( */
-			reduce(36), /* ), reduce: Literal */
-			reduce(36), /* ==, reduce: Literal */
-			reduce(36), /* !=, reduce: Literal */
-			reduce(36), /* <, reduce: Literal */
-			reduce(36), /* <=, reduce: Literal */
-			reduce(36), /* >, reduce: Literal */
-			reduce(36), /* >=, reduce: Literal */
-			reduce(36), /* +, reduce: Literal */
-			reduce(36), /* -, reduce: Literal */
-			reduce(36), /* *, reduce: Literal */
-			reduce(36), /* /, reduce: Literal */
-			reduce(36), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S63
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2302,7 +2266,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(37), /* ?, reduce: Literal */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2315,7 +2279,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S64
+	actionRow{ // S63
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2338,7 +2302,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(38), /* ?, reduce: Literal */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2351,7 +2315,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S65
+	actionRow{ // S64
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2374,7 +2338,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(39), /* ?, reduce: Literal */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2387,7 +2351,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S66
+	actionRow{ // S65
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2410,7 +2374,43 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(40), /* ?, reduce: Literal */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S66
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(41), /* ||, reduce: Literal */
+			reduce(41), /* &&, reduce: Literal */
+			nil,        /* ( */
+			reduce(41), /* ), reduce: Literal */
+			reduce(41), /* ==, reduce: Literal */
+			reduce(41), /* !=, reduce: Literal */
+			reduce(41), /* <, reduce: Literal */
+			reduce(41), /* <=, reduce: Literal */
+			reduce(41), /* >, reduce: Literal */
+			reduce(41), /* >=, reduce: Literal */
+			reduce(41), /* +, reduce: Literal */
+			reduce(41), /* -, reduce: Literal */
+			reduce(41), /* *, reduce: Literal */
+			reduce(41), /* /, reduce: Literal */
+			reduce(41), /* %, reduce: Literal */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(41), /* ?, reduce: Literal */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2428,25 +2428,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(41), /* ||, reduce: DoubleQString */
-			reduce(41), /* &&, reduce: DoubleQString */
+			reduce(42), /* ||, reduce: Literal */
+			reduce(42), /* &&, reduce: Literal */
 			nil,        /* ( */
-			reduce(41), /* ), reduce: DoubleQString */
-			reduce(41), /* ==, reduce: DoubleQString */
-			reduce(41), /* !=, reduce: DoubleQString */
-			reduce(41), /* <, reduce: DoubleQString */
-			reduce(41), /* <=, reduce: DoubleQString */
-			reduce(41), /* >, reduce: DoubleQString */
-			reduce(41), /* >=, reduce: DoubleQString */
-			reduce(41), /* +, reduce: DoubleQString */
-			reduce(41), /* -, reduce: DoubleQString */
-			reduce(41), /* *, reduce: DoubleQString */
-			reduce(41), /* /, reduce: DoubleQString */
-			reduce(41), /* %, reduce: DoubleQString */
+			reduce(42), /* ), reduce: Literal */
+			reduce(42), /* ==, reduce: Literal */
+			reduce(42), /* !=, reduce: Literal */
+			reduce(42), /* <, reduce: Literal */
+			reduce(42), /* <=, reduce: Literal */
+			reduce(42), /* >, reduce: Literal */
+			reduce(42), /* >=, reduce: Literal */
+			reduce(42), /* +, reduce: Literal */
+			reduce(42), /* -, reduce: Literal */
+			reduce(42), /* *, reduce: Literal */
+			reduce(42), /* /, reduce: Literal */
+			reduce(42), /* %, reduce: Literal */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(42), /* ?, reduce: Literal */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2464,25 +2464,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(42), /* ||, reduce: SingleQString */
-			reduce(42), /* &&, reduce: SingleQString */
+			reduce(43), /* ||, reduce: Literal */
+			reduce(43), /* &&, reduce: Literal */
 			nil,        /* ( */
-			reduce(42), /* ), reduce: SingleQString */
-			reduce(42), /* ==, reduce: SingleQString */
-			reduce(42), /* !=, reduce: SingleQString */
-			reduce(42), /* <, reduce: SingleQString */
-			reduce(42), /* <=, reduce: SingleQString */
-			reduce(42), /* >, reduce: SingleQString */
-			reduce(42), /* >=, reduce: SingleQString */
-			reduce(42), /* +, reduce: SingleQString */
-			reduce(42), /* -, reduce: SingleQString */
-			reduce(42), /* *, reduce: SingleQString */
-			reduce(42), /* /, reduce: SingleQString */
-			reduce(42), /* %, reduce: SingleQString */
+			reduce(43), /* ), reduce: Literal */
+			reduce(43), /* ==, reduce: Literal */
+			reduce(43), /* !=, reduce: Literal */
+			reduce(43), /* <, reduce: Literal */
+			reduce(43), /* <=, reduce: Literal */
+			reduce(43), /* >, reduce: Literal */
+			reduce(43), /* >=, reduce: Literal */
+			reduce(43), /* +, reduce: Literal */
+			reduce(43), /* -, reduce: Literal */
+			reduce(43), /* *, reduce: Literal */
+			reduce(43), /* /, reduce: Literal */
+			reduce(43), /* %, reduce: Literal */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(43), /* ?, reduce: Literal */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2500,25 +2500,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(43), /* ||, reduce: Int */
-			reduce(43), /* &&, reduce: Int */
+			reduce(44), /* ||, reduce: DoubleQString */
+			reduce(44), /* &&, reduce: DoubleQString */
 			nil,        /* ( */
-			reduce(43), /* ), reduce: Int */
-			reduce(43), /* ==, reduce: Int */
-			reduce(43), /* !=, reduce: Int */
-			reduce(43), /* <, reduce: Int */
-			reduce(43), /* <=, reduce: Int */
-			reduce(43), /* >, reduce: Int */
-			reduce(43), /* >=, reduce: Int */
-			reduce(43), /* +, reduce: Int */
-			reduce(43), /* -, reduce: Int */
-			reduce(43), /* *, reduce: Int */
-			reduce(43), /* /, reduce: Int */
-			reduce(43), /* %, reduce: Int */
+			reduce(44), /* ), reduce: DoubleQString */
+			reduce(44), /* ==, reduce: DoubleQString */
+			reduce(44), /* !=, reduce: DoubleQString */
+			reduce(44), /* <, reduce: DoubleQString */
+			reduce(44), /* <=, reduce: DoubleQString */
+			reduce(44), /* >, reduce: DoubleQString */
+			reduce(44), /* >=, reduce: DoubleQString */
+			reduce(44), /* +, reduce: DoubleQString */
+			reduce(44), /* -, reduce: DoubleQString */
+			reduce(44), /* *, reduce: DoubleQString */
+			reduce(44), /* /, reduce: DoubleQString */
+			reduce(44), /* %, reduce: DoubleQString */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(44), /* ?, reduce: DoubleQString */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2536,25 +2536,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(44), /* ||, reduce: MappingRef */
-			reduce(44), /* &&, reduce: MappingRef */
+			reduce(45), /* ||, reduce: SingleQString */
+			reduce(45), /* &&, reduce: SingleQString */
 			nil,        /* ( */
-			reduce(44), /* ), reduce: MappingRef */
-			reduce(44), /* ==, reduce: MappingRef */
-			reduce(44), /* !=, reduce: MappingRef */
-			reduce(44), /* <, reduce: MappingRef */
-			reduce(44), /* <=, reduce: MappingRef */
-			reduce(44), /* >, reduce: MappingRef */
-			reduce(44), /* >=, reduce: MappingRef */
-			reduce(44), /* +, reduce: MappingRef */
-			reduce(44), /* -, reduce: MappingRef */
-			reduce(44), /* *, reduce: MappingRef */
-			reduce(44), /* /, reduce: MappingRef */
-			reduce(44), /* %, reduce: MappingRef */
+			reduce(45), /* ), reduce: SingleQString */
+			reduce(45), /* ==, reduce: SingleQString */
+			reduce(45), /* !=, reduce: SingleQString */
+			reduce(45), /* <, reduce: SingleQString */
+			reduce(45), /* <=, reduce: SingleQString */
+			reduce(45), /* >, reduce: SingleQString */
+			reduce(45), /* >=, reduce: SingleQString */
+			reduce(45), /* +, reduce: SingleQString */
+			reduce(45), /* -, reduce: SingleQString */
+			reduce(45), /* *, reduce: SingleQString */
+			reduce(45), /* /, reduce: SingleQString */
+			reduce(45), /* %, reduce: SingleQString */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(45), /* ?, reduce: SingleQString */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2572,25 +2572,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(45), /* ||, reduce: Bool */
-			reduce(45), /* &&, reduce: Bool */
+			reduce(46), /* ||, reduce: Int */
+			reduce(46), /* &&, reduce: Int */
 			nil,        /* ( */
-			reduce(45), /* ), reduce: Bool */
-			reduce(45), /* ==, reduce: Bool */
-			reduce(45), /* !=, reduce: Bool */
-			reduce(45), /* <, reduce: Bool */
-			reduce(45), /* <=, reduce: Bool */
-			reduce(45), /* >, reduce: Bool */
-			reduce(45), /* >=, reduce: Bool */
-			reduce(45), /* +, reduce: Bool */
-			reduce(45), /* -, reduce: Bool */
-			reduce(45), /* *, reduce: Bool */
-			reduce(45), /* /, reduce: Bool */
-			reduce(45), /* %, reduce: Bool */
+			reduce(46), /* ), reduce: Int */
+			reduce(46), /* ==, reduce: Int */
+			reduce(46), /* !=, reduce: Int */
+			reduce(46), /* <, reduce: Int */
+			reduce(46), /* <=, reduce: Int */
+			reduce(46), /* >, reduce: Int */
+			reduce(46), /* >=, reduce: Int */
+			reduce(46), /* +, reduce: Int */
+			reduce(46), /* -, reduce: Int */
+			reduce(46), /* *, reduce: Int */
+			reduce(46), /* /, reduce: Int */
+			reduce(46), /* %, reduce: Int */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(46), /* ?, reduce: Int */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2608,25 +2608,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(46), /* ||, reduce: Bool */
-			reduce(46), /* &&, reduce: Bool */
+			reduce(47), /* ||, reduce: MappingRef */
+			reduce(47), /* &&, reduce: MappingRef */
 			nil,        /* ( */
-			reduce(46), /* ), reduce: Bool */
-			reduce(46), /* ==, reduce: Bool */
-			reduce(46), /* !=, reduce: Bool */
-			reduce(46), /* <, reduce: Bool */
-			reduce(46), /* <=, reduce: Bool */
-			reduce(46), /* >, reduce: Bool */
-			reduce(46), /* >=, reduce: Bool */
-			reduce(46), /* +, reduce: Bool */
-			reduce(46), /* -, reduce: Bool */
-			reduce(46), /* *, reduce: Bool */
-			reduce(46), /* /, reduce: Bool */
-			reduce(46), /* %, reduce: Bool */
+			reduce(47), /* ), reduce: MappingRef */
+			reduce(47), /* ==, reduce: MappingRef */
+			reduce(47), /* !=, reduce: MappingRef */
+			reduce(47), /* <, reduce: MappingRef */
+			reduce(47), /* <=, reduce: MappingRef */
+			reduce(47), /* >, reduce: MappingRef */
+			reduce(47), /* >=, reduce: MappingRef */
+			reduce(47), /* +, reduce: MappingRef */
+			reduce(47), /* -, reduce: MappingRef */
+			reduce(47), /* *, reduce: MappingRef */
+			reduce(47), /* /, reduce: MappingRef */
+			reduce(47), /* %, reduce: MappingRef */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(47), /* ?, reduce: MappingRef */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2644,25 +2644,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(47), /* ||, reduce: Float */
-			reduce(47), /* &&, reduce: Float */
+			reduce(48), /* ||, reduce: Bool */
+			reduce(48), /* &&, reduce: Bool */
 			nil,        /* ( */
-			reduce(47), /* ), reduce: Float */
-			reduce(47), /* ==, reduce: Float */
-			reduce(47), /* !=, reduce: Float */
-			reduce(47), /* <, reduce: Float */
-			reduce(47), /* <=, reduce: Float */
-			reduce(47), /* >, reduce: Float */
-			reduce(47), /* >=, reduce: Float */
-			reduce(47), /* +, reduce: Float */
-			reduce(47), /* -, reduce: Float */
-			reduce(47), /* *, reduce: Float */
-			reduce(47), /* /, reduce: Float */
-			reduce(47), /* %, reduce: Float */
+			reduce(48), /* ), reduce: Bool */
+			reduce(48), /* ==, reduce: Bool */
+			reduce(48), /* !=, reduce: Bool */
+			reduce(48), /* <, reduce: Bool */
+			reduce(48), /* <=, reduce: Bool */
+			reduce(48), /* >, reduce: Bool */
+			reduce(48), /* >=, reduce: Bool */
+			reduce(48), /* +, reduce: Bool */
+			reduce(48), /* -, reduce: Bool */
+			reduce(48), /* *, reduce: Bool */
+			reduce(48), /* /, reduce: Bool */
+			reduce(48), /* %, reduce: Bool */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(48), /* ?, reduce: Bool */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2680,25 +2680,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(48), /* ||, reduce: Nil */
-			reduce(48), /* &&, reduce: Nil */
+			reduce(49), /* ||, reduce: Bool */
+			reduce(49), /* &&, reduce: Bool */
 			nil,        /* ( */
-			reduce(48), /* ), reduce: Nil */
-			reduce(48), /* ==, reduce: Nil */
-			reduce(48), /* !=, reduce: Nil */
-			reduce(48), /* <, reduce: Nil */
-			reduce(48), /* <=, reduce: Nil */
-			reduce(48), /* >, reduce: Nil */
-			reduce(48), /* >=, reduce: Nil */
-			reduce(48), /* +, reduce: Nil */
-			reduce(48), /* -, reduce: Nil */
-			reduce(48), /* *, reduce: Nil */
-			reduce(48), /* /, reduce: Nil */
-			reduce(48), /* %, reduce: Nil */
+			reduce(49), /* ), reduce: Bool */
+			reduce(49), /* ==, reduce: Bool */
+			reduce(49), /* !=, reduce: Bool */
+			reduce(49), /* <, reduce: Bool */
+			reduce(49), /* <=, reduce: Bool */
+			reduce(49), /* >, reduce: Bool */
+			reduce(49), /* >=, reduce: Bool */
+			reduce(49), /* +, reduce: Bool */
+			reduce(49), /* -, reduce: Bool */
+			reduce(49), /* *, reduce: Bool */
+			reduce(49), /* /, reduce: Bool */
+			reduce(49), /* %, reduce: Bool */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(49), /* ?, reduce: Bool */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2716,25 +2716,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(49), /* ||, reduce: Nil */
-			reduce(49), /* &&, reduce: Nil */
+			reduce(50), /* ||, reduce: Float */
+			reduce(50), /* &&, reduce: Float */
 			nil,        /* ( */
-			reduce(49), /* ), reduce: Nil */
-			reduce(49), /* ==, reduce: Nil */
-			reduce(49), /* !=, reduce: Nil */
-			reduce(49), /* <, reduce: Nil */
-			reduce(49), /* <=, reduce: Nil */
-			reduce(49), /* >, reduce: Nil */
-			reduce(49), /* >=, reduce: Nil */
-			reduce(49), /* +, reduce: Nil */
-			reduce(49), /* -, reduce: Nil */
-			reduce(49), /* *, reduce: Nil */
-			reduce(49), /* /, reduce: Nil */
-			reduce(49), /* %, reduce: Nil */
+			reduce(50), /* ), reduce: Float */
+			reduce(50), /* ==, reduce: Float */
+			reduce(50), /* !=, reduce: Float */
+			reduce(50), /* <, reduce: Float */
+			reduce(50), /* <=, reduce: Float */
+			reduce(50), /* >, reduce: Float */
+			reduce(50), /* >=, reduce: Float */
+			reduce(50), /* +, reduce: Float */
+			reduce(50), /* -, reduce: Float */
+			reduce(50), /* *, reduce: Float */
+			reduce(50), /* /, reduce: Float */
+			reduce(50), /* %, reduce: Float */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(50), /* ?, reduce: Float */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -2748,6 +2748,78 @@ var actionTab = actionTable{
 		},
 	},
 	actionRow{ // S76
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(51), /* ||, reduce: Nil */
+			reduce(51), /* &&, reduce: Nil */
+			nil,        /* ( */
+			reduce(51), /* ), reduce: Nil */
+			reduce(51), /* ==, reduce: Nil */
+			reduce(51), /* !=, reduce: Nil */
+			reduce(51), /* <, reduce: Nil */
+			reduce(51), /* <=, reduce: Nil */
+			reduce(51), /* >, reduce: Nil */
+			reduce(51), /* >=, reduce: Nil */
+			reduce(51), /* +, reduce: Nil */
+			reduce(51), /* -, reduce: Nil */
+			reduce(51), /* *, reduce: Nil */
+			reduce(51), /* /, reduce: Nil */
+			reduce(51), /* %, reduce: Nil */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(51), /* ?, reduce: Nil */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S77
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(52), /* ||, reduce: Nil */
+			reduce(52), /* &&, reduce: Nil */
+			nil,        /* ( */
+			reduce(52), /* ), reduce: Nil */
+			reduce(52), /* ==, reduce: Nil */
+			reduce(52), /* !=, reduce: Nil */
+			reduce(52), /* <, reduce: Nil */
+			reduce(52), /* <=, reduce: Nil */
+			reduce(52), /* >, reduce: Nil */
+			reduce(52), /* >=, reduce: Nil */
+			reduce(52), /* +, reduce: Nil */
+			reduce(52), /* -, reduce: Nil */
+			reduce(52), /* *, reduce: Nil */
+			reduce(52), /* /, reduce: Nil */
+			reduce(52), /* %, reduce: Nil */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(52), /* ?, reduce: Nil */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S78
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2767,23 +2839,23 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(122), /* function_name */
+			shift(100), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
-			shift(132), /* doublequotes_string */
-			shift(133), /* singlequote_string */
-			shift(134), /* number */
-			shift(135), /* argument */
-			shift(136), /* true */
-			shift(137), /* false */
-			shift(138), /* float */
-			shift(139), /* nil */
-			shift(140), /* null */
+			shift(110), /* doublequotes_string */
+			shift(111), /* singlequote_string */
+			shift(112), /* number */
+			shift(113), /* argument */
+			shift(114), /* true */
+			shift(115), /* false */
+			shift(116), /* float */
+			shift(117), /* nil */
+			shift(118), /* null */
 		},
 	},
-	actionRow{ // S77
+	actionRow{ // S79
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2819,374 +2891,14 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S78
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			nil,        /* ( */
-			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			shift(141), /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S79
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			shift(142), /* || */
-			nil,        /* && */
-			nil,        /* ( */
-			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(3),  /* :, reduce: Expr */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
 	actionRow{ // S80
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(5),  /* ||, reduce: OrExpr */
-			shift(143), /* && */
-			nil,        /* ( */
-			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(5),  /* :, reduce: OrExpr */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S81
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			reduce(7), /* ||, reduce: AndExpr */
-			reduce(7), /* &&, reduce: AndExpr */
-			nil,       /* ( */
-			nil,       /* ) */
-			shift(35), /* == */
-			shift(36), /* != */
-			shift(37), /* < */
-			shift(38), /* <= */
-			shift(39), /* > */
-			shift(40), /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			nil,       /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			reduce(7), /* :, reduce: AndExpr */
-			nil,       /* doublequotes_string */
-			nil,       /* singlequote_string */
-			nil,       /* number */
-			nil,       /* argument */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* float */
-			nil,       /* nil */
-			nil,       /* null */
-		},
-	},
-	actionRow{ // S82
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			reduce(9), /* ||, reduce: ConditionalExpr */
-			reduce(9), /* &&, reduce: ConditionalExpr */
-			nil,       /* ( */
-			nil,       /* ) */
-			reduce(9), /* ==, reduce: ConditionalExpr */
-			reduce(9), /* !=, reduce: ConditionalExpr */
-			reduce(9), /* <, reduce: ConditionalExpr */
-			reduce(9), /* <=, reduce: ConditionalExpr */
-			reduce(9), /* >, reduce: ConditionalExpr */
-			reduce(9), /* >=, reduce: ConditionalExpr */
-			shift(42), /* + */
-			shift(43), /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			nil,       /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			reduce(9), /* :, reduce: ConditionalExpr */
-			nil,       /* doublequotes_string */
-			nil,       /* singlequote_string */
-			nil,       /* number */
-			nil,       /* argument */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* float */
-			nil,       /* nil */
-			nil,       /* null */
-		},
-	},
-	actionRow{ // S83
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(11), /* ||, reduce: AddExpr */
-			reduce(11), /* &&, reduce: AddExpr */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(11), /* ==, reduce: AddExpr */
-			reduce(11), /* !=, reduce: AddExpr */
-			reduce(11), /* <, reduce: AddExpr */
-			reduce(11), /* <=, reduce: AddExpr */
-			reduce(11), /* >, reduce: AddExpr */
-			reduce(11), /* >=, reduce: AddExpr */
-			reduce(11), /* +, reduce: AddExpr */
-			reduce(11), /* -, reduce: AddExpr */
-			shift(45),  /* * */
-			shift(46),  /* / */
-			shift(47),  /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(11), /* :, reduce: AddExpr */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S84
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(13), /* ||, reduce: MulExpr */
-			reduce(13), /* &&, reduce: MulExpr */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(13), /* ==, reduce: MulExpr */
-			reduce(13), /* !=, reduce: MulExpr */
-			reduce(13), /* <, reduce: MulExpr */
-			reduce(13), /* <=, reduce: MulExpr */
-			reduce(13), /* >, reduce: MulExpr */
-			reduce(13), /* >=, reduce: MulExpr */
-			reduce(13), /* +, reduce: MulExpr */
-			reduce(13), /* -, reduce: MulExpr */
-			reduce(13), /* *, reduce: MulExpr */
-			reduce(13), /* /, reduce: MulExpr */
-			reduce(13), /* %, reduce: MulExpr */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(13), /* :, reduce: MulExpr */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S85
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(14), /* ||, reduce: ParenthesesExpr */
-			reduce(14), /* &&, reduce: ParenthesesExpr */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(14), /* ==, reduce: ParenthesesExpr */
-			reduce(14), /* !=, reduce: ParenthesesExpr */
-			reduce(14), /* <, reduce: ParenthesesExpr */
-			reduce(14), /* <=, reduce: ParenthesesExpr */
-			reduce(14), /* >, reduce: ParenthesesExpr */
-			reduce(14), /* >=, reduce: ParenthesesExpr */
-			reduce(14), /* +, reduce: ParenthesesExpr */
-			reduce(14), /* -, reduce: ParenthesesExpr */
-			reduce(14), /* *, reduce: ParenthesesExpr */
-			reduce(14), /* /, reduce: ParenthesesExpr */
-			reduce(14), /* %, reduce: ParenthesesExpr */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(14), /* :, reduce: ParenthesesExpr */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S86
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* || */
-			nil,       /* && */
-			shift(56), /* ( */
-			nil,       /* ) */
-			nil,       /* == */
-			nil,       /* != */
-			nil,       /* < */
-			nil,       /* <= */
-			nil,       /* > */
-			nil,       /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			shift(58), /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			shift(67), /* doublequotes_string */
-			shift(68), /* singlequote_string */
-			shift(69), /* number */
-			shift(70), /* argument */
-			shift(71), /* true */
-			shift(72), /* false */
-			shift(73), /* float */
-			shift(74), /* nil */
-			shift(75), /* null */
-		},
-	},
-	actionRow{ // S87
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(33), /* ||, reduce: ExprLiteral */
-			reduce(33), /* &&, reduce: ExprLiteral */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(33), /* ==, reduce: ExprLiteral */
-			reduce(33), /* !=, reduce: ExprLiteral */
-			reduce(33), /* <, reduce: ExprLiteral */
-			reduce(33), /* <=, reduce: ExprLiteral */
-			reduce(33), /* >, reduce: ExprLiteral */
-			reduce(33), /* >=, reduce: ExprLiteral */
-			reduce(33), /* +, reduce: ExprLiteral */
-			reduce(33), /* -, reduce: ExprLiteral */
-			reduce(33), /* *, reduce: ExprLiteral */
-			reduce(33), /* /, reduce: ExprLiteral */
-			reduce(33), /* %, reduce: ExprLiteral */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(33), /* :, reduce: ExprLiteral */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S88
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
 			nil,        /* || */
 			nil,        /* && */
-			shift(148), /* ( */
+			shift(128), /* ( */
 			nil,        /* ) */
 			nil,        /* == */
 			nil,        /* != */
@@ -3199,635 +2911,23 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			nil,        /* function_name */
-			shift(149), /* () */
+			shift(130), /* function_name */
+			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
+			shift(140), /* doublequotes_string */
+			shift(141), /* singlequote_string */
+			shift(142), /* number */
+			shift(143), /* argument */
+			shift(144), /* true */
+			shift(145), /* false */
+			shift(146), /* float */
+			shift(147), /* nil */
+			shift(148), /* null */
 		},
 	},
-	actionRow{ // S89
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(32), /* ||, reduce: ExprLiteral */
-			reduce(32), /* &&, reduce: ExprLiteral */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(32), /* ==, reduce: ExprLiteral */
-			reduce(32), /* !=, reduce: ExprLiteral */
-			reduce(32), /* <, reduce: ExprLiteral */
-			reduce(32), /* <=, reduce: ExprLiteral */
-			reduce(32), /* >, reduce: ExprLiteral */
-			reduce(32), /* >=, reduce: ExprLiteral */
-			reduce(32), /* +, reduce: ExprLiteral */
-			reduce(32), /* -, reduce: ExprLiteral */
-			reduce(32), /* *, reduce: ExprLiteral */
-			reduce(32), /* /, reduce: ExprLiteral */
-			reduce(32), /* %, reduce: ExprLiteral */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(32), /* :, reduce: ExprLiteral */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S90
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(34), /* ||, reduce: Literal */
-			reduce(34), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(34), /* ==, reduce: Literal */
-			reduce(34), /* !=, reduce: Literal */
-			reduce(34), /* <, reduce: Literal */
-			reduce(34), /* <=, reduce: Literal */
-			reduce(34), /* >, reduce: Literal */
-			reduce(34), /* >=, reduce: Literal */
-			reduce(34), /* +, reduce: Literal */
-			reduce(34), /* -, reduce: Literal */
-			reduce(34), /* *, reduce: Literal */
-			reduce(34), /* /, reduce: Literal */
-			reduce(34), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(34), /* :, reduce: Literal */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S91
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(35), /* ||, reduce: Literal */
-			reduce(35), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(35), /* ==, reduce: Literal */
-			reduce(35), /* !=, reduce: Literal */
-			reduce(35), /* <, reduce: Literal */
-			reduce(35), /* <=, reduce: Literal */
-			reduce(35), /* >, reduce: Literal */
-			reduce(35), /* >=, reduce: Literal */
-			reduce(35), /* +, reduce: Literal */
-			reduce(35), /* -, reduce: Literal */
-			reduce(35), /* *, reduce: Literal */
-			reduce(35), /* /, reduce: Literal */
-			reduce(35), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(35), /* :, reduce: Literal */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S92
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(36), /* ||, reduce: Literal */
-			reduce(36), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(36), /* ==, reduce: Literal */
-			reduce(36), /* !=, reduce: Literal */
-			reduce(36), /* <, reduce: Literal */
-			reduce(36), /* <=, reduce: Literal */
-			reduce(36), /* >, reduce: Literal */
-			reduce(36), /* >=, reduce: Literal */
-			reduce(36), /* +, reduce: Literal */
-			reduce(36), /* -, reduce: Literal */
-			reduce(36), /* *, reduce: Literal */
-			reduce(36), /* /, reduce: Literal */
-			reduce(36), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(36), /* :, reduce: Literal */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S93
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(37), /* ||, reduce: Literal */
-			reduce(37), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(37), /* ==, reduce: Literal */
-			reduce(37), /* !=, reduce: Literal */
-			reduce(37), /* <, reduce: Literal */
-			reduce(37), /* <=, reduce: Literal */
-			reduce(37), /* >, reduce: Literal */
-			reduce(37), /* >=, reduce: Literal */
-			reduce(37), /* +, reduce: Literal */
-			reduce(37), /* -, reduce: Literal */
-			reduce(37), /* *, reduce: Literal */
-			reduce(37), /* /, reduce: Literal */
-			reduce(37), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(37), /* :, reduce: Literal */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S94
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(38), /* ||, reduce: Literal */
-			reduce(38), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(38), /* ==, reduce: Literal */
-			reduce(38), /* !=, reduce: Literal */
-			reduce(38), /* <, reduce: Literal */
-			reduce(38), /* <=, reduce: Literal */
-			reduce(38), /* >, reduce: Literal */
-			reduce(38), /* >=, reduce: Literal */
-			reduce(38), /* +, reduce: Literal */
-			reduce(38), /* -, reduce: Literal */
-			reduce(38), /* *, reduce: Literal */
-			reduce(38), /* /, reduce: Literal */
-			reduce(38), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(38), /* :, reduce: Literal */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S95
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(39), /* ||, reduce: Literal */
-			reduce(39), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(39), /* ==, reduce: Literal */
-			reduce(39), /* !=, reduce: Literal */
-			reduce(39), /* <, reduce: Literal */
-			reduce(39), /* <=, reduce: Literal */
-			reduce(39), /* >, reduce: Literal */
-			reduce(39), /* >=, reduce: Literal */
-			reduce(39), /* +, reduce: Literal */
-			reduce(39), /* -, reduce: Literal */
-			reduce(39), /* *, reduce: Literal */
-			reduce(39), /* /, reduce: Literal */
-			reduce(39), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(39), /* :, reduce: Literal */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S96
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(40), /* ||, reduce: Literal */
-			reduce(40), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(40), /* ==, reduce: Literal */
-			reduce(40), /* !=, reduce: Literal */
-			reduce(40), /* <, reduce: Literal */
-			reduce(40), /* <=, reduce: Literal */
-			reduce(40), /* >, reduce: Literal */
-			reduce(40), /* >=, reduce: Literal */
-			reduce(40), /* +, reduce: Literal */
-			reduce(40), /* -, reduce: Literal */
-			reduce(40), /* *, reduce: Literal */
-			reduce(40), /* /, reduce: Literal */
-			reduce(40), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(40), /* :, reduce: Literal */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S97
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(41), /* ||, reduce: DoubleQString */
-			reduce(41), /* &&, reduce: DoubleQString */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(41), /* ==, reduce: DoubleQString */
-			reduce(41), /* !=, reduce: DoubleQString */
-			reduce(41), /* <, reduce: DoubleQString */
-			reduce(41), /* <=, reduce: DoubleQString */
-			reduce(41), /* >, reduce: DoubleQString */
-			reduce(41), /* >=, reduce: DoubleQString */
-			reduce(41), /* +, reduce: DoubleQString */
-			reduce(41), /* -, reduce: DoubleQString */
-			reduce(41), /* *, reduce: DoubleQString */
-			reduce(41), /* /, reduce: DoubleQString */
-			reduce(41), /* %, reduce: DoubleQString */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(41), /* :, reduce: DoubleQString */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S98
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(42), /* ||, reduce: SingleQString */
-			reduce(42), /* &&, reduce: SingleQString */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(42), /* ==, reduce: SingleQString */
-			reduce(42), /* !=, reduce: SingleQString */
-			reduce(42), /* <, reduce: SingleQString */
-			reduce(42), /* <=, reduce: SingleQString */
-			reduce(42), /* >, reduce: SingleQString */
-			reduce(42), /* >=, reduce: SingleQString */
-			reduce(42), /* +, reduce: SingleQString */
-			reduce(42), /* -, reduce: SingleQString */
-			reduce(42), /* *, reduce: SingleQString */
-			reduce(42), /* /, reduce: SingleQString */
-			reduce(42), /* %, reduce: SingleQString */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(42), /* :, reduce: SingleQString */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S99
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(43), /* ||, reduce: Int */
-			reduce(43), /* &&, reduce: Int */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(43), /* ==, reduce: Int */
-			reduce(43), /* !=, reduce: Int */
-			reduce(43), /* <, reduce: Int */
-			reduce(43), /* <=, reduce: Int */
-			reduce(43), /* >, reduce: Int */
-			reduce(43), /* >=, reduce: Int */
-			reduce(43), /* +, reduce: Int */
-			reduce(43), /* -, reduce: Int */
-			reduce(43), /* *, reduce: Int */
-			reduce(43), /* /, reduce: Int */
-			reduce(43), /* %, reduce: Int */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(43), /* :, reduce: Int */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S100
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(44), /* ||, reduce: MappingRef */
-			reduce(44), /* &&, reduce: MappingRef */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(44), /* ==, reduce: MappingRef */
-			reduce(44), /* !=, reduce: MappingRef */
-			reduce(44), /* <, reduce: MappingRef */
-			reduce(44), /* <=, reduce: MappingRef */
-			reduce(44), /* >, reduce: MappingRef */
-			reduce(44), /* >=, reduce: MappingRef */
-			reduce(44), /* +, reduce: MappingRef */
-			reduce(44), /* -, reduce: MappingRef */
-			reduce(44), /* *, reduce: MappingRef */
-			reduce(44), /* /, reduce: MappingRef */
-			reduce(44), /* %, reduce: MappingRef */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(44), /* :, reduce: MappingRef */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S101
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(45), /* ||, reduce: Bool */
-			reduce(45), /* &&, reduce: Bool */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(45), /* ==, reduce: Bool */
-			reduce(45), /* !=, reduce: Bool */
-			reduce(45), /* <, reduce: Bool */
-			reduce(45), /* <=, reduce: Bool */
-			reduce(45), /* >, reduce: Bool */
-			reduce(45), /* >=, reduce: Bool */
-			reduce(45), /* +, reduce: Bool */
-			reduce(45), /* -, reduce: Bool */
-			reduce(45), /* *, reduce: Bool */
-			reduce(45), /* /, reduce: Bool */
-			reduce(45), /* %, reduce: Bool */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(45), /* :, reduce: Bool */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S102
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(46), /* ||, reduce: Bool */
-			reduce(46), /* &&, reduce: Bool */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(46), /* ==, reduce: Bool */
-			reduce(46), /* !=, reduce: Bool */
-			reduce(46), /* <, reduce: Bool */
-			reduce(46), /* <=, reduce: Bool */
-			reduce(46), /* >, reduce: Bool */
-			reduce(46), /* >=, reduce: Bool */
-			reduce(46), /* +, reduce: Bool */
-			reduce(46), /* -, reduce: Bool */
-			reduce(46), /* *, reduce: Bool */
-			reduce(46), /* /, reduce: Bool */
-			reduce(46), /* %, reduce: Bool */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(46), /* :, reduce: Bool */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S103
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(47), /* ||, reduce: Float */
-			reduce(47), /* &&, reduce: Float */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(47), /* ==, reduce: Float */
-			reduce(47), /* !=, reduce: Float */
-			reduce(47), /* <, reduce: Float */
-			reduce(47), /* <=, reduce: Float */
-			reduce(47), /* >, reduce: Float */
-			reduce(47), /* >=, reduce: Float */
-			reduce(47), /* +, reduce: Float */
-			reduce(47), /* -, reduce: Float */
-			reduce(47), /* *, reduce: Float */
-			reduce(47), /* /, reduce: Float */
-			reduce(47), /* %, reduce: Float */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(47), /* :, reduce: Float */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S104
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(48), /* ||, reduce: Nil */
-			reduce(48), /* &&, reduce: Nil */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(48), /* ==, reduce: Nil */
-			reduce(48), /* !=, reduce: Nil */
-			reduce(48), /* <, reduce: Nil */
-			reduce(48), /* <=, reduce: Nil */
-			reduce(48), /* >, reduce: Nil */
-			reduce(48), /* >=, reduce: Nil */
-			reduce(48), /* +, reduce: Nil */
-			reduce(48), /* -, reduce: Nil */
-			reduce(48), /* *, reduce: Nil */
-			reduce(48), /* /, reduce: Nil */
-			reduce(48), /* %, reduce: Nil */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(48), /* :, reduce: Nil */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S105
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(49), /* ||, reduce: Nil */
-			reduce(49), /* &&, reduce: Nil */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(49), /* ==, reduce: Nil */
-			reduce(49), /* !=, reduce: Nil */
-			reduce(49), /* <, reduce: Nil */
-			reduce(49), /* <=, reduce: Nil */
-			reduce(49), /* >, reduce: Nil */
-			reduce(49), /* >=, reduce: Nil */
-			reduce(49), /* +, reduce: Nil */
-			reduce(49), /* -, reduce: Nil */
-			reduce(49), /* *, reduce: Nil */
-			reduce(49), /* /, reduce: Nil */
-			reduce(49), /* %, reduce: Nil */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			reduce(49), /* :, reduce: Nil */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S106
+	actionRow{ // S81
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -3863,7 +2963,43 @@ var actionTab = actionTable{
 			nil,       /* null */
 		},
 	},
-	actionRow{ // S107
+	actionRow{ // S82
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(157), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(159), /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(168), /* doublequotes_string */
+			shift(169), /* singlequote_string */
+			shift(170), /* number */
+			shift(171), /* argument */
+			shift(172), /* true */
+			shift(173), /* false */
+			shift(174), /* float */
+			shift(175), /* nil */
+			shift(176), /* null */
+		},
+	},
+	actionRow{ // S83
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -3899,7 +3035,7 @@ var actionTab = actionTable{
 			nil,       /* null */
 		},
 	},
-	actionRow{ // S108
+	actionRow{ // S84
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -3935,7 +3071,7 @@ var actionTab = actionTable{
 			nil,       /* null */
 		},
 	},
-	actionRow{ // S109
+	actionRow{ // S85
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -3971,7 +3107,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S110
+	actionRow{ // S86
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4007,7 +3143,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S111
+	actionRow{ // S87
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4043,223 +3179,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S112
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* || */
-			nil,       /* && */
-			shift(56), /* ( */
-			nil,       /* ) */
-			nil,       /* == */
-			nil,       /* != */
-			nil,       /* < */
-			nil,       /* <= */
-			nil,       /* > */
-			nil,       /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			shift(58), /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			shift(67), /* doublequotes_string */
-			shift(68), /* singlequote_string */
-			shift(69), /* number */
-			shift(70), /* argument */
-			shift(71), /* true */
-			shift(72), /* false */
-			shift(73), /* float */
-			shift(74), /* nil */
-			shift(75), /* null */
-		},
-	},
-	actionRow{ // S113
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* || */
-			nil,       /* && */
-			shift(56), /* ( */
-			nil,       /* ) */
-			nil,       /* == */
-			nil,       /* != */
-			nil,       /* < */
-			nil,       /* <= */
-			nil,       /* > */
-			nil,       /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			shift(58), /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			shift(67), /* doublequotes_string */
-			shift(68), /* singlequote_string */
-			shift(69), /* number */
-			shift(70), /* argument */
-			shift(71), /* true */
-			shift(72), /* false */
-			shift(73), /* float */
-			shift(74), /* nil */
-			shift(75), /* null */
-		},
-	},
-	actionRow{ // S114
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* || */
-			nil,       /* && */
-			shift(56), /* ( */
-			nil,       /* ) */
-			nil,       /* == */
-			nil,       /* != */
-			nil,       /* < */
-			nil,       /* <= */
-			nil,       /* > */
-			nil,       /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			shift(58), /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			shift(67), /* doublequotes_string */
-			shift(68), /* singlequote_string */
-			shift(69), /* number */
-			shift(70), /* argument */
-			shift(71), /* true */
-			shift(72), /* false */
-			shift(73), /* float */
-			shift(74), /* nil */
-			shift(75), /* null */
-		},
-	},
-	actionRow{ // S115
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* || */
-			nil,       /* && */
-			shift(56), /* ( */
-			nil,       /* ) */
-			nil,       /* == */
-			nil,       /* != */
-			nil,       /* < */
-			nil,       /* <= */
-			nil,       /* > */
-			nil,       /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			shift(58), /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			shift(67), /* doublequotes_string */
-			shift(68), /* singlequote_string */
-			shift(69), /* number */
-			shift(70), /* argument */
-			shift(71), /* true */
-			shift(72), /* false */
-			shift(73), /* float */
-			shift(74), /* nil */
-			shift(75), /* null */
-		},
-	},
-	actionRow{ // S116
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* || */
-			nil,       /* && */
-			shift(56), /* ( */
-			nil,       /* ) */
-			nil,       /* == */
-			nil,       /* != */
-			nil,       /* < */
-			nil,       /* <= */
-			nil,       /* > */
-			nil,       /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			shift(58), /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			shift(67), /* doublequotes_string */
-			shift(68), /* singlequote_string */
-			shift(69), /* number */
-			shift(70), /* argument */
-			shift(71), /* true */
-			shift(72), /* false */
-			shift(73), /* float */
-			shift(74), /* nil */
-			shift(75), /* null */
-		},
-	},
-	actionRow{ // S117
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			nil,        /* ( */
-			shift(155), /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S118
+	actionRow{ // S88
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4279,23 +3199,275 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(122), /* function_name */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(34), /* ?, reduce: TernaryArgument */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S89
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(178), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(59),  /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
-			shift(132), /* doublequotes_string */
-			shift(133), /* singlequote_string */
-			shift(134), /* number */
-			shift(135), /* argument */
-			shift(136), /* true */
-			shift(137), /* false */
-			shift(138), /* float */
-			shift(139), /* nil */
-			shift(140), /* null */
+			shift(69),  /* doublequotes_string */
+			shift(70),  /* singlequote_string */
+			shift(71),  /* number */
+			shift(72),  /* argument */
+			shift(73),  /* true */
+			shift(74),  /* false */
+			shift(75),  /* float */
+			shift(76),  /* nil */
+			shift(77),  /* null */
 		},
 	},
-	actionRow{ // S119
+	actionRow{ // S90
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(178), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(59),  /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(69),  /* doublequotes_string */
+			shift(70),  /* singlequote_string */
+			shift(71),  /* number */
+			shift(72),  /* argument */
+			shift(73),  /* true */
+			shift(74),  /* false */
+			shift(75),  /* float */
+			shift(76),  /* nil */
+			shift(77),  /* null */
+		},
+	},
+	actionRow{ // S91
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(178), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(59),  /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(69),  /* doublequotes_string */
+			shift(70),  /* singlequote_string */
+			shift(71),  /* number */
+			shift(72),  /* argument */
+			shift(73),  /* true */
+			shift(74),  /* false */
+			shift(75),  /* float */
+			shift(76),  /* nil */
+			shift(77),  /* null */
+		},
+	},
+	actionRow{ // S92
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(178), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(59),  /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(69),  /* doublequotes_string */
+			shift(70),  /* singlequote_string */
+			shift(71),  /* number */
+			shift(72),  /* argument */
+			shift(73),  /* true */
+			shift(74),  /* false */
+			shift(75),  /* float */
+			shift(76),  /* nil */
+			shift(77),  /* null */
+		},
+	},
+	actionRow{ // S93
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(178), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(59),  /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(69),  /* doublequotes_string */
+			shift(70),  /* singlequote_string */
+			shift(71),  /* number */
+			shift(72),  /* argument */
+			shift(73),  /* true */
+			shift(74),  /* false */
+			shift(75),  /* float */
+			shift(76),  /* nil */
+			shift(77),  /* null */
+		},
+	},
+	actionRow{ // S94
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			shift(183), /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(32), /* ?, reduce: TernaryArgument */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S95
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(100), /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(110), /* doublequotes_string */
+			shift(111), /* singlequote_string */
+			shift(112), /* number */
+			shift(113), /* argument */
+			shift(114), /* true */
+			shift(115), /* false */
+			shift(116), /* float */
+			shift(117), /* nil */
+			shift(118), /* null */
+		},
+	},
+	actionRow{ // S96
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4318,7 +3490,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(28), /* ?, reduce: Func */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -4331,7 +3503,43 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S120
+	actionRow{ // S97
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(128), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(130), /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(140), /* doublequotes_string */
+			shift(141), /* singlequote_string */
+			shift(142), /* number */
+			shift(143), /* argument */
+			shift(144), /* true */
+			shift(145), /* false */
+			shift(146), /* float */
+			shift(147), /* nil */
+			shift(148), /* null */
+		},
+	},
+	actionRow{ // S98
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4367,7 +3575,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S121
+	actionRow{ // S99
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4375,7 +3583,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			reduce(33), /* ), reduce: ExprLiteral */
+			reduce(36), /* ), reduce: ExprLiteral */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -4389,7 +3597,7 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(33), /* ,, reduce: ExprLiteral */
+			reduce(36), /* ,, reduce: ExprLiteral */
 			nil,        /* ? */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
@@ -4403,14 +3611,14 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S122
+	actionRow{ // S100
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* || */
 			nil,        /* && */
-			shift(157), /* ( */
+			shift(186), /* ( */
 			nil,        /* ) */
 			nil,        /* == */
 			nil,        /* != */
@@ -4424,7 +3632,7 @@ var actionTab = actionTable{
 			nil,        /* / */
 			nil,        /* % */
 			nil,        /* function_name */
-			shift(158), /* () */
+			shift(187), /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
@@ -4439,7 +3647,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S123
+	actionRow{ // S101
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4447,7 +3655,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			shift(159), /* ) */
+			shift(188), /* ) */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -4461,7 +3669,7 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
-			shift(160), /* , */
+			shift(189), /* , */
 			nil,        /* ? */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
@@ -4475,7 +3683,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S124
+	actionRow{ // S102
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4483,7 +3691,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			reduce(32), /* ), reduce: ExprLiteral */
+			reduce(35), /* ), reduce: ExprLiteral */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -4497,7 +3705,7 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(32), /* ,, reduce: ExprLiteral */
+			reduce(35), /* ,, reduce: ExprLiteral */
 			nil,        /* ? */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
@@ -4511,115 +3719,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S125
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			nil,        /* ( */
-			reduce(34), /* ), reduce: Literal */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			reduce(34), /* ,, reduce: Literal */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S126
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			nil,        /* ( */
-			reduce(35), /* ), reduce: Literal */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			reduce(35), /* ,, reduce: Literal */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S127
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			nil,        /* ( */
-			reduce(36), /* ), reduce: Literal */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			reduce(36), /* ,, reduce: Literal */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S128
+	actionRow{ // S103
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4655,7 +3755,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S129
+	actionRow{ // S104
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4691,7 +3791,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S130
+	actionRow{ // S105
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4727,7 +3827,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S131
+	actionRow{ // S106
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4763,7 +3863,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S132
+	actionRow{ // S107
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4771,7 +3871,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			reduce(41), /* ), reduce: DoubleQString */
+			reduce(41), /* ), reduce: Literal */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -4785,9 +3885,909 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(41), /* ,, reduce: DoubleQString */
+			reduce(41), /* ,, reduce: Literal */
 			nil,        /* ? */
 			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S108
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(42), /* ), reduce: Literal */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(42), /* ,, reduce: Literal */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S109
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(43), /* ), reduce: Literal */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(43), /* ,, reduce: Literal */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S110
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(44), /* ), reduce: DoubleQString */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(44), /* ,, reduce: DoubleQString */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S111
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(45), /* ), reduce: SingleQString */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(45), /* ,, reduce: SingleQString */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S112
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(46), /* ), reduce: Int */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(46), /* ,, reduce: Int */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S113
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(47), /* ), reduce: MappingRef */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(47), /* ,, reduce: MappingRef */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S114
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(48), /* ), reduce: Bool */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(48), /* ,, reduce: Bool */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S115
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(49), /* ), reduce: Bool */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(49), /* ,, reduce: Bool */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S116
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(50), /* ), reduce: Float */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(50), /* ,, reduce: Float */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S117
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(51), /* ), reduce: Nil */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(51), /* ,, reduce: Nil */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S118
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(52), /* ), reduce: Nil */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			reduce(52), /* ,, reduce: Nil */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S119
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(32), /* ?, reduce: TernaryArgument */
+			reduce(32), /* :, reduce: TernaryArgument */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S120
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(33), /* ?, reduce: TernaryArgument */
+			reduce(33), /* :, reduce: TernaryArgument */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S121
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			shift(190), /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(3),  /* ?, reduce: Expr */
+			reduce(3),  /* :, reduce: Expr */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S122
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(5),  /* ||, reduce: OrExpr */
+			shift(191), /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(5),  /* ?, reduce: OrExpr */
+			reduce(5),  /* :, reduce: OrExpr */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S123
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			reduce(7), /* ||, reduce: AndExpr */
+			reduce(7), /* &&, reduce: AndExpr */
+			nil,       /* ( */
+			nil,       /* ) */
+			shift(35), /* == */
+			shift(36), /* != */
+			shift(37), /* < */
+			shift(38), /* <= */
+			shift(39), /* > */
+			shift(40), /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			reduce(7), /* ?, reduce: AndExpr */
+			reduce(7), /* :, reduce: AndExpr */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
+		},
+	},
+	actionRow{ // S124
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			reduce(9), /* ||, reduce: ConditionalExpr */
+			reduce(9), /* &&, reduce: ConditionalExpr */
+			nil,       /* ( */
+			nil,       /* ) */
+			reduce(9), /* ==, reduce: ConditionalExpr */
+			reduce(9), /* !=, reduce: ConditionalExpr */
+			reduce(9), /* <, reduce: ConditionalExpr */
+			reduce(9), /* <=, reduce: ConditionalExpr */
+			reduce(9), /* >, reduce: ConditionalExpr */
+			reduce(9), /* >=, reduce: ConditionalExpr */
+			shift(42), /* + */
+			shift(43), /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			reduce(9), /* ?, reduce: ConditionalExpr */
+			reduce(9), /* :, reduce: ConditionalExpr */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
+		},
+	},
+	actionRow{ // S125
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(11), /* ||, reduce: AddExpr */
+			reduce(11), /* &&, reduce: AddExpr */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(11), /* ==, reduce: AddExpr */
+			reduce(11), /* !=, reduce: AddExpr */
+			reduce(11), /* <, reduce: AddExpr */
+			reduce(11), /* <=, reduce: AddExpr */
+			reduce(11), /* >, reduce: AddExpr */
+			reduce(11), /* >=, reduce: AddExpr */
+			reduce(11), /* +, reduce: AddExpr */
+			reduce(11), /* -, reduce: AddExpr */
+			shift(45),  /* * */
+			shift(46),  /* / */
+			shift(47),  /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(11), /* ?, reduce: AddExpr */
+			reduce(11), /* :, reduce: AddExpr */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S126
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(13), /* ||, reduce: MulExpr */
+			reduce(13), /* &&, reduce: MulExpr */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(13), /* ==, reduce: MulExpr */
+			reduce(13), /* !=, reduce: MulExpr */
+			reduce(13), /* <, reduce: MulExpr */
+			reduce(13), /* <=, reduce: MulExpr */
+			reduce(13), /* >, reduce: MulExpr */
+			reduce(13), /* >=, reduce: MulExpr */
+			reduce(13), /* +, reduce: MulExpr */
+			reduce(13), /* -, reduce: MulExpr */
+			reduce(13), /* *, reduce: MulExpr */
+			reduce(13), /* /, reduce: MulExpr */
+			reduce(13), /* %, reduce: MulExpr */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(13), /* ?, reduce: MulExpr */
+			reduce(13), /* :, reduce: MulExpr */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S127
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(14), /* ||, reduce: ParenthesesExpr */
+			reduce(14), /* &&, reduce: ParenthesesExpr */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(14), /* ==, reduce: ParenthesesExpr */
+			reduce(14), /* !=, reduce: ParenthesesExpr */
+			reduce(14), /* <, reduce: ParenthesesExpr */
+			reduce(14), /* <=, reduce: ParenthesesExpr */
+			reduce(14), /* >, reduce: ParenthesesExpr */
+			reduce(14), /* >=, reduce: ParenthesesExpr */
+			reduce(14), /* +, reduce: ParenthesesExpr */
+			reduce(14), /* -, reduce: ParenthesesExpr */
+			reduce(14), /* *, reduce: ParenthesesExpr */
+			reduce(14), /* /, reduce: ParenthesesExpr */
+			reduce(14), /* %, reduce: ParenthesesExpr */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(14), /* ?, reduce: ParenthesesExpr */
+			reduce(14), /* :, reduce: ParenthesesExpr */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S128
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* || */
+			nil,       /* && */
+			shift(57), /* ( */
+			nil,       /* ) */
+			nil,       /* == */
+			nil,       /* != */
+			nil,       /* < */
+			nil,       /* <= */
+			nil,       /* > */
+			nil,       /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			shift(59), /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			nil,       /* ? */
+			nil,       /* : */
+			shift(69), /* doublequotes_string */
+			shift(70), /* singlequote_string */
+			shift(71), /* number */
+			shift(72), /* argument */
+			shift(73), /* true */
+			shift(74), /* false */
+			shift(75), /* float */
+			shift(76), /* nil */
+			shift(77), /* null */
+		},
+	},
+	actionRow{ // S129
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(36), /* ||, reduce: ExprLiteral */
+			reduce(36), /* &&, reduce: ExprLiteral */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(36), /* ==, reduce: ExprLiteral */
+			reduce(36), /* !=, reduce: ExprLiteral */
+			reduce(36), /* <, reduce: ExprLiteral */
+			reduce(36), /* <=, reduce: ExprLiteral */
+			reduce(36), /* >, reduce: ExprLiteral */
+			reduce(36), /* >=, reduce: ExprLiteral */
+			reduce(36), /* +, reduce: ExprLiteral */
+			reduce(36), /* -, reduce: ExprLiteral */
+			reduce(36), /* *, reduce: ExprLiteral */
+			reduce(36), /* /, reduce: ExprLiteral */
+			reduce(36), /* %, reduce: ExprLiteral */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(36), /* ?, reduce: ExprLiteral */
+			reduce(36), /* :, reduce: ExprLiteral */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S130
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(197), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			shift(198), /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S131
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			shift(199), /* ? */
+			shift(200), /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S132
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(35), /* ||, reduce: ExprLiteral */
+			reduce(35), /* &&, reduce: ExprLiteral */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(35), /* ==, reduce: ExprLiteral */
+			reduce(35), /* !=, reduce: ExprLiteral */
+			reduce(35), /* <, reduce: ExprLiteral */
+			reduce(35), /* <=, reduce: ExprLiteral */
+			reduce(35), /* >, reduce: ExprLiteral */
+			reduce(35), /* >=, reduce: ExprLiteral */
+			reduce(35), /* +, reduce: ExprLiteral */
+			reduce(35), /* -, reduce: ExprLiteral */
+			reduce(35), /* *, reduce: ExprLiteral */
+			reduce(35), /* /, reduce: ExprLiteral */
+			reduce(35), /* %, reduce: ExprLiteral */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(35), /* ?, reduce: ExprLiteral */
+			reduce(35), /* :, reduce: ExprLiteral */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -4804,26 +4804,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
+			reduce(37), /* ||, reduce: Literal */
+			reduce(37), /* &&, reduce: Literal */
 			nil,        /* ( */
-			reduce(42), /* ), reduce: SingleQString */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			nil,        /* ) */
+			reduce(37), /* ==, reduce: Literal */
+			reduce(37), /* !=, reduce: Literal */
+			reduce(37), /* <, reduce: Literal */
+			reduce(37), /* <=, reduce: Literal */
+			reduce(37), /* >, reduce: Literal */
+			reduce(37), /* >=, reduce: Literal */
+			reduce(37), /* +, reduce: Literal */
+			reduce(37), /* -, reduce: Literal */
+			reduce(37), /* *, reduce: Literal */
+			reduce(37), /* /, reduce: Literal */
+			reduce(37), /* %, reduce: Literal */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(42), /* ,, reduce: SingleQString */
-			nil,        /* ? */
-			nil,        /* : */
+			nil,        /* , */
+			reduce(37), /* ?, reduce: Literal */
+			reduce(37), /* :, reduce: Literal */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -4840,26 +4840,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
+			reduce(38), /* ||, reduce: Literal */
+			reduce(38), /* &&, reduce: Literal */
 			nil,        /* ( */
-			reduce(43), /* ), reduce: Int */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			nil,        /* ) */
+			reduce(38), /* ==, reduce: Literal */
+			reduce(38), /* !=, reduce: Literal */
+			reduce(38), /* <, reduce: Literal */
+			reduce(38), /* <=, reduce: Literal */
+			reduce(38), /* >, reduce: Literal */
+			reduce(38), /* >=, reduce: Literal */
+			reduce(38), /* +, reduce: Literal */
+			reduce(38), /* -, reduce: Literal */
+			reduce(38), /* *, reduce: Literal */
+			reduce(38), /* /, reduce: Literal */
+			reduce(38), /* %, reduce: Literal */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(43), /* ,, reduce: Int */
-			nil,        /* ? */
-			nil,        /* : */
+			nil,        /* , */
+			reduce(38), /* ?, reduce: Literal */
+			reduce(38), /* :, reduce: Literal */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -4876,26 +4876,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
+			reduce(39), /* ||, reduce: Literal */
+			reduce(39), /* &&, reduce: Literal */
 			nil,        /* ( */
-			reduce(44), /* ), reduce: MappingRef */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			nil,        /* ) */
+			reduce(39), /* ==, reduce: Literal */
+			reduce(39), /* !=, reduce: Literal */
+			reduce(39), /* <, reduce: Literal */
+			reduce(39), /* <=, reduce: Literal */
+			reduce(39), /* >, reduce: Literal */
+			reduce(39), /* >=, reduce: Literal */
+			reduce(39), /* +, reduce: Literal */
+			reduce(39), /* -, reduce: Literal */
+			reduce(39), /* *, reduce: Literal */
+			reduce(39), /* /, reduce: Literal */
+			reduce(39), /* %, reduce: Literal */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(44), /* ,, reduce: MappingRef */
-			nil,        /* ? */
-			nil,        /* : */
+			nil,        /* , */
+			reduce(39), /* ?, reduce: Literal */
+			reduce(39), /* :, reduce: Literal */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -4912,26 +4912,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
+			reduce(40), /* ||, reduce: Literal */
+			reduce(40), /* &&, reduce: Literal */
 			nil,        /* ( */
-			reduce(45), /* ), reduce: Bool */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			nil,        /* ) */
+			reduce(40), /* ==, reduce: Literal */
+			reduce(40), /* !=, reduce: Literal */
+			reduce(40), /* <, reduce: Literal */
+			reduce(40), /* <=, reduce: Literal */
+			reduce(40), /* >, reduce: Literal */
+			reduce(40), /* >=, reduce: Literal */
+			reduce(40), /* +, reduce: Literal */
+			reduce(40), /* -, reduce: Literal */
+			reduce(40), /* *, reduce: Literal */
+			reduce(40), /* /, reduce: Literal */
+			reduce(40), /* %, reduce: Literal */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(45), /* ,, reduce: Bool */
-			nil,        /* ? */
-			nil,        /* : */
+			nil,        /* , */
+			reduce(40), /* ?, reduce: Literal */
+			reduce(40), /* :, reduce: Literal */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -4948,26 +4948,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
+			reduce(41), /* ||, reduce: Literal */
+			reduce(41), /* &&, reduce: Literal */
 			nil,        /* ( */
-			reduce(46), /* ), reduce: Bool */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			nil,        /* ) */
+			reduce(41), /* ==, reduce: Literal */
+			reduce(41), /* !=, reduce: Literal */
+			reduce(41), /* <, reduce: Literal */
+			reduce(41), /* <=, reduce: Literal */
+			reduce(41), /* >, reduce: Literal */
+			reduce(41), /* >=, reduce: Literal */
+			reduce(41), /* +, reduce: Literal */
+			reduce(41), /* -, reduce: Literal */
+			reduce(41), /* *, reduce: Literal */
+			reduce(41), /* /, reduce: Literal */
+			reduce(41), /* %, reduce: Literal */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(46), /* ,, reduce: Bool */
-			nil,        /* ? */
-			nil,        /* : */
+			nil,        /* , */
+			reduce(41), /* ?, reduce: Literal */
+			reduce(41), /* :, reduce: Literal */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -4984,26 +4984,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
+			reduce(42), /* ||, reduce: Literal */
+			reduce(42), /* &&, reduce: Literal */
 			nil,        /* ( */
-			reduce(47), /* ), reduce: Float */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			nil,        /* ) */
+			reduce(42), /* ==, reduce: Literal */
+			reduce(42), /* !=, reduce: Literal */
+			reduce(42), /* <, reduce: Literal */
+			reduce(42), /* <=, reduce: Literal */
+			reduce(42), /* >, reduce: Literal */
+			reduce(42), /* >=, reduce: Literal */
+			reduce(42), /* +, reduce: Literal */
+			reduce(42), /* -, reduce: Literal */
+			reduce(42), /* *, reduce: Literal */
+			reduce(42), /* /, reduce: Literal */
+			reduce(42), /* %, reduce: Literal */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(47), /* ,, reduce: Float */
-			nil,        /* ? */
-			nil,        /* : */
+			nil,        /* , */
+			reduce(42), /* ?, reduce: Literal */
+			reduce(42), /* :, reduce: Literal */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -5020,26 +5020,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
+			reduce(43), /* ||, reduce: Literal */
+			reduce(43), /* &&, reduce: Literal */
 			nil,        /* ( */
-			reduce(48), /* ), reduce: Nil */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			nil,        /* ) */
+			reduce(43), /* ==, reduce: Literal */
+			reduce(43), /* !=, reduce: Literal */
+			reduce(43), /* <, reduce: Literal */
+			reduce(43), /* <=, reduce: Literal */
+			reduce(43), /* >, reduce: Literal */
+			reduce(43), /* >=, reduce: Literal */
+			reduce(43), /* +, reduce: Literal */
+			reduce(43), /* -, reduce: Literal */
+			reduce(43), /* *, reduce: Literal */
+			reduce(43), /* /, reduce: Literal */
+			reduce(43), /* %, reduce: Literal */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(48), /* ,, reduce: Nil */
-			nil,        /* ? */
-			nil,        /* : */
+			nil,        /* , */
+			reduce(43), /* ?, reduce: Literal */
+			reduce(43), /* :, reduce: Literal */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -5056,26 +5056,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
+			reduce(44), /* ||, reduce: DoubleQString */
+			reduce(44), /* &&, reduce: DoubleQString */
 			nil,        /* ( */
-			reduce(49), /* ), reduce: Nil */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			nil,        /* ) */
+			reduce(44), /* ==, reduce: DoubleQString */
+			reduce(44), /* !=, reduce: DoubleQString */
+			reduce(44), /* <, reduce: DoubleQString */
+			reduce(44), /* <=, reduce: DoubleQString */
+			reduce(44), /* >, reduce: DoubleQString */
+			reduce(44), /* >=, reduce: DoubleQString */
+			reduce(44), /* +, reduce: DoubleQString */
+			reduce(44), /* -, reduce: DoubleQString */
+			reduce(44), /* *, reduce: DoubleQString */
+			reduce(44), /* /, reduce: DoubleQString */
+			reduce(44), /* %, reduce: DoubleQString */
 			nil,        /* function_name */
 			nil,        /* () */
-			reduce(49), /* ,, reduce: Nil */
-			nil,        /* ? */
-			nil,        /* : */
+			nil,        /* , */
+			reduce(44), /* ?, reduce: DoubleQString */
+			reduce(44), /* :, reduce: DoubleQString */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -5092,35 +5092,35 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			shift(169), /* ( */
+			reduce(45), /* ||, reduce: SingleQString */
+			reduce(45), /* &&, reduce: SingleQString */
+			nil,        /* ( */
 			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			shift(171), /* function_name */
+			reduce(45), /* ==, reduce: SingleQString */
+			reduce(45), /* !=, reduce: SingleQString */
+			reduce(45), /* <, reduce: SingleQString */
+			reduce(45), /* <=, reduce: SingleQString */
+			reduce(45), /* >, reduce: SingleQString */
+			reduce(45), /* >=, reduce: SingleQString */
+			reduce(45), /* +, reduce: SingleQString */
+			reduce(45), /* -, reduce: SingleQString */
+			reduce(45), /* *, reduce: SingleQString */
+			reduce(45), /* /, reduce: SingleQString */
+			reduce(45), /* %, reduce: SingleQString */
+			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			shift(180), /* doublequotes_string */
-			shift(181), /* singlequote_string */
-			shift(182), /* number */
-			shift(183), /* argument */
-			shift(184), /* true */
-			shift(185), /* false */
-			shift(186), /* float */
-			shift(187), /* nil */
-			shift(188), /* null */
+			reduce(45), /* ?, reduce: SingleQString */
+			reduce(45), /* :, reduce: SingleQString */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
 		},
 	},
 	actionRow{ // S142
@@ -5128,35 +5128,35 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			shift(86),  /* ( */
+			reduce(46), /* ||, reduce: Int */
+			reduce(46), /* &&, reduce: Int */
+			nil,        /* ( */
 			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			shift(88),  /* function_name */
+			reduce(46), /* ==, reduce: Int */
+			reduce(46), /* !=, reduce: Int */
+			reduce(46), /* <, reduce: Int */
+			reduce(46), /* <=, reduce: Int */
+			reduce(46), /* >, reduce: Int */
+			reduce(46), /* >=, reduce: Int */
+			reduce(46), /* +, reduce: Int */
+			reduce(46), /* -, reduce: Int */
+			reduce(46), /* *, reduce: Int */
+			reduce(46), /* /, reduce: Int */
+			reduce(46), /* %, reduce: Int */
+			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			shift(97),  /* doublequotes_string */
-			shift(98),  /* singlequote_string */
-			shift(99),  /* number */
-			shift(100), /* argument */
-			shift(101), /* true */
-			shift(102), /* false */
-			shift(103), /* float */
-			shift(104), /* nil */
-			shift(105), /* null */
+			reduce(46), /* ?, reduce: Int */
+			reduce(46), /* :, reduce: Int */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
 		},
 	},
 	actionRow{ // S143
@@ -5164,35 +5164,35 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			shift(86),  /* ( */
+			reduce(47), /* ||, reduce: MappingRef */
+			reduce(47), /* &&, reduce: MappingRef */
+			nil,        /* ( */
 			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			shift(88),  /* function_name */
+			reduce(47), /* ==, reduce: MappingRef */
+			reduce(47), /* !=, reduce: MappingRef */
+			reduce(47), /* <, reduce: MappingRef */
+			reduce(47), /* <=, reduce: MappingRef */
+			reduce(47), /* >, reduce: MappingRef */
+			reduce(47), /* >=, reduce: MappingRef */
+			reduce(47), /* +, reduce: MappingRef */
+			reduce(47), /* -, reduce: MappingRef */
+			reduce(47), /* *, reduce: MappingRef */
+			reduce(47), /* /, reduce: MappingRef */
+			reduce(47), /* %, reduce: MappingRef */
+			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			shift(97),  /* doublequotes_string */
-			shift(98),  /* singlequote_string */
-			shift(99),  /* number */
-			shift(100), /* argument */
-			shift(101), /* true */
-			shift(102), /* false */
-			shift(103), /* float */
-			shift(104), /* nil */
-			shift(105), /* null */
+			reduce(47), /* ?, reduce: MappingRef */
+			reduce(47), /* :, reduce: MappingRef */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
 		},
 	},
 	actionRow{ // S144
@@ -5200,35 +5200,35 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			shift(86),  /* ( */
+			reduce(48), /* ||, reduce: Bool */
+			reduce(48), /* &&, reduce: Bool */
+			nil,        /* ( */
 			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			shift(88),  /* function_name */
+			reduce(48), /* ==, reduce: Bool */
+			reduce(48), /* !=, reduce: Bool */
+			reduce(48), /* <, reduce: Bool */
+			reduce(48), /* <=, reduce: Bool */
+			reduce(48), /* >, reduce: Bool */
+			reduce(48), /* >=, reduce: Bool */
+			reduce(48), /* +, reduce: Bool */
+			reduce(48), /* -, reduce: Bool */
+			reduce(48), /* *, reduce: Bool */
+			reduce(48), /* /, reduce: Bool */
+			reduce(48), /* %, reduce: Bool */
+			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			shift(97),  /* doublequotes_string */
-			shift(98),  /* singlequote_string */
-			shift(99),  /* number */
-			shift(100), /* argument */
-			shift(101), /* true */
-			shift(102), /* false */
-			shift(103), /* float */
-			shift(104), /* nil */
-			shift(105), /* null */
+			reduce(48), /* ?, reduce: Bool */
+			reduce(48), /* :, reduce: Bool */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
 		},
 	},
 	actionRow{ // S145
@@ -5236,35 +5236,35 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			shift(86),  /* ( */
+			reduce(49), /* ||, reduce: Bool */
+			reduce(49), /* &&, reduce: Bool */
+			nil,        /* ( */
 			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			shift(88),  /* function_name */
+			reduce(49), /* ==, reduce: Bool */
+			reduce(49), /* !=, reduce: Bool */
+			reduce(49), /* <, reduce: Bool */
+			reduce(49), /* <=, reduce: Bool */
+			reduce(49), /* >, reduce: Bool */
+			reduce(49), /* >=, reduce: Bool */
+			reduce(49), /* +, reduce: Bool */
+			reduce(49), /* -, reduce: Bool */
+			reduce(49), /* *, reduce: Bool */
+			reduce(49), /* /, reduce: Bool */
+			reduce(49), /* %, reduce: Bool */
+			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			shift(97),  /* doublequotes_string */
-			shift(98),  /* singlequote_string */
-			shift(99),  /* number */
-			shift(100), /* argument */
-			shift(101), /* true */
-			shift(102), /* false */
-			shift(103), /* float */
-			shift(104), /* nil */
-			shift(105), /* null */
+			reduce(49), /* ?, reduce: Bool */
+			reduce(49), /* :, reduce: Bool */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
 		},
 	},
 	actionRow{ // S146
@@ -5272,35 +5272,35 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			shift(86),  /* ( */
+			reduce(50), /* ||, reduce: Float */
+			reduce(50), /* &&, reduce: Float */
+			nil,        /* ( */
 			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			shift(88),  /* function_name */
+			reduce(50), /* ==, reduce: Float */
+			reduce(50), /* !=, reduce: Float */
+			reduce(50), /* <, reduce: Float */
+			reduce(50), /* <=, reduce: Float */
+			reduce(50), /* >, reduce: Float */
+			reduce(50), /* >=, reduce: Float */
+			reduce(50), /* +, reduce: Float */
+			reduce(50), /* -, reduce: Float */
+			reduce(50), /* *, reduce: Float */
+			reduce(50), /* /, reduce: Float */
+			reduce(50), /* %, reduce: Float */
+			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			shift(97),  /* doublequotes_string */
-			shift(98),  /* singlequote_string */
-			shift(99),  /* number */
-			shift(100), /* argument */
-			shift(101), /* true */
-			shift(102), /* false */
-			shift(103), /* float */
-			shift(104), /* nil */
-			shift(105), /* null */
+			reduce(50), /* ?, reduce: Float */
+			reduce(50), /* :, reduce: Float */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
 		},
 	},
 	actionRow{ // S147
@@ -5308,26 +5308,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
+			reduce(51), /* ||, reduce: Nil */
+			reduce(51), /* &&, reduce: Nil */
 			nil,        /* ( */
-			shift(194), /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			nil,        /* ) */
+			reduce(51), /* ==, reduce: Nil */
+			reduce(51), /* !=, reduce: Nil */
+			reduce(51), /* <, reduce: Nil */
+			reduce(51), /* <=, reduce: Nil */
+			reduce(51), /* >, reduce: Nil */
+			reduce(51), /* >=, reduce: Nil */
+			reduce(51), /* +, reduce: Nil */
+			reduce(51), /* -, reduce: Nil */
+			reduce(51), /* *, reduce: Nil */
+			reduce(51), /* /, reduce: Nil */
+			reduce(51), /* %, reduce: Nil */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
+			reduce(51), /* ?, reduce: Nil */
+			reduce(51), /* :, reduce: Nil */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -5344,62 +5344,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
+			reduce(52), /* ||, reduce: Nil */
+			reduce(52), /* &&, reduce: Nil */
 			nil,        /* ( */
 			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			shift(122), /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			shift(132), /* doublequotes_string */
-			shift(133), /* singlequote_string */
-			shift(134), /* number */
-			shift(135), /* argument */
-			shift(136), /* true */
-			shift(137), /* false */
-			shift(138), /* float */
-			shift(139), /* nil */
-			shift(140), /* null */
-		},
-	},
-	actionRow{ // S149
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			reduce(28), /* ||, reduce: Func */
-			reduce(28), /* &&, reduce: Func */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(28), /* ==, reduce: Func */
-			reduce(28), /* !=, reduce: Func */
-			reduce(28), /* <, reduce: Func */
-			reduce(28), /* <=, reduce: Func */
-			reduce(28), /* >, reduce: Func */
-			reduce(28), /* >=, reduce: Func */
-			reduce(28), /* +, reduce: Func */
-			reduce(28), /* -, reduce: Func */
-			reduce(28), /* *, reduce: Func */
-			reduce(28), /* /, reduce: Func */
-			reduce(28), /* %, reduce: Func */
+			reduce(52), /* ==, reduce: Nil */
+			reduce(52), /* !=, reduce: Nil */
+			reduce(52), /* <, reduce: Nil */
+			reduce(52), /* <=, reduce: Nil */
+			reduce(52), /* >, reduce: Nil */
+			reduce(52), /* >=, reduce: Nil */
+			reduce(52), /* +, reduce: Nil */
+			reduce(52), /* -, reduce: Nil */
+			reduce(52), /* *, reduce: Nil */
+			reduce(52), /* /, reduce: Nil */
+			reduce(52), /* %, reduce: Nil */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
-			reduce(28), /* :, reduce: Func */
+			reduce(52), /* ?, reduce: Nil */
+			reduce(52), /* :, reduce: Nil */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -5411,15 +5375,51 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
+	actionRow{ // S149
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* || */
+			nil,       /* && */
+			nil,       /* ( */
+			shift(87), /* ) */
+			nil,       /* == */
+			nil,       /* != */
+			nil,       /* < */
+			nil,       /* <= */
+			nil,       /* > */
+			nil,       /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			nil,       /* ? */
+			nil,       /* : */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
+		},
+	},
 	actionRow{ // S150
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(4),  /* ||, reduce: OrExpr */
-			shift(113), /* && */
+			shift(201), /* || */
+			nil,        /* && */
 			nil,        /* ( */
-			reduce(4),  /* ), reduce: OrExpr */
+			reduce(3),  /* ), reduce: Expr */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -5450,12 +5450,48 @@ var actionTab = actionTable{
 	actionRow{ // S151
 		canRecover: false,
 		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(5),  /* ||, reduce: OrExpr */
+			shift(202), /* && */
+			nil,        /* ( */
+			reduce(5),  /* ), reduce: OrExpr */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S152
+		canRecover: false,
+		actions: [numSymbols]action{
 			nil,       /* INVALID */
 			nil,       /* $ */
-			reduce(6), /* ||, reduce: AndExpr */
-			reduce(6), /* &&, reduce: AndExpr */
+			reduce(7), /* ||, reduce: AndExpr */
+			reduce(7), /* &&, reduce: AndExpr */
 			nil,       /* ( */
-			reduce(6), /* ), reduce: AndExpr */
+			reduce(7), /* ), reduce: AndExpr */
 			shift(35), /* == */
 			shift(36), /* != */
 			shift(37), /* < */
@@ -5483,7 +5519,979 @@ var actionTab = actionTable{
 			nil,       /* null */
 		},
 	},
-	actionRow{ // S152
+	actionRow{ // S153
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			reduce(9), /* ||, reduce: ConditionalExpr */
+			reduce(9), /* &&, reduce: ConditionalExpr */
+			nil,       /* ( */
+			reduce(9), /* ), reduce: ConditionalExpr */
+			reduce(9), /* ==, reduce: ConditionalExpr */
+			reduce(9), /* !=, reduce: ConditionalExpr */
+			reduce(9), /* <, reduce: ConditionalExpr */
+			reduce(9), /* <=, reduce: ConditionalExpr */
+			reduce(9), /* >, reduce: ConditionalExpr */
+			reduce(9), /* >=, reduce: ConditionalExpr */
+			shift(42), /* + */
+			shift(43), /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			nil,       /* ? */
+			nil,       /* : */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
+		},
+	},
+	actionRow{ // S154
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(11), /* ||, reduce: AddExpr */
+			reduce(11), /* &&, reduce: AddExpr */
+			nil,        /* ( */
+			reduce(11), /* ), reduce: AddExpr */
+			reduce(11), /* ==, reduce: AddExpr */
+			reduce(11), /* !=, reduce: AddExpr */
+			reduce(11), /* <, reduce: AddExpr */
+			reduce(11), /* <=, reduce: AddExpr */
+			reduce(11), /* >, reduce: AddExpr */
+			reduce(11), /* >=, reduce: AddExpr */
+			reduce(11), /* +, reduce: AddExpr */
+			reduce(11), /* -, reduce: AddExpr */
+			shift(45),  /* * */
+			shift(46),  /* / */
+			shift(47),  /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S155
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(13), /* ||, reduce: MulExpr */
+			reduce(13), /* &&, reduce: MulExpr */
+			nil,        /* ( */
+			reduce(13), /* ), reduce: MulExpr */
+			reduce(13), /* ==, reduce: MulExpr */
+			reduce(13), /* !=, reduce: MulExpr */
+			reduce(13), /* <, reduce: MulExpr */
+			reduce(13), /* <=, reduce: MulExpr */
+			reduce(13), /* >, reduce: MulExpr */
+			reduce(13), /* >=, reduce: MulExpr */
+			reduce(13), /* +, reduce: MulExpr */
+			reduce(13), /* -, reduce: MulExpr */
+			reduce(13), /* *, reduce: MulExpr */
+			reduce(13), /* /, reduce: MulExpr */
+			reduce(13), /* %, reduce: MulExpr */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S156
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(14), /* ||, reduce: ParenthesesExpr */
+			reduce(14), /* &&, reduce: ParenthesesExpr */
+			nil,        /* ( */
+			reduce(14), /* ), reduce: ParenthesesExpr */
+			reduce(14), /* ==, reduce: ParenthesesExpr */
+			reduce(14), /* !=, reduce: ParenthesesExpr */
+			reduce(14), /* <, reduce: ParenthesesExpr */
+			reduce(14), /* <=, reduce: ParenthesesExpr */
+			reduce(14), /* >, reduce: ParenthesesExpr */
+			reduce(14), /* >=, reduce: ParenthesesExpr */
+			reduce(14), /* +, reduce: ParenthesesExpr */
+			reduce(14), /* -, reduce: ParenthesesExpr */
+			reduce(14), /* *, reduce: ParenthesesExpr */
+			reduce(14), /* /, reduce: ParenthesesExpr */
+			reduce(14), /* %, reduce: ParenthesesExpr */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S157
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(157), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(159), /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(168), /* doublequotes_string */
+			shift(169), /* singlequote_string */
+			shift(170), /* number */
+			shift(171), /* argument */
+			shift(172), /* true */
+			shift(173), /* false */
+			shift(174), /* float */
+			shift(175), /* nil */
+			shift(176), /* null */
+		},
+	},
+	actionRow{ // S158
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(36), /* ||, reduce: ExprLiteral */
+			reduce(36), /* &&, reduce: ExprLiteral */
+			nil,        /* ( */
+			reduce(36), /* ), reduce: ExprLiteral */
+			reduce(36), /* ==, reduce: ExprLiteral */
+			reduce(36), /* !=, reduce: ExprLiteral */
+			reduce(36), /* <, reduce: ExprLiteral */
+			reduce(36), /* <=, reduce: ExprLiteral */
+			reduce(36), /* >, reduce: ExprLiteral */
+			reduce(36), /* >=, reduce: ExprLiteral */
+			reduce(36), /* +, reduce: ExprLiteral */
+			reduce(36), /* -, reduce: ExprLiteral */
+			reduce(36), /* *, reduce: ExprLiteral */
+			reduce(36), /* /, reduce: ExprLiteral */
+			reduce(36), /* %, reduce: ExprLiteral */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S159
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(207), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			shift(208), /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S160
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(35), /* ||, reduce: ExprLiteral */
+			reduce(35), /* &&, reduce: ExprLiteral */
+			nil,        /* ( */
+			reduce(35), /* ), reduce: ExprLiteral */
+			reduce(35), /* ==, reduce: ExprLiteral */
+			reduce(35), /* !=, reduce: ExprLiteral */
+			reduce(35), /* <, reduce: ExprLiteral */
+			reduce(35), /* <=, reduce: ExprLiteral */
+			reduce(35), /* >, reduce: ExprLiteral */
+			reduce(35), /* >=, reduce: ExprLiteral */
+			reduce(35), /* +, reduce: ExprLiteral */
+			reduce(35), /* -, reduce: ExprLiteral */
+			reduce(35), /* *, reduce: ExprLiteral */
+			reduce(35), /* /, reduce: ExprLiteral */
+			reduce(35), /* %, reduce: ExprLiteral */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S161
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(37), /* ||, reduce: Literal */
+			reduce(37), /* &&, reduce: Literal */
+			nil,        /* ( */
+			reduce(37), /* ), reduce: Literal */
+			reduce(37), /* ==, reduce: Literal */
+			reduce(37), /* !=, reduce: Literal */
+			reduce(37), /* <, reduce: Literal */
+			reduce(37), /* <=, reduce: Literal */
+			reduce(37), /* >, reduce: Literal */
+			reduce(37), /* >=, reduce: Literal */
+			reduce(37), /* +, reduce: Literal */
+			reduce(37), /* -, reduce: Literal */
+			reduce(37), /* *, reduce: Literal */
+			reduce(37), /* /, reduce: Literal */
+			reduce(37), /* %, reduce: Literal */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S162
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(38), /* ||, reduce: Literal */
+			reduce(38), /* &&, reduce: Literal */
+			nil,        /* ( */
+			reduce(38), /* ), reduce: Literal */
+			reduce(38), /* ==, reduce: Literal */
+			reduce(38), /* !=, reduce: Literal */
+			reduce(38), /* <, reduce: Literal */
+			reduce(38), /* <=, reduce: Literal */
+			reduce(38), /* >, reduce: Literal */
+			reduce(38), /* >=, reduce: Literal */
+			reduce(38), /* +, reduce: Literal */
+			reduce(38), /* -, reduce: Literal */
+			reduce(38), /* *, reduce: Literal */
+			reduce(38), /* /, reduce: Literal */
+			reduce(38), /* %, reduce: Literal */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S163
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(39), /* ||, reduce: Literal */
+			reduce(39), /* &&, reduce: Literal */
+			nil,        /* ( */
+			reduce(39), /* ), reduce: Literal */
+			reduce(39), /* ==, reduce: Literal */
+			reduce(39), /* !=, reduce: Literal */
+			reduce(39), /* <, reduce: Literal */
+			reduce(39), /* <=, reduce: Literal */
+			reduce(39), /* >, reduce: Literal */
+			reduce(39), /* >=, reduce: Literal */
+			reduce(39), /* +, reduce: Literal */
+			reduce(39), /* -, reduce: Literal */
+			reduce(39), /* *, reduce: Literal */
+			reduce(39), /* /, reduce: Literal */
+			reduce(39), /* %, reduce: Literal */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S164
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(40), /* ||, reduce: Literal */
+			reduce(40), /* &&, reduce: Literal */
+			nil,        /* ( */
+			reduce(40), /* ), reduce: Literal */
+			reduce(40), /* ==, reduce: Literal */
+			reduce(40), /* !=, reduce: Literal */
+			reduce(40), /* <, reduce: Literal */
+			reduce(40), /* <=, reduce: Literal */
+			reduce(40), /* >, reduce: Literal */
+			reduce(40), /* >=, reduce: Literal */
+			reduce(40), /* +, reduce: Literal */
+			reduce(40), /* -, reduce: Literal */
+			reduce(40), /* *, reduce: Literal */
+			reduce(40), /* /, reduce: Literal */
+			reduce(40), /* %, reduce: Literal */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S165
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(41), /* ||, reduce: Literal */
+			reduce(41), /* &&, reduce: Literal */
+			nil,        /* ( */
+			reduce(41), /* ), reduce: Literal */
+			reduce(41), /* ==, reduce: Literal */
+			reduce(41), /* !=, reduce: Literal */
+			reduce(41), /* <, reduce: Literal */
+			reduce(41), /* <=, reduce: Literal */
+			reduce(41), /* >, reduce: Literal */
+			reduce(41), /* >=, reduce: Literal */
+			reduce(41), /* +, reduce: Literal */
+			reduce(41), /* -, reduce: Literal */
+			reduce(41), /* *, reduce: Literal */
+			reduce(41), /* /, reduce: Literal */
+			reduce(41), /* %, reduce: Literal */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S166
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(42), /* ||, reduce: Literal */
+			reduce(42), /* &&, reduce: Literal */
+			nil,        /* ( */
+			reduce(42), /* ), reduce: Literal */
+			reduce(42), /* ==, reduce: Literal */
+			reduce(42), /* !=, reduce: Literal */
+			reduce(42), /* <, reduce: Literal */
+			reduce(42), /* <=, reduce: Literal */
+			reduce(42), /* >, reduce: Literal */
+			reduce(42), /* >=, reduce: Literal */
+			reduce(42), /* +, reduce: Literal */
+			reduce(42), /* -, reduce: Literal */
+			reduce(42), /* *, reduce: Literal */
+			reduce(42), /* /, reduce: Literal */
+			reduce(42), /* %, reduce: Literal */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S167
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(43), /* ||, reduce: Literal */
+			reduce(43), /* &&, reduce: Literal */
+			nil,        /* ( */
+			reduce(43), /* ), reduce: Literal */
+			reduce(43), /* ==, reduce: Literal */
+			reduce(43), /* !=, reduce: Literal */
+			reduce(43), /* <, reduce: Literal */
+			reduce(43), /* <=, reduce: Literal */
+			reduce(43), /* >, reduce: Literal */
+			reduce(43), /* >=, reduce: Literal */
+			reduce(43), /* +, reduce: Literal */
+			reduce(43), /* -, reduce: Literal */
+			reduce(43), /* *, reduce: Literal */
+			reduce(43), /* /, reduce: Literal */
+			reduce(43), /* %, reduce: Literal */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S168
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(44), /* ||, reduce: DoubleQString */
+			reduce(44), /* &&, reduce: DoubleQString */
+			nil,        /* ( */
+			reduce(44), /* ), reduce: DoubleQString */
+			reduce(44), /* ==, reduce: DoubleQString */
+			reduce(44), /* !=, reduce: DoubleQString */
+			reduce(44), /* <, reduce: DoubleQString */
+			reduce(44), /* <=, reduce: DoubleQString */
+			reduce(44), /* >, reduce: DoubleQString */
+			reduce(44), /* >=, reduce: DoubleQString */
+			reduce(44), /* +, reduce: DoubleQString */
+			reduce(44), /* -, reduce: DoubleQString */
+			reduce(44), /* *, reduce: DoubleQString */
+			reduce(44), /* /, reduce: DoubleQString */
+			reduce(44), /* %, reduce: DoubleQString */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S169
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(45), /* ||, reduce: SingleQString */
+			reduce(45), /* &&, reduce: SingleQString */
+			nil,        /* ( */
+			reduce(45), /* ), reduce: SingleQString */
+			reduce(45), /* ==, reduce: SingleQString */
+			reduce(45), /* !=, reduce: SingleQString */
+			reduce(45), /* <, reduce: SingleQString */
+			reduce(45), /* <=, reduce: SingleQString */
+			reduce(45), /* >, reduce: SingleQString */
+			reduce(45), /* >=, reduce: SingleQString */
+			reduce(45), /* +, reduce: SingleQString */
+			reduce(45), /* -, reduce: SingleQString */
+			reduce(45), /* *, reduce: SingleQString */
+			reduce(45), /* /, reduce: SingleQString */
+			reduce(45), /* %, reduce: SingleQString */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S170
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(46), /* ||, reduce: Int */
+			reduce(46), /* &&, reduce: Int */
+			nil,        /* ( */
+			reduce(46), /* ), reduce: Int */
+			reduce(46), /* ==, reduce: Int */
+			reduce(46), /* !=, reduce: Int */
+			reduce(46), /* <, reduce: Int */
+			reduce(46), /* <=, reduce: Int */
+			reduce(46), /* >, reduce: Int */
+			reduce(46), /* >=, reduce: Int */
+			reduce(46), /* +, reduce: Int */
+			reduce(46), /* -, reduce: Int */
+			reduce(46), /* *, reduce: Int */
+			reduce(46), /* /, reduce: Int */
+			reduce(46), /* %, reduce: Int */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S171
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(47), /* ||, reduce: MappingRef */
+			reduce(47), /* &&, reduce: MappingRef */
+			nil,        /* ( */
+			reduce(47), /* ), reduce: MappingRef */
+			reduce(47), /* ==, reduce: MappingRef */
+			reduce(47), /* !=, reduce: MappingRef */
+			reduce(47), /* <, reduce: MappingRef */
+			reduce(47), /* <=, reduce: MappingRef */
+			reduce(47), /* >, reduce: MappingRef */
+			reduce(47), /* >=, reduce: MappingRef */
+			reduce(47), /* +, reduce: MappingRef */
+			reduce(47), /* -, reduce: MappingRef */
+			reduce(47), /* *, reduce: MappingRef */
+			reduce(47), /* /, reduce: MappingRef */
+			reduce(47), /* %, reduce: MappingRef */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S172
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(48), /* ||, reduce: Bool */
+			reduce(48), /* &&, reduce: Bool */
+			nil,        /* ( */
+			reduce(48), /* ), reduce: Bool */
+			reduce(48), /* ==, reduce: Bool */
+			reduce(48), /* !=, reduce: Bool */
+			reduce(48), /* <, reduce: Bool */
+			reduce(48), /* <=, reduce: Bool */
+			reduce(48), /* >, reduce: Bool */
+			reduce(48), /* >=, reduce: Bool */
+			reduce(48), /* +, reduce: Bool */
+			reduce(48), /* -, reduce: Bool */
+			reduce(48), /* *, reduce: Bool */
+			reduce(48), /* /, reduce: Bool */
+			reduce(48), /* %, reduce: Bool */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S173
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(49), /* ||, reduce: Bool */
+			reduce(49), /* &&, reduce: Bool */
+			nil,        /* ( */
+			reduce(49), /* ), reduce: Bool */
+			reduce(49), /* ==, reduce: Bool */
+			reduce(49), /* !=, reduce: Bool */
+			reduce(49), /* <, reduce: Bool */
+			reduce(49), /* <=, reduce: Bool */
+			reduce(49), /* >, reduce: Bool */
+			reduce(49), /* >=, reduce: Bool */
+			reduce(49), /* +, reduce: Bool */
+			reduce(49), /* -, reduce: Bool */
+			reduce(49), /* *, reduce: Bool */
+			reduce(49), /* /, reduce: Bool */
+			reduce(49), /* %, reduce: Bool */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S174
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(50), /* ||, reduce: Float */
+			reduce(50), /* &&, reduce: Float */
+			nil,        /* ( */
+			reduce(50), /* ), reduce: Float */
+			reduce(50), /* ==, reduce: Float */
+			reduce(50), /* !=, reduce: Float */
+			reduce(50), /* <, reduce: Float */
+			reduce(50), /* <=, reduce: Float */
+			reduce(50), /* >, reduce: Float */
+			reduce(50), /* >=, reduce: Float */
+			reduce(50), /* +, reduce: Float */
+			reduce(50), /* -, reduce: Float */
+			reduce(50), /* *, reduce: Float */
+			reduce(50), /* /, reduce: Float */
+			reduce(50), /* %, reduce: Float */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S175
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(51), /* ||, reduce: Nil */
+			reduce(51), /* &&, reduce: Nil */
+			nil,        /* ( */
+			reduce(51), /* ), reduce: Nil */
+			reduce(51), /* ==, reduce: Nil */
+			reduce(51), /* !=, reduce: Nil */
+			reduce(51), /* <, reduce: Nil */
+			reduce(51), /* <=, reduce: Nil */
+			reduce(51), /* >, reduce: Nil */
+			reduce(51), /* >=, reduce: Nil */
+			reduce(51), /* +, reduce: Nil */
+			reduce(51), /* -, reduce: Nil */
+			reduce(51), /* *, reduce: Nil */
+			reduce(51), /* /, reduce: Nil */
+			reduce(51), /* %, reduce: Nil */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S176
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(52), /* ||, reduce: Nil */
+			reduce(52), /* &&, reduce: Nil */
+			nil,        /* ( */
+			reduce(52), /* ), reduce: Nil */
+			reduce(52), /* ==, reduce: Nil */
+			reduce(52), /* !=, reduce: Nil */
+			reduce(52), /* <, reduce: Nil */
+			reduce(52), /* <=, reduce: Nil */
+			reduce(52), /* >, reduce: Nil */
+			reduce(52), /* >=, reduce: Nil */
+			reduce(52), /* +, reduce: Nil */
+			reduce(52), /* -, reduce: Nil */
+			reduce(52), /* *, reduce: Nil */
+			reduce(52), /* /, reduce: Nil */
+			reduce(52), /* %, reduce: Nil */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S177
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			reduce(4), /* ||, reduce: OrExpr */
+			shift(90), /* && */
+			nil,       /* ( */
+			reduce(4), /* ), reduce: OrExpr */
+			nil,       /* == */
+			nil,       /* != */
+			nil,       /* < */
+			nil,       /* <= */
+			nil,       /* > */
+			nil,       /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			reduce(4), /* ?, reduce: OrExpr */
+			nil,       /* : */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
+		},
+	},
+	actionRow{ // S178
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(157), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(159), /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(168), /* doublequotes_string */
+			shift(169), /* singlequote_string */
+			shift(170), /* number */
+			shift(171), /* argument */
+			shift(172), /* true */
+			shift(173), /* false */
+			shift(174), /* float */
+			shift(175), /* nil */
+			shift(176), /* null */
+		},
+	},
+	actionRow{ // S179
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			reduce(6), /* ||, reduce: AndExpr */
+			reduce(6), /* &&, reduce: AndExpr */
+			nil,       /* ( */
+			reduce(6), /* ), reduce: AndExpr */
+			shift(35), /* == */
+			shift(36), /* != */
+			shift(37), /* < */
+			shift(38), /* <= */
+			shift(39), /* > */
+			shift(40), /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			reduce(6), /* ?, reduce: AndExpr */
+			nil,       /* : */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
+		},
+	},
+	actionRow{ // S180
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -5506,7 +6514,7 @@ var actionTab = actionTable{
 			nil,       /* function_name */
 			nil,       /* () */
 			nil,       /* , */
-			nil,       /* ? */
+			reduce(8), /* ?, reduce: ConditionalExpr */
 			nil,       /* : */
 			nil,       /* doublequotes_string */
 			nil,       /* singlequote_string */
@@ -5519,7 +6527,7 @@ var actionTab = actionTable{
 			nil,       /* null */
 		},
 	},
-	actionRow{ // S153
+	actionRow{ // S181
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -5542,7 +6550,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(10), /* ?, reduce: AddExpr */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -5555,7 +6563,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S154
+	actionRow{ // S182
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -5578,7 +6586,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(12), /* ?, reduce: MulExpr */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -5591,7 +6599,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S155
+	actionRow{ // S183
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -5614,7 +6622,7 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(15), /* ?, reduce: ParenthesesExpr */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -5627,7 +6635,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S156
+	actionRow{ // S184
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -5635,7 +6643,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			shift(196), /* ) */
+			shift(210), /* ) */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -5649,7 +6657,7 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
-			shift(160), /* , */
+			shift(189), /* , */
 			nil,        /* ? */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
@@ -5663,7 +6671,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S157
+	actionRow{ // S185
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -5683,23 +6691,59 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(122), /* function_name */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			shift(199), /* ? */
+			shift(211), /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S186
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(100), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
-			shift(132), /* doublequotes_string */
-			shift(133), /* singlequote_string */
-			shift(134), /* number */
-			shift(135), /* argument */
-			shift(136), /* true */
-			shift(137), /* false */
-			shift(138), /* float */
-			shift(139), /* nil */
-			shift(140), /* null */
+			shift(110), /* doublequotes_string */
+			shift(111), /* singlequote_string */
+			shift(112), /* number */
+			shift(113), /* argument */
+			shift(114), /* true */
+			shift(115), /* false */
+			shift(116), /* float */
+			shift(117), /* nil */
+			shift(118), /* null */
 		},
 	},
-	actionRow{ // S158
+	actionRow{ // S187
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -5735,7 +6779,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S159
+	actionRow{ // S188
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -5771,1057 +6815,13 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S160
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			nil,        /* ( */
-			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			shift(122), /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			shift(132), /* doublequotes_string */
-			shift(133), /* singlequote_string */
-			shift(134), /* number */
-			shift(135), /* argument */
-			shift(136), /* true */
-			shift(137), /* false */
-			shift(138), /* float */
-			shift(139), /* nil */
-			shift(140), /* null */
-		},
-	},
-	actionRow{ // S161
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(31), /* $, reduce: TernaryExpr */
-			nil,        /* || */
-			nil,        /* && */
-			nil,        /* ( */
-			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S162
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(3),  /* $, reduce: Expr */
-			shift(199), /* || */
-			nil,        /* && */
-			nil,        /* ( */
-			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S163
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(5),  /* $, reduce: OrExpr */
-			reduce(5),  /* ||, reduce: OrExpr */
-			shift(200), /* && */
-			nil,        /* ( */
-			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S164
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			reduce(7), /* $, reduce: AndExpr */
-			reduce(7), /* ||, reduce: AndExpr */
-			reduce(7), /* &&, reduce: AndExpr */
-			nil,       /* ( */
-			nil,       /* ) */
-			shift(35), /* == */
-			shift(36), /* != */
-			shift(37), /* < */
-			shift(38), /* <= */
-			shift(39), /* > */
-			shift(40), /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			nil,       /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			nil,       /* doublequotes_string */
-			nil,       /* singlequote_string */
-			nil,       /* number */
-			nil,       /* argument */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* float */
-			nil,       /* nil */
-			nil,       /* null */
-		},
-	},
-	actionRow{ // S165
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			reduce(9), /* $, reduce: ConditionalExpr */
-			reduce(9), /* ||, reduce: ConditionalExpr */
-			reduce(9), /* &&, reduce: ConditionalExpr */
-			nil,       /* ( */
-			nil,       /* ) */
-			reduce(9), /* ==, reduce: ConditionalExpr */
-			reduce(9), /* !=, reduce: ConditionalExpr */
-			reduce(9), /* <, reduce: ConditionalExpr */
-			reduce(9), /* <=, reduce: ConditionalExpr */
-			reduce(9), /* >, reduce: ConditionalExpr */
-			reduce(9), /* >=, reduce: ConditionalExpr */
-			shift(42), /* + */
-			shift(43), /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			nil,       /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			nil,       /* doublequotes_string */
-			nil,       /* singlequote_string */
-			nil,       /* number */
-			nil,       /* argument */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* float */
-			nil,       /* nil */
-			nil,       /* null */
-		},
-	},
-	actionRow{ // S166
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(11), /* $, reduce: AddExpr */
-			reduce(11), /* ||, reduce: AddExpr */
-			reduce(11), /* &&, reduce: AddExpr */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(11), /* ==, reduce: AddExpr */
-			reduce(11), /* !=, reduce: AddExpr */
-			reduce(11), /* <, reduce: AddExpr */
-			reduce(11), /* <=, reduce: AddExpr */
-			reduce(11), /* >, reduce: AddExpr */
-			reduce(11), /* >=, reduce: AddExpr */
-			reduce(11), /* +, reduce: AddExpr */
-			reduce(11), /* -, reduce: AddExpr */
-			shift(45),  /* * */
-			shift(46),  /* / */
-			shift(47),  /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S167
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(13), /* $, reduce: MulExpr */
-			reduce(13), /* ||, reduce: MulExpr */
-			reduce(13), /* &&, reduce: MulExpr */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(13), /* ==, reduce: MulExpr */
-			reduce(13), /* !=, reduce: MulExpr */
-			reduce(13), /* <, reduce: MulExpr */
-			reduce(13), /* <=, reduce: MulExpr */
-			reduce(13), /* >, reduce: MulExpr */
-			reduce(13), /* >=, reduce: MulExpr */
-			reduce(13), /* +, reduce: MulExpr */
-			reduce(13), /* -, reduce: MulExpr */
-			reduce(13), /* *, reduce: MulExpr */
-			reduce(13), /* /, reduce: MulExpr */
-			reduce(13), /* %, reduce: MulExpr */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S168
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(14), /* $, reduce: ParenthesesExpr */
-			reduce(14), /* ||, reduce: ParenthesesExpr */
-			reduce(14), /* &&, reduce: ParenthesesExpr */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(14), /* ==, reduce: ParenthesesExpr */
-			reduce(14), /* !=, reduce: ParenthesesExpr */
-			reduce(14), /* <, reduce: ParenthesesExpr */
-			reduce(14), /* <=, reduce: ParenthesesExpr */
-			reduce(14), /* >, reduce: ParenthesesExpr */
-			reduce(14), /* >=, reduce: ParenthesesExpr */
-			reduce(14), /* +, reduce: ParenthesesExpr */
-			reduce(14), /* -, reduce: ParenthesesExpr */
-			reduce(14), /* *, reduce: ParenthesesExpr */
-			reduce(14), /* /, reduce: ParenthesesExpr */
-			reduce(14), /* %, reduce: ParenthesesExpr */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S169
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* || */
-			nil,       /* && */
-			shift(56), /* ( */
-			nil,       /* ) */
-			nil,       /* == */
-			nil,       /* != */
-			nil,       /* < */
-			nil,       /* <= */
-			nil,       /* > */
-			nil,       /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			shift(58), /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			shift(67), /* doublequotes_string */
-			shift(68), /* singlequote_string */
-			shift(69), /* number */
-			shift(70), /* argument */
-			shift(71), /* true */
-			shift(72), /* false */
-			shift(73), /* float */
-			shift(74), /* nil */
-			shift(75), /* null */
-		},
-	},
-	actionRow{ // S170
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(33), /* $, reduce: ExprLiteral */
-			reduce(33), /* ||, reduce: ExprLiteral */
-			reduce(33), /* &&, reduce: ExprLiteral */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(33), /* ==, reduce: ExprLiteral */
-			reduce(33), /* !=, reduce: ExprLiteral */
-			reduce(33), /* <, reduce: ExprLiteral */
-			reduce(33), /* <=, reduce: ExprLiteral */
-			reduce(33), /* >, reduce: ExprLiteral */
-			reduce(33), /* >=, reduce: ExprLiteral */
-			reduce(33), /* +, reduce: ExprLiteral */
-			reduce(33), /* -, reduce: ExprLiteral */
-			reduce(33), /* *, reduce: ExprLiteral */
-			reduce(33), /* /, reduce: ExprLiteral */
-			reduce(33), /* %, reduce: ExprLiteral */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S171
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
-			shift(205), /* ( */
-			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			shift(206), /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S172
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(32), /* $, reduce: ExprLiteral */
-			reduce(32), /* ||, reduce: ExprLiteral */
-			reduce(32), /* &&, reduce: ExprLiteral */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(32), /* ==, reduce: ExprLiteral */
-			reduce(32), /* !=, reduce: ExprLiteral */
-			reduce(32), /* <, reduce: ExprLiteral */
-			reduce(32), /* <=, reduce: ExprLiteral */
-			reduce(32), /* >, reduce: ExprLiteral */
-			reduce(32), /* >=, reduce: ExprLiteral */
-			reduce(32), /* +, reduce: ExprLiteral */
-			reduce(32), /* -, reduce: ExprLiteral */
-			reduce(32), /* *, reduce: ExprLiteral */
-			reduce(32), /* /, reduce: ExprLiteral */
-			reduce(32), /* %, reduce: ExprLiteral */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S173
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(34), /* $, reduce: Literal */
-			reduce(34), /* ||, reduce: Literal */
-			reduce(34), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(34), /* ==, reduce: Literal */
-			reduce(34), /* !=, reduce: Literal */
-			reduce(34), /* <, reduce: Literal */
-			reduce(34), /* <=, reduce: Literal */
-			reduce(34), /* >, reduce: Literal */
-			reduce(34), /* >=, reduce: Literal */
-			reduce(34), /* +, reduce: Literal */
-			reduce(34), /* -, reduce: Literal */
-			reduce(34), /* *, reduce: Literal */
-			reduce(34), /* /, reduce: Literal */
-			reduce(34), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S174
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(35), /* $, reduce: Literal */
-			reduce(35), /* ||, reduce: Literal */
-			reduce(35), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(35), /* ==, reduce: Literal */
-			reduce(35), /* !=, reduce: Literal */
-			reduce(35), /* <, reduce: Literal */
-			reduce(35), /* <=, reduce: Literal */
-			reduce(35), /* >, reduce: Literal */
-			reduce(35), /* >=, reduce: Literal */
-			reduce(35), /* +, reduce: Literal */
-			reduce(35), /* -, reduce: Literal */
-			reduce(35), /* *, reduce: Literal */
-			reduce(35), /* /, reduce: Literal */
-			reduce(35), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S175
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(36), /* $, reduce: Literal */
-			reduce(36), /* ||, reduce: Literal */
-			reduce(36), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(36), /* ==, reduce: Literal */
-			reduce(36), /* !=, reduce: Literal */
-			reduce(36), /* <, reduce: Literal */
-			reduce(36), /* <=, reduce: Literal */
-			reduce(36), /* >, reduce: Literal */
-			reduce(36), /* >=, reduce: Literal */
-			reduce(36), /* +, reduce: Literal */
-			reduce(36), /* -, reduce: Literal */
-			reduce(36), /* *, reduce: Literal */
-			reduce(36), /* /, reduce: Literal */
-			reduce(36), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S176
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(37), /* $, reduce: Literal */
-			reduce(37), /* ||, reduce: Literal */
-			reduce(37), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(37), /* ==, reduce: Literal */
-			reduce(37), /* !=, reduce: Literal */
-			reduce(37), /* <, reduce: Literal */
-			reduce(37), /* <=, reduce: Literal */
-			reduce(37), /* >, reduce: Literal */
-			reduce(37), /* >=, reduce: Literal */
-			reduce(37), /* +, reduce: Literal */
-			reduce(37), /* -, reduce: Literal */
-			reduce(37), /* *, reduce: Literal */
-			reduce(37), /* /, reduce: Literal */
-			reduce(37), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S177
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(38), /* $, reduce: Literal */
-			reduce(38), /* ||, reduce: Literal */
-			reduce(38), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(38), /* ==, reduce: Literal */
-			reduce(38), /* !=, reduce: Literal */
-			reduce(38), /* <, reduce: Literal */
-			reduce(38), /* <=, reduce: Literal */
-			reduce(38), /* >, reduce: Literal */
-			reduce(38), /* >=, reduce: Literal */
-			reduce(38), /* +, reduce: Literal */
-			reduce(38), /* -, reduce: Literal */
-			reduce(38), /* *, reduce: Literal */
-			reduce(38), /* /, reduce: Literal */
-			reduce(38), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S178
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(39), /* $, reduce: Literal */
-			reduce(39), /* ||, reduce: Literal */
-			reduce(39), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(39), /* ==, reduce: Literal */
-			reduce(39), /* !=, reduce: Literal */
-			reduce(39), /* <, reduce: Literal */
-			reduce(39), /* <=, reduce: Literal */
-			reduce(39), /* >, reduce: Literal */
-			reduce(39), /* >=, reduce: Literal */
-			reduce(39), /* +, reduce: Literal */
-			reduce(39), /* -, reduce: Literal */
-			reduce(39), /* *, reduce: Literal */
-			reduce(39), /* /, reduce: Literal */
-			reduce(39), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S179
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(40), /* $, reduce: Literal */
-			reduce(40), /* ||, reduce: Literal */
-			reduce(40), /* &&, reduce: Literal */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(40), /* ==, reduce: Literal */
-			reduce(40), /* !=, reduce: Literal */
-			reduce(40), /* <, reduce: Literal */
-			reduce(40), /* <=, reduce: Literal */
-			reduce(40), /* >, reduce: Literal */
-			reduce(40), /* >=, reduce: Literal */
-			reduce(40), /* +, reduce: Literal */
-			reduce(40), /* -, reduce: Literal */
-			reduce(40), /* *, reduce: Literal */
-			reduce(40), /* /, reduce: Literal */
-			reduce(40), /* %, reduce: Literal */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S180
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(41), /* $, reduce: DoubleQString */
-			reduce(41), /* ||, reduce: DoubleQString */
-			reduce(41), /* &&, reduce: DoubleQString */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(41), /* ==, reduce: DoubleQString */
-			reduce(41), /* !=, reduce: DoubleQString */
-			reduce(41), /* <, reduce: DoubleQString */
-			reduce(41), /* <=, reduce: DoubleQString */
-			reduce(41), /* >, reduce: DoubleQString */
-			reduce(41), /* >=, reduce: DoubleQString */
-			reduce(41), /* +, reduce: DoubleQString */
-			reduce(41), /* -, reduce: DoubleQString */
-			reduce(41), /* *, reduce: DoubleQString */
-			reduce(41), /* /, reduce: DoubleQString */
-			reduce(41), /* %, reduce: DoubleQString */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S181
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(42), /* $, reduce: SingleQString */
-			reduce(42), /* ||, reduce: SingleQString */
-			reduce(42), /* &&, reduce: SingleQString */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(42), /* ==, reduce: SingleQString */
-			reduce(42), /* !=, reduce: SingleQString */
-			reduce(42), /* <, reduce: SingleQString */
-			reduce(42), /* <=, reduce: SingleQString */
-			reduce(42), /* >, reduce: SingleQString */
-			reduce(42), /* >=, reduce: SingleQString */
-			reduce(42), /* +, reduce: SingleQString */
-			reduce(42), /* -, reduce: SingleQString */
-			reduce(42), /* *, reduce: SingleQString */
-			reduce(42), /* /, reduce: SingleQString */
-			reduce(42), /* %, reduce: SingleQString */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S182
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(43), /* $, reduce: Int */
-			reduce(43), /* ||, reduce: Int */
-			reduce(43), /* &&, reduce: Int */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(43), /* ==, reduce: Int */
-			reduce(43), /* !=, reduce: Int */
-			reduce(43), /* <, reduce: Int */
-			reduce(43), /* <=, reduce: Int */
-			reduce(43), /* >, reduce: Int */
-			reduce(43), /* >=, reduce: Int */
-			reduce(43), /* +, reduce: Int */
-			reduce(43), /* -, reduce: Int */
-			reduce(43), /* *, reduce: Int */
-			reduce(43), /* /, reduce: Int */
-			reduce(43), /* %, reduce: Int */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S183
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(44), /* $, reduce: MappingRef */
-			reduce(44), /* ||, reduce: MappingRef */
-			reduce(44), /* &&, reduce: MappingRef */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(44), /* ==, reduce: MappingRef */
-			reduce(44), /* !=, reduce: MappingRef */
-			reduce(44), /* <, reduce: MappingRef */
-			reduce(44), /* <=, reduce: MappingRef */
-			reduce(44), /* >, reduce: MappingRef */
-			reduce(44), /* >=, reduce: MappingRef */
-			reduce(44), /* +, reduce: MappingRef */
-			reduce(44), /* -, reduce: MappingRef */
-			reduce(44), /* *, reduce: MappingRef */
-			reduce(44), /* /, reduce: MappingRef */
-			reduce(44), /* %, reduce: MappingRef */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S184
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(45), /* $, reduce: Bool */
-			reduce(45), /* ||, reduce: Bool */
-			reduce(45), /* &&, reduce: Bool */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(45), /* ==, reduce: Bool */
-			reduce(45), /* !=, reduce: Bool */
-			reduce(45), /* <, reduce: Bool */
-			reduce(45), /* <=, reduce: Bool */
-			reduce(45), /* >, reduce: Bool */
-			reduce(45), /* >=, reduce: Bool */
-			reduce(45), /* +, reduce: Bool */
-			reduce(45), /* -, reduce: Bool */
-			reduce(45), /* *, reduce: Bool */
-			reduce(45), /* /, reduce: Bool */
-			reduce(45), /* %, reduce: Bool */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S185
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(46), /* $, reduce: Bool */
-			reduce(46), /* ||, reduce: Bool */
-			reduce(46), /* &&, reduce: Bool */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(46), /* ==, reduce: Bool */
-			reduce(46), /* !=, reduce: Bool */
-			reduce(46), /* <, reduce: Bool */
-			reduce(46), /* <=, reduce: Bool */
-			reduce(46), /* >, reduce: Bool */
-			reduce(46), /* >=, reduce: Bool */
-			reduce(46), /* +, reduce: Bool */
-			reduce(46), /* -, reduce: Bool */
-			reduce(46), /* *, reduce: Bool */
-			reduce(46), /* /, reduce: Bool */
-			reduce(46), /* %, reduce: Bool */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S186
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(47), /* $, reduce: Float */
-			reduce(47), /* ||, reduce: Float */
-			reduce(47), /* &&, reduce: Float */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(47), /* ==, reduce: Float */
-			reduce(47), /* !=, reduce: Float */
-			reduce(47), /* <, reduce: Float */
-			reduce(47), /* <=, reduce: Float */
-			reduce(47), /* >, reduce: Float */
-			reduce(47), /* >=, reduce: Float */
-			reduce(47), /* +, reduce: Float */
-			reduce(47), /* -, reduce: Float */
-			reduce(47), /* *, reduce: Float */
-			reduce(47), /* /, reduce: Float */
-			reduce(47), /* %, reduce: Float */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S187
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(48), /* $, reduce: Nil */
-			reduce(48), /* ||, reduce: Nil */
-			reduce(48), /* &&, reduce: Nil */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(48), /* ==, reduce: Nil */
-			reduce(48), /* !=, reduce: Nil */
-			reduce(48), /* <, reduce: Nil */
-			reduce(48), /* <=, reduce: Nil */
-			reduce(48), /* >, reduce: Nil */
-			reduce(48), /* >=, reduce: Nil */
-			reduce(48), /* +, reduce: Nil */
-			reduce(48), /* -, reduce: Nil */
-			reduce(48), /* *, reduce: Nil */
-			reduce(48), /* /, reduce: Nil */
-			reduce(48), /* %, reduce: Nil */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S188
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(49), /* $, reduce: Nil */
-			reduce(49), /* ||, reduce: Nil */
-			reduce(49), /* &&, reduce: Nil */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(49), /* ==, reduce: Nil */
-			reduce(49), /* !=, reduce: Nil */
-			reduce(49), /* <, reduce: Nil */
-			reduce(49), /* <=, reduce: Nil */
-			reduce(49), /* >, reduce: Nil */
-			reduce(49), /* >=, reduce: Nil */
-			reduce(49), /* +, reduce: Nil */
-			reduce(49), /* -, reduce: Nil */
-			reduce(49), /* *, reduce: Nil */
-			reduce(49), /* /, reduce: Nil */
-			reduce(49), /* %, reduce: Nil */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
 	actionRow{ // S189
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(4),  /* ||, reduce: OrExpr */
-			shift(143), /* && */
+			nil,        /* || */
+			nil,        /* && */
 			nil,        /* ( */
 			nil,        /* ) */
 			nil,        /* == */
@@ -6835,92 +6835,92 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			nil,        /* function_name */
+			shift(100), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
-			reduce(4),  /* :, reduce: OrExpr */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
+			nil,        /* : */
+			shift(110), /* doublequotes_string */
+			shift(111), /* singlequote_string */
+			shift(112), /* number */
+			shift(113), /* argument */
+			shift(114), /* true */
+			shift(115), /* false */
+			shift(116), /* float */
+			shift(117), /* nil */
+			shift(118), /* null */
 		},
 	},
 	actionRow{ // S190
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			reduce(6), /* ||, reduce: AndExpr */
-			reduce(6), /* &&, reduce: AndExpr */
-			nil,       /* ( */
-			nil,       /* ) */
-			shift(35), /* == */
-			shift(36), /* != */
-			shift(37), /* < */
-			shift(38), /* <= */
-			shift(39), /* > */
-			shift(40), /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			nil,       /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			reduce(6), /* :, reduce: AndExpr */
-			nil,       /* doublequotes_string */
-			nil,       /* singlequote_string */
-			nil,       /* number */
-			nil,       /* argument */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* float */
-			nil,       /* nil */
-			nil,       /* null */
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(215), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(130), /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(140), /* doublequotes_string */
+			shift(141), /* singlequote_string */
+			shift(142), /* number */
+			shift(143), /* argument */
+			shift(144), /* true */
+			shift(145), /* false */
+			shift(146), /* float */
+			shift(147), /* nil */
+			shift(148), /* null */
 		},
 	},
 	actionRow{ // S191
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			reduce(8), /* ||, reduce: ConditionalExpr */
-			reduce(8), /* &&, reduce: ConditionalExpr */
-			nil,       /* ( */
-			nil,       /* ) */
-			reduce(8), /* ==, reduce: ConditionalExpr */
-			reduce(8), /* !=, reduce: ConditionalExpr */
-			reduce(8), /* <, reduce: ConditionalExpr */
-			reduce(8), /* <=, reduce: ConditionalExpr */
-			reduce(8), /* >, reduce: ConditionalExpr */
-			reduce(8), /* >=, reduce: ConditionalExpr */
-			shift(42), /* + */
-			shift(43), /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			nil,       /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			reduce(8), /* :, reduce: ConditionalExpr */
-			nil,       /* doublequotes_string */
-			nil,       /* singlequote_string */
-			nil,       /* number */
-			nil,       /* argument */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* float */
-			nil,       /* nil */
-			nil,       /* null */
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(215), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(130), /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(140), /* doublequotes_string */
+			shift(141), /* singlequote_string */
+			shift(142), /* number */
+			shift(143), /* argument */
+			shift(144), /* true */
+			shift(145), /* false */
+			shift(146), /* float */
+			shift(147), /* nil */
+			shift(148), /* null */
 		},
 	},
 	actionRow{ // S192
@@ -6928,35 +6928,35 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(10), /* ||, reduce: AddExpr */
-			reduce(10), /* &&, reduce: AddExpr */
-			nil,        /* ( */
+			nil,        /* || */
+			nil,        /* && */
+			shift(215), /* ( */
 			nil,        /* ) */
-			reduce(10), /* ==, reduce: AddExpr */
-			reduce(10), /* !=, reduce: AddExpr */
-			reduce(10), /* <, reduce: AddExpr */
-			reduce(10), /* <=, reduce: AddExpr */
-			reduce(10), /* >, reduce: AddExpr */
-			reduce(10), /* >=, reduce: AddExpr */
-			reduce(10), /* +, reduce: AddExpr */
-			reduce(10), /* -, reduce: AddExpr */
-			shift(45),  /* * */
-			shift(46),  /* / */
-			shift(47),  /* % */
-			nil,        /* function_name */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(130), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
-			reduce(10), /* :, reduce: AddExpr */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
+			nil,        /* : */
+			shift(140), /* doublequotes_string */
+			shift(141), /* singlequote_string */
+			shift(142), /* number */
+			shift(143), /* argument */
+			shift(144), /* true */
+			shift(145), /* false */
+			shift(146), /* float */
+			shift(147), /* nil */
+			shift(148), /* null */
 		},
 	},
 	actionRow{ // S193
@@ -6964,35 +6964,35 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(12), /* ||, reduce: MulExpr */
-			reduce(12), /* &&, reduce: MulExpr */
-			nil,        /* ( */
+			nil,        /* || */
+			nil,        /* && */
+			shift(215), /* ( */
 			nil,        /* ) */
-			reduce(12), /* ==, reduce: MulExpr */
-			reduce(12), /* !=, reduce: MulExpr */
-			reduce(12), /* <, reduce: MulExpr */
-			reduce(12), /* <=, reduce: MulExpr */
-			reduce(12), /* >, reduce: MulExpr */
-			reduce(12), /* >=, reduce: MulExpr */
-			reduce(12), /* +, reduce: MulExpr */
-			reduce(12), /* -, reduce: MulExpr */
-			reduce(12), /* *, reduce: MulExpr */
-			reduce(12), /* /, reduce: MulExpr */
-			reduce(12), /* %, reduce: MulExpr */
-			nil,        /* function_name */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(130), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
-			reduce(12), /* :, reduce: MulExpr */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
+			nil,        /* : */
+			shift(140), /* doublequotes_string */
+			shift(141), /* singlequote_string */
+			shift(142), /* number */
+			shift(143), /* argument */
+			shift(144), /* true */
+			shift(145), /* false */
+			shift(146), /* float */
+			shift(147), /* nil */
+			shift(148), /* null */
 		},
 	},
 	actionRow{ // S194
@@ -7000,35 +7000,35 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(15), /* ||, reduce: ParenthesesExpr */
-			reduce(15), /* &&, reduce: ParenthesesExpr */
-			nil,        /* ( */
+			nil,        /* || */
+			nil,        /* && */
+			shift(215), /* ( */
 			nil,        /* ) */
-			reduce(15), /* ==, reduce: ParenthesesExpr */
-			reduce(15), /* !=, reduce: ParenthesesExpr */
-			reduce(15), /* <, reduce: ParenthesesExpr */
-			reduce(15), /* <=, reduce: ParenthesesExpr */
-			reduce(15), /* >, reduce: ParenthesesExpr */
-			reduce(15), /* >=, reduce: ParenthesesExpr */
-			reduce(15), /* +, reduce: ParenthesesExpr */
-			reduce(15), /* -, reduce: ParenthesesExpr */
-			reduce(15), /* *, reduce: ParenthesesExpr */
-			reduce(15), /* /, reduce: ParenthesesExpr */
-			reduce(15), /* %, reduce: ParenthesesExpr */
-			nil,        /* function_name */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(130), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
-			reduce(15), /* :, reduce: ParenthesesExpr */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
+			nil,        /* : */
+			shift(140), /* doublequotes_string */
+			shift(141), /* singlequote_string */
+			shift(142), /* number */
+			shift(143), /* argument */
+			shift(144), /* true */
+			shift(145), /* false */
+			shift(146), /* float */
+			shift(147), /* nil */
+			shift(148), /* null */
 		},
 	},
 	actionRow{ // S195
@@ -7039,7 +7039,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			shift(207), /* ) */
+			shift(220), /* ) */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -7053,8 +7053,8 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
-			shift(160), /* , */
-			nil,        /* ? */
+			nil,        /* , */
+			reduce(32), /* ?, reduce: TernaryArgument */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -7072,25 +7072,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			reduce(27), /* ||, reduce: Func */
-			reduce(27), /* &&, reduce: Func */
+			nil,        /* || */
+			nil,        /* && */
 			nil,        /* ( */
-			reduce(27), /* ), reduce: Func */
-			reduce(27), /* ==, reduce: Func */
-			reduce(27), /* !=, reduce: Func */
-			reduce(27), /* <, reduce: Func */
-			reduce(27), /* <=, reduce: Func */
-			reduce(27), /* >, reduce: Func */
-			reduce(27), /* >=, reduce: Func */
-			reduce(27), /* +, reduce: Func */
-			reduce(27), /* -, reduce: Func */
-			reduce(27), /* *, reduce: Func */
-			reduce(27), /* /, reduce: Func */
-			reduce(27), /* %, reduce: Func */
+			shift(221), /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
+			reduce(33), /* ?, reduce: TernaryArgument */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
@@ -7111,7 +7111,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			shift(208), /* ) */
+			nil,        /* ) */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -7123,20 +7123,20 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			nil,        /* function_name */
+			shift(100), /* function_name */
 			nil,        /* () */
-			shift(160), /* , */
+			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
+			shift(110), /* doublequotes_string */
+			shift(111), /* singlequote_string */
+			shift(112), /* number */
+			shift(113), /* argument */
+			shift(114), /* true */
+			shift(115), /* false */
+			shift(116), /* float */
+			shift(117), /* nil */
+			shift(118), /* null */
 		},
 	},
 	actionRow{ // S198
@@ -7144,26 +7144,26 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
-			nil,        /* || */
-			nil,        /* && */
+			reduce(28), /* ||, reduce: Func */
+			reduce(28), /* &&, reduce: Func */
 			nil,        /* ( */
-			reduce(30), /* ), reduce: ArgsList */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
+			nil,        /* ) */
+			reduce(28), /* ==, reduce: Func */
+			reduce(28), /* !=, reduce: Func */
+			reduce(28), /* <, reduce: Func */
+			reduce(28), /* <=, reduce: Func */
+			reduce(28), /* >, reduce: Func */
+			reduce(28), /* >=, reduce: Func */
+			reduce(28), /* +, reduce: Func */
+			reduce(28), /* -, reduce: Func */
+			reduce(28), /* *, reduce: Func */
+			reduce(28), /* /, reduce: Func */
+			reduce(28), /* %, reduce: Func */
 			nil,        /* function_name */
 			nil,        /* () */
-			shift(160), /* , */
-			nil,        /* ? */
-			nil,        /* : */
+			nil,        /* , */
+			reduce(28), /* ?, reduce: Func */
+			reduce(28), /* :, reduce: Func */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -7182,7 +7182,7 @@ var actionTab = actionTable{
 			nil,        /* $ */
 			nil,        /* || */
 			nil,        /* && */
-			shift(169), /* ( */
+			shift(128), /* ( */
 			nil,        /* ) */
 			nil,        /* == */
 			nil,        /* != */
@@ -7195,20 +7195,20 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(171), /* function_name */
+			shift(130), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
-			shift(180), /* doublequotes_string */
-			shift(181), /* singlequote_string */
-			shift(182), /* number */
-			shift(183), /* argument */
-			shift(184), /* true */
-			shift(185), /* false */
-			shift(186), /* float */
-			shift(187), /* nil */
-			shift(188), /* null */
+			shift(140), /* doublequotes_string */
+			shift(141), /* singlequote_string */
+			shift(142), /* number */
+			shift(143), /* argument */
+			shift(144), /* true */
+			shift(145), /* false */
+			shift(146), /* float */
+			shift(147), /* nil */
+			shift(148), /* null */
 		},
 	},
 	actionRow{ // S200
@@ -7218,7 +7218,7 @@ var actionTab = actionTable{
 			nil,        /* $ */
 			nil,        /* || */
 			nil,        /* && */
-			shift(169), /* ( */
+			shift(226), /* ( */
 			nil,        /* ) */
 			nil,        /* == */
 			nil,        /* != */
@@ -7231,20 +7231,20 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(171), /* function_name */
+			shift(13),  /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
-			shift(180), /* doublequotes_string */
-			shift(181), /* singlequote_string */
-			shift(182), /* number */
-			shift(183), /* argument */
-			shift(184), /* true */
-			shift(185), /* false */
-			shift(186), /* float */
-			shift(187), /* nil */
-			shift(188), /* null */
+			shift(23),  /* doublequotes_string */
+			shift(24),  /* singlequote_string */
+			shift(25),  /* number */
+			shift(26),  /* argument */
+			shift(27),  /* true */
+			shift(28),  /* false */
+			shift(29),  /* float */
+			shift(30),  /* nil */
+			shift(31),  /* null */
 		},
 	},
 	actionRow{ // S201
@@ -7254,7 +7254,7 @@ var actionTab = actionTable{
 			nil,        /* $ */
 			nil,        /* || */
 			nil,        /* && */
-			shift(169), /* ( */
+			shift(157), /* ( */
 			nil,        /* ) */
 			nil,        /* == */
 			nil,        /* != */
@@ -7267,20 +7267,20 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(171), /* function_name */
+			shift(159), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
-			shift(180), /* doublequotes_string */
-			shift(181), /* singlequote_string */
-			shift(182), /* number */
-			shift(183), /* argument */
-			shift(184), /* true */
-			shift(185), /* false */
-			shift(186), /* float */
-			shift(187), /* nil */
-			shift(188), /* null */
+			shift(168), /* doublequotes_string */
+			shift(169), /* singlequote_string */
+			shift(170), /* number */
+			shift(171), /* argument */
+			shift(172), /* true */
+			shift(173), /* false */
+			shift(174), /* float */
+			shift(175), /* nil */
+			shift(176), /* null */
 		},
 	},
 	actionRow{ // S202
@@ -7290,7 +7290,7 @@ var actionTab = actionTable{
 			nil,        /* $ */
 			nil,        /* || */
 			nil,        /* && */
-			shift(169), /* ( */
+			shift(157), /* ( */
 			nil,        /* ) */
 			nil,        /* == */
 			nil,        /* != */
@@ -7303,20 +7303,20 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(171), /* function_name */
+			shift(159), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
-			shift(180), /* doublequotes_string */
-			shift(181), /* singlequote_string */
-			shift(182), /* number */
-			shift(183), /* argument */
-			shift(184), /* true */
-			shift(185), /* false */
-			shift(186), /* float */
-			shift(187), /* nil */
-			shift(188), /* null */
+			shift(168), /* doublequotes_string */
+			shift(169), /* singlequote_string */
+			shift(170), /* number */
+			shift(171), /* argument */
+			shift(172), /* true */
+			shift(173), /* false */
+			shift(174), /* float */
+			shift(175), /* nil */
+			shift(176), /* null */
 		},
 	},
 	actionRow{ // S203
@@ -7326,7 +7326,7 @@ var actionTab = actionTable{
 			nil,        /* $ */
 			nil,        /* || */
 			nil,        /* && */
-			shift(169), /* ( */
+			shift(157), /* ( */
 			nil,        /* ) */
 			nil,        /* == */
 			nil,        /* != */
@@ -7339,20 +7339,20 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(171), /* function_name */
+			shift(159), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
-			shift(180), /* doublequotes_string */
-			shift(181), /* singlequote_string */
-			shift(182), /* number */
-			shift(183), /* argument */
-			shift(184), /* true */
-			shift(185), /* false */
-			shift(186), /* float */
-			shift(187), /* nil */
-			shift(188), /* null */
+			shift(168), /* doublequotes_string */
+			shift(169), /* singlequote_string */
+			shift(170), /* number */
+			shift(171), /* argument */
+			shift(172), /* true */
+			shift(173), /* false */
+			shift(174), /* float */
+			shift(175), /* nil */
+			shift(176), /* null */
 		},
 	},
 	actionRow{ // S204
@@ -7362,8 +7362,80 @@ var actionTab = actionTable{
 			nil,        /* $ */
 			nil,        /* || */
 			nil,        /* && */
+			shift(157), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(159), /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(168), /* doublequotes_string */
+			shift(169), /* singlequote_string */
+			shift(170), /* number */
+			shift(171), /* argument */
+			shift(172), /* true */
+			shift(173), /* false */
+			shift(174), /* float */
+			shift(175), /* nil */
+			shift(176), /* null */
+		},
+	},
+	actionRow{ // S205
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(157), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(159), /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(168), /* doublequotes_string */
+			shift(169), /* singlequote_string */
+			shift(170), /* number */
+			shift(171), /* argument */
+			shift(172), /* true */
+			shift(173), /* false */
+			shift(174), /* float */
+			shift(175), /* nil */
+			shift(176), /* null */
+		},
+	},
+	actionRow{ // S206
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
 			nil,        /* ( */
-			shift(214), /* ) */
+			shift(233), /* ) */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -7391,7 +7463,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S205
+	actionRow{ // S207
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -7411,31 +7483,31 @@ var actionTab = actionTable{
 			nil,        /* * */
 			nil,        /* / */
 			nil,        /* % */
-			shift(122), /* function_name */
+			shift(100), /* function_name */
 			nil,        /* () */
 			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
-			shift(132), /* doublequotes_string */
-			shift(133), /* singlequote_string */
-			shift(134), /* number */
-			shift(135), /* argument */
-			shift(136), /* true */
-			shift(137), /* false */
-			shift(138), /* float */
-			shift(139), /* nil */
-			shift(140), /* null */
+			shift(110), /* doublequotes_string */
+			shift(111), /* singlequote_string */
+			shift(112), /* number */
+			shift(113), /* argument */
+			shift(114), /* true */
+			shift(115), /* false */
+			shift(116), /* float */
+			shift(117), /* nil */
+			shift(118), /* null */
 		},
 	},
-	actionRow{ // S206
+	actionRow{ // S208
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(28), /* $, reduce: Func */
+			nil,        /* $ */
 			reduce(28), /* ||, reduce: Func */
 			reduce(28), /* &&, reduce: Func */
 			nil,        /* ( */
-			nil,        /* ) */
+			reduce(28), /* ), reduce: Func */
 			reduce(28), /* ==, reduce: Func */
 			reduce(28), /* !=, reduce: Func */
 			reduce(28), /* <, reduce: Func */
@@ -7463,7 +7535,43 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S207
+	actionRow{ // S209
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			shift(183), /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S210
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -7471,7 +7579,7 @@ var actionTab = actionTable{
 			reduce(27), /* ||, reduce: Func */
 			reduce(27), /* &&, reduce: Func */
 			nil,        /* ( */
-			nil,        /* ) */
+			reduce(27), /* ), reduce: Func */
 			reduce(27), /* ==, reduce: Func */
 			reduce(27), /* !=, reduce: Func */
 			reduce(27), /* <, reduce: Func */
@@ -7486,8 +7594,8 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
-			nil,        /* ? */
-			reduce(27), /* :, reduce: Func */
+			reduce(27), /* ?, reduce: Func */
+			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */
 			nil,        /* number */
@@ -7499,7 +7607,1015 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S208
+	actionRow{ // S211
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(237), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(59),  /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(69),  /* doublequotes_string */
+			shift(70),  /* singlequote_string */
+			shift(71),  /* number */
+			shift(72),  /* argument */
+			shift(73),  /* true */
+			shift(74),  /* false */
+			shift(75),  /* float */
+			shift(76),  /* nil */
+			shift(77),  /* null */
+		},
+	},
+	actionRow{ // S212
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			shift(239), /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			shift(189), /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S213
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(30), /* ), reduce: ArgsList */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			shift(189), /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S214
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(4),  /* ||, reduce: OrExpr */
+			shift(191), /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(4),  /* ?, reduce: OrExpr */
+			reduce(4),  /* :, reduce: OrExpr */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S215
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(157), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(159), /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			shift(168), /* doublequotes_string */
+			shift(169), /* singlequote_string */
+			shift(170), /* number */
+			shift(171), /* argument */
+			shift(172), /* true */
+			shift(173), /* false */
+			shift(174), /* float */
+			shift(175), /* nil */
+			shift(176), /* null */
+		},
+	},
+	actionRow{ // S216
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			reduce(6), /* ||, reduce: AndExpr */
+			reduce(6), /* &&, reduce: AndExpr */
+			nil,       /* ( */
+			nil,       /* ) */
+			shift(35), /* == */
+			shift(36), /* != */
+			shift(37), /* < */
+			shift(38), /* <= */
+			shift(39), /* > */
+			shift(40), /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			reduce(6), /* ?, reduce: AndExpr */
+			reduce(6), /* :, reduce: AndExpr */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
+		},
+	},
+	actionRow{ // S217
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			reduce(8), /* ||, reduce: ConditionalExpr */
+			reduce(8), /* &&, reduce: ConditionalExpr */
+			nil,       /* ( */
+			nil,       /* ) */
+			reduce(8), /* ==, reduce: ConditionalExpr */
+			reduce(8), /* !=, reduce: ConditionalExpr */
+			reduce(8), /* <, reduce: ConditionalExpr */
+			reduce(8), /* <=, reduce: ConditionalExpr */
+			reduce(8), /* >, reduce: ConditionalExpr */
+			reduce(8), /* >=, reduce: ConditionalExpr */
+			shift(42), /* + */
+			shift(43), /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			reduce(8), /* ?, reduce: ConditionalExpr */
+			reduce(8), /* :, reduce: ConditionalExpr */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
+		},
+	},
+	actionRow{ // S218
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(10), /* ||, reduce: AddExpr */
+			reduce(10), /* &&, reduce: AddExpr */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(10), /* ==, reduce: AddExpr */
+			reduce(10), /* !=, reduce: AddExpr */
+			reduce(10), /* <, reduce: AddExpr */
+			reduce(10), /* <=, reduce: AddExpr */
+			reduce(10), /* >, reduce: AddExpr */
+			reduce(10), /* >=, reduce: AddExpr */
+			reduce(10), /* +, reduce: AddExpr */
+			reduce(10), /* -, reduce: AddExpr */
+			shift(45),  /* * */
+			shift(46),  /* / */
+			shift(47),  /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(10), /* ?, reduce: AddExpr */
+			reduce(10), /* :, reduce: AddExpr */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S219
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(12), /* ||, reduce: MulExpr */
+			reduce(12), /* &&, reduce: MulExpr */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(12), /* ==, reduce: MulExpr */
+			reduce(12), /* !=, reduce: MulExpr */
+			reduce(12), /* <, reduce: MulExpr */
+			reduce(12), /* <=, reduce: MulExpr */
+			reduce(12), /* >, reduce: MulExpr */
+			reduce(12), /* >=, reduce: MulExpr */
+			reduce(12), /* +, reduce: MulExpr */
+			reduce(12), /* -, reduce: MulExpr */
+			reduce(12), /* *, reduce: MulExpr */
+			reduce(12), /* /, reduce: MulExpr */
+			reduce(12), /* %, reduce: MulExpr */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(12), /* ?, reduce: MulExpr */
+			reduce(12), /* :, reduce: MulExpr */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S220
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(15), /* ||, reduce: ParenthesesExpr */
+			reduce(15), /* &&, reduce: ParenthesesExpr */
+			nil,        /* ( */
+			nil,        /* ) */
+			reduce(15), /* ==, reduce: ParenthesesExpr */
+			reduce(15), /* !=, reduce: ParenthesesExpr */
+			reduce(15), /* <, reduce: ParenthesesExpr */
+			reduce(15), /* <=, reduce: ParenthesesExpr */
+			reduce(15), /* >, reduce: ParenthesesExpr */
+			reduce(15), /* >=, reduce: ParenthesesExpr */
+			reduce(15), /* +, reduce: ParenthesesExpr */
+			reduce(15), /* -, reduce: ParenthesesExpr */
+			reduce(15), /* *, reduce: ParenthesesExpr */
+			reduce(15), /* /, reduce: ParenthesesExpr */
+			reduce(15), /* %, reduce: ParenthesesExpr */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(15), /* ?, reduce: ParenthesesExpr */
+			reduce(15), /* :, reduce: ParenthesesExpr */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S221
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(34), /* ?, reduce: TernaryArgument */
+			reduce(34), /* :, reduce: TernaryArgument */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S222
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			shift(241), /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			shift(189), /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S223
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			shift(199), /* ? */
+			shift(242), /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S224
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(32), /* $, reduce: TernaryArgument */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(32), /* ?, reduce: TernaryArgument */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S225
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(33), /* $, reduce: TernaryArgument */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(33), /* ?, reduce: TernaryArgument */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S226
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* || */
+			nil,       /* && */
+			shift(57), /* ( */
+			nil,       /* ) */
+			nil,       /* == */
+			nil,       /* != */
+			nil,       /* < */
+			nil,       /* <= */
+			nil,       /* > */
+			nil,       /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			shift(59), /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			nil,       /* ? */
+			nil,       /* : */
+			shift(69), /* doublequotes_string */
+			shift(70), /* singlequote_string */
+			shift(71), /* number */
+			shift(72), /* argument */
+			shift(73), /* true */
+			shift(74), /* false */
+			shift(75), /* float */
+			shift(76), /* nil */
+			shift(77), /* null */
+		},
+	},
+	actionRow{ // S227
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(31), /* $, reduce: TernaryExpr */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			shift(80),  /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S228
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(4),  /* ||, reduce: OrExpr */
+			shift(202), /* && */
+			nil,        /* ( */
+			reduce(4),  /* ), reduce: OrExpr */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S229
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			reduce(6), /* ||, reduce: AndExpr */
+			reduce(6), /* &&, reduce: AndExpr */
+			nil,       /* ( */
+			reduce(6), /* ), reduce: AndExpr */
+			shift(35), /* == */
+			shift(36), /* != */
+			shift(37), /* < */
+			shift(38), /* <= */
+			shift(39), /* > */
+			shift(40), /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			nil,       /* ? */
+			nil,       /* : */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
+		},
+	},
+	actionRow{ // S230
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			reduce(8), /* ||, reduce: ConditionalExpr */
+			reduce(8), /* &&, reduce: ConditionalExpr */
+			nil,       /* ( */
+			reduce(8), /* ), reduce: ConditionalExpr */
+			reduce(8), /* ==, reduce: ConditionalExpr */
+			reduce(8), /* !=, reduce: ConditionalExpr */
+			reduce(8), /* <, reduce: ConditionalExpr */
+			reduce(8), /* <=, reduce: ConditionalExpr */
+			reduce(8), /* >, reduce: ConditionalExpr */
+			reduce(8), /* >=, reduce: ConditionalExpr */
+			shift(42), /* + */
+			shift(43), /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			nil,       /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			nil,       /* ? */
+			nil,       /* : */
+			nil,       /* doublequotes_string */
+			nil,       /* singlequote_string */
+			nil,       /* number */
+			nil,       /* argument */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* float */
+			nil,       /* nil */
+			nil,       /* null */
+		},
+	},
+	actionRow{ // S231
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(10), /* ||, reduce: AddExpr */
+			reduce(10), /* &&, reduce: AddExpr */
+			nil,        /* ( */
+			reduce(10), /* ), reduce: AddExpr */
+			reduce(10), /* ==, reduce: AddExpr */
+			reduce(10), /* !=, reduce: AddExpr */
+			reduce(10), /* <, reduce: AddExpr */
+			reduce(10), /* <=, reduce: AddExpr */
+			reduce(10), /* >, reduce: AddExpr */
+			reduce(10), /* >=, reduce: AddExpr */
+			reduce(10), /* +, reduce: AddExpr */
+			reduce(10), /* -, reduce: AddExpr */
+			shift(45),  /* * */
+			shift(46),  /* / */
+			shift(47),  /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S232
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(12), /* ||, reduce: MulExpr */
+			reduce(12), /* &&, reduce: MulExpr */
+			nil,        /* ( */
+			reduce(12), /* ), reduce: MulExpr */
+			reduce(12), /* ==, reduce: MulExpr */
+			reduce(12), /* !=, reduce: MulExpr */
+			reduce(12), /* <, reduce: MulExpr */
+			reduce(12), /* <=, reduce: MulExpr */
+			reduce(12), /* >, reduce: MulExpr */
+			reduce(12), /* >=, reduce: MulExpr */
+			reduce(12), /* +, reduce: MulExpr */
+			reduce(12), /* -, reduce: MulExpr */
+			reduce(12), /* *, reduce: MulExpr */
+			reduce(12), /* /, reduce: MulExpr */
+			reduce(12), /* %, reduce: MulExpr */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S233
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(15), /* ||, reduce: ParenthesesExpr */
+			reduce(15), /* &&, reduce: ParenthesesExpr */
+			nil,        /* ( */
+			reduce(15), /* ), reduce: ParenthesesExpr */
+			reduce(15), /* ==, reduce: ParenthesesExpr */
+			reduce(15), /* !=, reduce: ParenthesesExpr */
+			reduce(15), /* <, reduce: ParenthesesExpr */
+			reduce(15), /* <=, reduce: ParenthesesExpr */
+			reduce(15), /* >, reduce: ParenthesesExpr */
+			reduce(15), /* >=, reduce: ParenthesesExpr */
+			reduce(15), /* +, reduce: ParenthesesExpr */
+			reduce(15), /* -, reduce: ParenthesesExpr */
+			reduce(15), /* *, reduce: ParenthesesExpr */
+			reduce(15), /* /, reduce: ParenthesesExpr */
+			reduce(15), /* %, reduce: ParenthesesExpr */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S234
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			shift(244), /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			shift(189), /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S235
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(32), /* ), reduce: TernaryArgument */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(32), /* ?, reduce: TernaryArgument */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S236
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(33), /* ), reduce: TernaryArgument */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(33), /* ?, reduce: TernaryArgument */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S237
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* || */
+			nil,       /* && */
+			shift(57), /* ( */
+			nil,       /* ) */
+			nil,       /* == */
+			nil,       /* != */
+			nil,       /* < */
+			nil,       /* <= */
+			nil,       /* > */
+			nil,       /* >= */
+			nil,       /* + */
+			nil,       /* - */
+			nil,       /* * */
+			nil,       /* / */
+			nil,       /* % */
+			shift(59), /* function_name */
+			nil,       /* () */
+			nil,       /* , */
+			nil,       /* ? */
+			nil,       /* : */
+			shift(69), /* doublequotes_string */
+			shift(70), /* singlequote_string */
+			shift(71), /* number */
+			shift(72), /* argument */
+			shift(73), /* true */
+			shift(74), /* false */
+			shift(75), /* float */
+			shift(76), /* nil */
+			shift(77), /* null */
+		},
+	},
+	actionRow{ // S238
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(31), /* ), reduce: TernaryExpr */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			shift(97),  /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S239
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -7535,223 +8651,7 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S209
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(4),  /* $, reduce: OrExpr */
-			reduce(4),  /* ||, reduce: OrExpr */
-			shift(200), /* && */
-			nil,        /* ( */
-			nil,        /* ) */
-			nil,        /* == */
-			nil,        /* != */
-			nil,        /* < */
-			nil,        /* <= */
-			nil,        /* > */
-			nil,        /* >= */
-			nil,        /* + */
-			nil,        /* - */
-			nil,        /* * */
-			nil,        /* / */
-			nil,        /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S210
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			reduce(6), /* $, reduce: AndExpr */
-			reduce(6), /* ||, reduce: AndExpr */
-			reduce(6), /* &&, reduce: AndExpr */
-			nil,       /* ( */
-			nil,       /* ) */
-			shift(35), /* == */
-			shift(36), /* != */
-			shift(37), /* < */
-			shift(38), /* <= */
-			shift(39), /* > */
-			shift(40), /* >= */
-			nil,       /* + */
-			nil,       /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			nil,       /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			nil,       /* doublequotes_string */
-			nil,       /* singlequote_string */
-			nil,       /* number */
-			nil,       /* argument */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* float */
-			nil,       /* nil */
-			nil,       /* null */
-		},
-	},
-	actionRow{ // S211
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			reduce(8), /* $, reduce: ConditionalExpr */
-			reduce(8), /* ||, reduce: ConditionalExpr */
-			reduce(8), /* &&, reduce: ConditionalExpr */
-			nil,       /* ( */
-			nil,       /* ) */
-			reduce(8), /* ==, reduce: ConditionalExpr */
-			reduce(8), /* !=, reduce: ConditionalExpr */
-			reduce(8), /* <, reduce: ConditionalExpr */
-			reduce(8), /* <=, reduce: ConditionalExpr */
-			reduce(8), /* >, reduce: ConditionalExpr */
-			reduce(8), /* >=, reduce: ConditionalExpr */
-			shift(42), /* + */
-			shift(43), /* - */
-			nil,       /* * */
-			nil,       /* / */
-			nil,       /* % */
-			nil,       /* function_name */
-			nil,       /* () */
-			nil,       /* , */
-			nil,       /* ? */
-			nil,       /* : */
-			nil,       /* doublequotes_string */
-			nil,       /* singlequote_string */
-			nil,       /* number */
-			nil,       /* argument */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* float */
-			nil,       /* nil */
-			nil,       /* null */
-		},
-	},
-	actionRow{ // S212
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(10), /* $, reduce: AddExpr */
-			reduce(10), /* ||, reduce: AddExpr */
-			reduce(10), /* &&, reduce: AddExpr */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(10), /* ==, reduce: AddExpr */
-			reduce(10), /* !=, reduce: AddExpr */
-			reduce(10), /* <, reduce: AddExpr */
-			reduce(10), /* <=, reduce: AddExpr */
-			reduce(10), /* >, reduce: AddExpr */
-			reduce(10), /* >=, reduce: AddExpr */
-			reduce(10), /* +, reduce: AddExpr */
-			reduce(10), /* -, reduce: AddExpr */
-			shift(45),  /* * */
-			shift(46),  /* / */
-			shift(47),  /* % */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S213
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(12), /* $, reduce: MulExpr */
-			reduce(12), /* ||, reduce: MulExpr */
-			reduce(12), /* &&, reduce: MulExpr */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(12), /* ==, reduce: MulExpr */
-			reduce(12), /* !=, reduce: MulExpr */
-			reduce(12), /* <, reduce: MulExpr */
-			reduce(12), /* <=, reduce: MulExpr */
-			reduce(12), /* >, reduce: MulExpr */
-			reduce(12), /* >=, reduce: MulExpr */
-			reduce(12), /* +, reduce: MulExpr */
-			reduce(12), /* -, reduce: MulExpr */
-			reduce(12), /* *, reduce: MulExpr */
-			reduce(12), /* /, reduce: MulExpr */
-			reduce(12), /* %, reduce: MulExpr */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S214
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(15), /* $, reduce: ParenthesesExpr */
-			reduce(15), /* ||, reduce: ParenthesesExpr */
-			reduce(15), /* &&, reduce: ParenthesesExpr */
-			nil,        /* ( */
-			nil,        /* ) */
-			reduce(15), /* ==, reduce: ParenthesesExpr */
-			reduce(15), /* !=, reduce: ParenthesesExpr */
-			reduce(15), /* <, reduce: ParenthesesExpr */
-			reduce(15), /* <=, reduce: ParenthesesExpr */
-			reduce(15), /* >, reduce: ParenthesesExpr */
-			reduce(15), /* >=, reduce: ParenthesesExpr */
-			reduce(15), /* +, reduce: ParenthesesExpr */
-			reduce(15), /* -, reduce: ParenthesesExpr */
-			reduce(15), /* *, reduce: ParenthesesExpr */
-			reduce(15), /* /, reduce: ParenthesesExpr */
-			reduce(15), /* %, reduce: ParenthesesExpr */
-			nil,        /* function_name */
-			nil,        /* () */
-			nil,        /* , */
-			nil,        /* ? */
-			nil,        /* : */
-			nil,        /* doublequotes_string */
-			nil,        /* singlequote_string */
-			nil,        /* number */
-			nil,        /* argument */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* float */
-			nil,        /* nil */
-			nil,        /* null */
-		},
-	},
-	actionRow{ // S215
+	actionRow{ // S240
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -7759,7 +8659,7 @@ var actionTab = actionTable{
 			nil,        /* || */
 			nil,        /* && */
 			nil,        /* ( */
-			shift(216), /* ) */
+			shift(220), /* ) */
 			nil,        /* == */
 			nil,        /* != */
 			nil,        /* < */
@@ -7773,7 +8673,7 @@ var actionTab = actionTable{
 			nil,        /* % */
 			nil,        /* function_name */
 			nil,        /* () */
-			shift(160), /* , */
+			nil,        /* , */
 			nil,        /* ? */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
@@ -7787,11 +8687,11 @@ var actionTab = actionTable{
 			nil,        /* null */
 		},
 	},
-	actionRow{ // S216
+	actionRow{ // S241
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(27), /* $, reduce: Func */
+			nil,        /* $ */
 			reduce(27), /* ||, reduce: Func */
 			reduce(27), /* &&, reduce: Func */
 			nil,        /* ( */
@@ -7810,7 +8710,259 @@ var actionTab = actionTable{
 			nil,        /* function_name */
 			nil,        /* () */
 			nil,        /* , */
+			reduce(27), /* ?, reduce: Func */
+			reduce(27), /* :, reduce: Func */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S242
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			shift(128), /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			shift(130), /* function_name */
+			nil,        /* () */
+			nil,        /* , */
 			nil,        /* ? */
+			nil,        /* : */
+			shift(140), /* doublequotes_string */
+			shift(141), /* singlequote_string */
+			shift(142), /* number */
+			shift(143), /* argument */
+			shift(144), /* true */
+			shift(145), /* false */
+			shift(146), /* float */
+			shift(147), /* nil */
+			shift(148), /* null */
+		},
+	},
+	actionRow{ // S243
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			shift(247), /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(33), /* ?, reduce: TernaryArgument */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S244
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			reduce(27), /* ||, reduce: Func */
+			reduce(27), /* &&, reduce: Func */
+			nil,        /* ( */
+			reduce(27), /* ), reduce: Func */
+			reduce(27), /* ==, reduce: Func */
+			reduce(27), /* !=, reduce: Func */
+			reduce(27), /* <, reduce: Func */
+			reduce(27), /* <=, reduce: Func */
+			reduce(27), /* >, reduce: Func */
+			reduce(27), /* >=, reduce: Func */
+			reduce(27), /* +, reduce: Func */
+			reduce(27), /* -, reduce: Func */
+			reduce(27), /* *, reduce: Func */
+			reduce(27), /* /, reduce: Func */
+			reduce(27), /* %, reduce: Func */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			nil,        /* ? */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S245
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			shift(248), /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(33), /* ?, reduce: TernaryArgument */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S246
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			shift(199), /* ? */
+			reduce(31), /* :, reduce: TernaryExpr */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S247
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(34), /* $, reduce: TernaryArgument */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			nil,        /* ) */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(34), /* ?, reduce: TernaryArgument */
+			nil,        /* : */
+			nil,        /* doublequotes_string */
+			nil,        /* singlequote_string */
+			nil,        /* number */
+			nil,        /* argument */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* float */
+			nil,        /* nil */
+			nil,        /* null */
+		},
+	},
+	actionRow{ // S248
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* || */
+			nil,        /* && */
+			nil,        /* ( */
+			reduce(34), /* ), reduce: TernaryArgument */
+			nil,        /* == */
+			nil,        /* != */
+			nil,        /* < */
+			nil,        /* <= */
+			nil,        /* > */
+			nil,        /* >= */
+			nil,        /* + */
+			nil,        /* - */
+			nil,        /* * */
+			nil,        /* / */
+			nil,        /* % */
+			nil,        /* function_name */
+			nil,        /* () */
+			nil,        /* , */
+			reduce(34), /* ?, reduce: TernaryArgument */
 			nil,        /* : */
 			nil,        /* doublequotes_string */
 			nil,        /* singlequote_string */

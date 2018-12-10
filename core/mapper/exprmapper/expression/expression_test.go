@@ -838,6 +838,65 @@ func TestFloatWithInt(t *testing.T) {
 	}
 }
 
+func TestExpressionTernaryNest(t *testing.T) {
+	v, err := ParseExpression(`(string.length("1234") == 4 ? true : false) ? (2 >1 ? (3>2?"Yes":"nono"):"No") : "false"`)
+	if err != nil {
+
+		t.Fatal(err)
+		t.Failed()
+	}
+
+	result, err := v.EvalWithScope(nil, nil)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	assert.Equal(t, "Yes", result)
+
+	v, err = ParseExpression(`(4 == 4 ? true : false) ? "yes" : "no"`)
+	if err != nil {
+
+		t.Fatal(err)
+		t.Failed()
+	}
+
+	result, err = v.EvalWithScope(nil, nil)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	assert.Equal(t, "yes", result)
+
+	v, err = ParseExpression(`(4 == 4 ? true : false) ? 4 < 3 ? "good" :"false" : "no"`)
+	if err != nil {
+
+		t.Fatal(err)
+		t.Failed()
+	}
+
+	result, err = v.EvalWithScope(nil, nil)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	assert.Equal(t, "false", result)
+
+	v, err = ParseExpression(`4 > 3 ? 6<4 ?  "good2" : "false2" : "false"`)
+	if err != nil {
+
+		t.Fatal(err)
+		t.Failed()
+	}
+
+	result, err = v.EvalWithScope(nil, nil)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	assert.Equal(t, "false2", result)
+
+}
+
 func GetSimpleScope(name, value string) data.Scope {
 	a, _ := data.NewAttribute(name, data.TypeObject, value)
 	maps := make(map[string]*data.Attribute)

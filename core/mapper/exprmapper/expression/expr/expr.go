@@ -51,9 +51,9 @@ func (e *Expression) IsNil() bool {
 }
 
 type TernaryExpressio struct {
-	First  interface{}
-	Second interface{}
-	Third  interface{}
+	First  Expr
+	Second Expr
+	Third  Expr
 }
 
 func (t *TernaryExpressio) EvalWithScope(inputScope data.Scope, resolver data.Resolver) (interface{}, error) {
