@@ -1,4 +1,4 @@
-package app
+package propertyresolver
 
 import (
 	"encoding/json"
@@ -6,29 +6,24 @@ import (
 	"os"
 	"strings"
 
-	"github.com/TIBCOSoftware/flogo-lib/config"
+	"github.com/TIBCOSoftware/flogo-lib/app"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
 
 var preload = make(map[string]interface{})
 
-var log = logger.GetLogger("file-props-resolver")
+var log = logger.GetLogger("props-config-file-resolver")
 
 // Comma separated list of json files overriding default application property values
-// e.g. FLOGO_APP_PROPS_FILE_OVERRIDE=app1.json,common.json
-const EnvAppPropertyFileConfigKey = "FLOGO_APP_PROPS_FILE_OVERRIDE"
+// e.g. FLOGO_APP_PROPS_CONFIG_FILE=app1.json,common.json
+const EnvAppPropertyFileConfigKey = "FLOGO_APP_PROPS_CONFIG_FILE"
 
 func init() {
 
 	filePaths := getExternalFiles()
 	if filePaths != "" {
 		// Register value resolver
-		RegisterPropertyValueResolver("file", &FileValueResolver{})
-
-		if config.GetAppPropertiesValueResolver() == "" {
-			//Make file resolver default since FLOGO_APP_PROPS_FILE_OVERRIDE is set
-			os.Setenv(config.ENV_APP_PROPERTY_RESOLVER_KEY, "file")
-		}
+		app.RegisterPropertyValueResolver("file", &FileValueResolver{})
 
 		// preload props from files
 		files := strings.Split(filePaths, ",")

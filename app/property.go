@@ -1,11 +1,11 @@
 package app
 
 import (
-	"sync"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
-	"fmt"
 	"errors"
-	"os"
+	"fmt"
+	"sync"
+
+	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
 
 var (
@@ -14,10 +14,8 @@ var (
 	lock               = &sync.Mutex{}
 )
 
-
 func init() {
 	propertyProvider = &PropertyProvider{properties: make(map[string]interface{})}
-	RegisterPropertyValueResolver("env", &EnvVariableValueResolver{})
 }
 
 func RegisterPropertyValueResolver(relType string, resolver PropertyValueResolver) error {
@@ -34,18 +32,8 @@ func RegisterPropertyValueResolver(relType string, resolver PropertyValueResolve
 }
 
 func GetPropertyValueResolver(relType string) PropertyValueResolver {
-    return propValueResolvers[relType]
+	return propValueResolvers[relType]
 }
-
-// Resolve property value from environment variable
-type EnvVariableValueResolver struct {
-	
-}
-
-func (resolver *EnvVariableValueResolver) LookupValue(toResolve string) (interface{}, bool) {
-	return os.LookupEnv(toResolve)
-}
-
 
 func GetPropertyProvider() *PropertyProvider {
 	return propertyProvider
