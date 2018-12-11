@@ -224,7 +224,6 @@ func NewTernaryArgument(first Attribute) (Attribute, error) {
 	default:
 		return expr.NewLiteralExpr(t), nil
 	}
-
 }
 
 func RemoveQuote(quoteStr string) string {

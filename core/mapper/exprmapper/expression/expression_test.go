@@ -895,6 +895,20 @@ func TestExpressionTernaryNest(t *testing.T) {
 	}
 	assert.Equal(t, "false2", result)
 
+	v, err = ParseExpression(`4 > 5 ? 6<4 ?  "good2" : "false2" : 3>2?"ok":"notok"`)
+	if err != nil {
+
+		t.Fatal(err)
+		t.Failed()
+	}
+
+	result, err = v.EvalWithScope(nil, nil)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	assert.Equal(t, "ok", result)
+
 }
 
 func GetSimpleScope(name, value string) data.Scope {
