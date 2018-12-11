@@ -15,7 +15,7 @@ var preload = make(map[string]interface{})
 var log = logger.GetLogger("app-props-resolver-file")
 
 // Comma separated list of json files overriding default application property values
-// e.g. FLOGO_APP_PROPS_FILE_CONFIG=app1.json,common.json
+// e.g. FLOGO_APP_PROPS_FILE_OVERRIDE=app1.json,common.json
 const EnvAppPropertyFileConfigKey = "FLOGO_APP_PROPS_FILE_OVERRIDE"
 
 func init() {
@@ -26,7 +26,7 @@ func init() {
 		RegisterPropertyValueResolver("file", &FileValueResolver{})
 
 		if config.GetAppPropertiesValueResolver() == "" {
-			//Make file resolver default since FLOGO_APP_PROPS_FILE_CONFIG is set
+			//Make file resolver default since FLOGO_APP_PROPS_FILE_OVERRIDE is set
 			os.Setenv(config.ENV_APP_PROPERTY_RESOLVER_KEY, "file")
 		}
 
