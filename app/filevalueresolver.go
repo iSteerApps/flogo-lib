@@ -12,7 +12,7 @@ import (
 
 var preload = make(map[string]interface{})
 
-var log = logger.GetLogger("app-props-resolver-file")
+var log = logger.GetLogger("file-props-resolver")
 
 // Comma separated list of json files overriding default application property values
 // e.g. FLOGO_APP_PROPS_FILE_OVERRIDE=app1.json,common.json
