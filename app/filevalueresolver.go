@@ -16,7 +16,7 @@ var log = logger.GetLogger("app-props-resolver-file")
 
 // Comma separated list of json files overriding default application property values
 // e.g. FLOGO_APP_PROPS_FILE_CONFIG=app1.json,common.json
-const EnvAppPropertyFileConfigKey = "FLOGO_APP_PROPS_FILE_CONFIG"
+const EnvAppPropertyFileConfigKey = "FLOGO_APP_PROPS_FILE_OVERRIDE"
 
 func init() {
 
@@ -45,11 +45,6 @@ func init() {
 				if e != nil {
 					log.Errorf("Can not read - %s due to error - %v", filePath, e)
 					panic("")
-				}
-
-				for k, v := range props {
-					preload[k] = v
-					delete(props, k)
 				}
 			}
 		}
