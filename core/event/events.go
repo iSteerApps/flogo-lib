@@ -138,7 +138,7 @@ func stopPublisherRoutine() {
 
 	if len(eventListeners) == 0 {
 		// No more listeners. Stop go routine
-		close(shutdown)
+		shutdown <- true
 		publisherRoutineStarted = false
 	}
 }
@@ -173,6 +173,7 @@ func publishEvents() {
 			publishEvent(event)
 			lock.RUnlock()
 		case <-shutdown:
+			logger.Infof("Shutting down event publisher routine")
 			return
 		}
 	}
