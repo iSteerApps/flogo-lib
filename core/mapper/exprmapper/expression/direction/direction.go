@@ -212,7 +212,7 @@ func NewTernaryExpression(first Attribute, second Attribute, third Attribute) (A
 		thirdExpr = expr.NewLiteralExpr(t)
 	}
 
-	ternaryExp := &expr.TernaryExpressio{First: firstExpr, Second: secondExpr, Third: thirdExpr}
+	ternaryExp := &expr.TernaryExpression{First: firstExpr, Second: secondExpr, Third: thirdExpr}
 	return ternaryExp, nil
 
 }
