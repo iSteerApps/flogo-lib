@@ -189,8 +189,41 @@ func NewTernaryExpression(first Attribute, second Attribute, third Attribute) (A
 	log.Debugf("first [%+v] and type [%s]", first, reflect.TypeOf(first))
 	log.Debugf("second [%+v] and type [%s]", second, reflect.TypeOf(second))
 	log.Debugf("third [%+v] and type [%s]", third, reflect.TypeOf(third))
-	ternaryExp := &expr.TernaryExpressio{First: first, Second: second, Third: third}
+	var firstExpr, secondExpr, thirdExpr expr.Expr
+
+	switch t := first.(type) {
+	case expr.Expr:
+		firstExpr = t
+	default:
+		firstExpr = expr.NewLiteralExpr(t)
+	}
+
+	switch t := second.(type) {
+	case expr.Expr:
+		secondExpr = t
+	default:
+		secondExpr = expr.NewLiteralExpr(t)
+	}
+
+	switch t := third.(type) {
+	case expr.Expr:
+		thirdExpr = t
+	default:
+		thirdExpr = expr.NewLiteralExpr(t)
+	}
+
+	ternaryExp := &expr.TernaryExpression{First: firstExpr, Second: secondExpr, Third: thirdExpr}
 	return ternaryExp, nil
+
+}
+
+func NewTernaryArgument(first Attribute) (Attribute, error) {
+	switch t := first.(type) {
+	case expr.Expr:
+		return t, nil
+	default:
+		return expr.NewLiteralExpr(t), nil
+	}
 }
 
 func RemoveQuote(quoteStr string) string {

@@ -50,21 +50,21 @@ func (e *Expression) IsNil() bool {
 	return false
 }
 
-type TernaryExpressio struct {
-	First  interface{}
-	Second interface{}
-	Third  interface{}
+type TernaryExpression struct {
+	First  Expr
+	Second Expr
+	Third  Expr
 }
 
-func (t *TernaryExpressio) EvalWithScope(inputScope data.Scope, resolver data.Resolver) (interface{}, error) {
+func (t *TernaryExpression) EvalWithScope(inputScope data.Scope, resolver data.Resolver) (interface{}, error) {
 	return t.EvalWithData(nil, inputScope, resolver)
 }
 
-func (t *TernaryExpressio) Eval() (interface{}, error) {
+func (t *TernaryExpression) Eval() (interface{}, error) {
 	return t.EvalWithScope(nil, data.GetBasicResolver())
 }
 
-func (t *TernaryExpressio) EvalWithData(value interface{}, inputScope data.Scope, resolver data.Resolver) (interface{}, error) {
+func (t *TernaryExpression) EvalWithData(value interface{}, inputScope data.Scope, resolver data.Resolver) (interface{}, error) {
 	v, err := t.HandleParameter(t.First, value, inputScope, resolver)
 	if err != nil {
 		return nil, err
@@ -84,7 +84,7 @@ func (t *TernaryExpressio) EvalWithData(value interface{}, inputScope data.Scope
 	}
 }
 
-func (t *TernaryExpressio) HandleParameter(param interface{}, value interface{}, inputScope data.Scope, resolver data.Resolver) (interface{}, error) {
+func (t *TernaryExpression) HandleParameter(param interface{}, value interface{}, inputScope data.Scope, resolver data.Resolver) (interface{}, error) {
 	var firstValue interface{}
 	switch t := param.(type) {
 	case Expr:
