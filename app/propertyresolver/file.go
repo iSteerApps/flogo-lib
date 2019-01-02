@@ -12,18 +12,18 @@ import (
 
 var preload = make(map[string]interface{})
 
-var log = logger.GetLogger("props-config-file-resolver")
+var log = logger.GetLogger("app-props-json-resolver")
 
 // Comma separated list of json files overriding default application property values
-// e.g. FLOGO_APP_PROPS_CONFIG_FILE=app1.json,common.json
-const EnvAppPropertyFileConfigKey = "FLOGO_APP_PROPS_CONFIG_FILE"
+// e.g. FLOGO_APP_PROPS_JSON=app1.json,common.json
+const EnvAppPropertyFileConfigKey = "FLOGO_APP_PROPS_JSON"
 
 func init() {
 
 	filePaths := getExternalFiles()
 	if filePaths != "" {
 		// Register value resolver
-		app.RegisterPropertyValueResolver("file", &FileValueResolver{})
+		app.RegisterPropertyValueResolver("json", &JSONFileValueResolver{})
 
 		// preload props from files
 		files := strings.Split(filePaths, ",")
@@ -55,10 +55,10 @@ func getExternalFiles() string {
 }
 
 // Resolve property value from external files
-type FileValueResolver struct {
+type JSONFileValueResolver struct {
 }
 
-func (resolver *FileValueResolver) LookupValue(toResolve string) (interface{}, bool) {
+func (resolver *JSONFileValueResolver) LookupValue(toResolve string) (interface{}, bool) {
 	val, found := preload[toResolve]
 	return val, found
 }

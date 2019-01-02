@@ -1,25 +1,37 @@
 package propertyresolver
 
 import (
-	"fmt"
+	"encoding/json"
 	"os"
-"strings"
+	"strings"
 
-"github.com/TIBCOSoftware/flogo-lib/app"
-"github.com/iancoleman/strcase"
+	"github.com/TIBCOSoftware/flogo-lib/app"
+	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
 
-// Enable to resolve app props value from env variable.
-// e.g. FLOGO_APP_PROPS_CONFIG_ENV=true
-const EnvAppPropertyEnvConfigKey = "FLOGO_APP_PROPS_CONFIG_ENV"
+var logEnv = logger.GetLogger("app-props-env-resolver")
+
+const EnvAppPropertyEnvConfigKey = "FLOGO_APP_PROPS_ENV"
+
+type PropToEnvMapping struct {
+	Mappings map[string]string `json:"mappings"`
+}
+
+var mapping PropToEnvMapping
 
 func init() {
-	if getValue() == "true" {
-		app.RegisterPropertyValueResolver("env", &EnvVariableValueResolver{})
+	app.RegisterPropertyValueResolver("env", &EnvVariableValueResolver{})
+	mappings := getEnvValue()
+	if mappings != "" {
+		e := json.Unmarshal([]byte(mappings), &mapping)
+		if e != nil {
+			logEnv.Errorf("Can not parse value set to '%s' due to error - '%v'", EnvAppPropertyEnvConfigKey, e)
+			panic("")
+		}
 	}
 }
 
-func getValue() string {
+func getEnvValue() string {
 	key := os.Getenv(EnvAppPropertyEnvConfigKey)
 	if len(key) > 0 {
 		return key
@@ -36,14 +48,20 @@ func (resolver *EnvVariableValueResolver) LookupValue(key string) (interface{}, 
 	if exists {
 		return value, exists
 	}
+
+	// Lookup based on mapping defined
+	keyMapping, ok := mapping.Mappings[key]
+	if ok {
+		return os.LookupEnv(keyMapping)
+	}
+
+	// Try to canonical form
 	value, exists = os.LookupEnv(getCanonicalEnv(key)) // if not found try with the canonical form
 	return value, exists
 }
 
 func getCanonicalEnv(key string) string {
-	result := strcase.ToScreamingSnake(key)
-	result = strings.Replace(result, ".", "_", -1)
-	result = strings.Replace(result, "__", "_", -1)
-	fmt.Println(result)
+	result := strings.Replace(key, ".", "_", -1)
+	result = strings.ToUpper(result)
 	return result
 }
