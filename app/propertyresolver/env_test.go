@@ -25,8 +25,4 @@ func TestEnvValueResolver(t *testing.T) {
 	assert.True(t, true, found)
 	assert.Equal(t, "test.Prop", resolvedVal)
 
-	resolvedVal, found = resolver.LookupValue("foo")
-	assert.True(t, true, found)
-	assert.Equal(t, "bar", resolvedVal)
-
 }
