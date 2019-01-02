@@ -65,20 +65,22 @@ func TestExpressionString(t *testing.T) {
 		t.Fatal(err)
 		t.Failed()
 	}
-	_, err = v.EvalWithScope(nil, nil)
-	assert.NotNil(t, err)
+	r, err := v.EvalWithScope(nil, nil)
+	assert.Nil(t, err)
+	assert.Equal(t, false, r)
 }
 
 func TestExpressionWithOldWay(t *testing.T) {
-	v, err := ParseExpression(`"ddd" + "dddd"`)
+	v, err := ParseExpression(`1 + 2 * 3 + 2 * 6`)
 	if err != nil {
 		t.Fatal(err)
 		t.Failed()
 	}
-	_, err = v.EvalWithScope(nil, nil)
-	fmt.Println(err)
-	assert.NotNil(t, err)
-
+	s, _ := json.Marshal(v)
+	fmt.Println(string(s))
+	vv, err := v.EvalWithScope(nil, nil)
+	assert.Nil(t, err)
+	assert.Equal(t, 19, vv)
 }
 
 func TestTernaryExpressionWithNagtive(t *testing.T) {
@@ -87,8 +89,9 @@ func TestTernaryExpressionWithNagtive(t *testing.T) {
 		t.Fatal(err)
 		t.Failed()
 	}
-	_, err = v.EvalWithScope(nil, nil)
-	assert.NotNil(t, err)
+	r, err := v.EvalWithScope(nil, nil)
+	assert.Nil(t, err)
+	assert.Equal(t, "$.content.ParamNb3", r)
 
 }
 
@@ -296,18 +299,6 @@ func TestFunc(t *testing.T) {
 	}
 	fmt.Println("Result:", v)
 	assert.Equal(t, v, true)
-	e, err = ParseExpression(`string.length("lixingwang") == 10`)
-	if err != nil {
-		t.Fatal(err)
-		t.Failed()
-	}
-	v, err = e.Eval()
-	if err != nil {
-		t.Fatal(err)
-		t.Failed()
-	}
-	fmt.Println("Result:", v)
-	assert.Equal(t, v, true)
 }
 
 func TestExpressionGT(t *testing.T) {
@@ -379,7 +370,7 @@ func TestIsExpression(t *testing.T) {
 	assert.True(t, b)
 
 	b = IsExpression(`$A3.name.fields`)
-	assert.False(t, b)
+	assert.True(t, b)
 
 }
 
@@ -397,7 +388,7 @@ func TestIsTernayExpression(t *testing.T) {
 	assert.True(t, b)
 
 	b = IsExpression(`$A3.name.fields`)
-	assert.False(t, b)
+	assert.True(t, b)
 
 }
 
@@ -415,7 +406,7 @@ func TestIsFunction(t *testing.T) {
 	assert.True(t, b)
 
 	b = IsExpression(`$A3.name.fields`)
-	assert.False(t, b)
+	assert.True(t, b)
 }
 
 func TestNewExpressionBoolean(t *testing.T) {
@@ -845,6 +836,79 @@ func TestFloatWithInt(t *testing.T) {
 	if !res {
 		t.Errorf("Expected true, got : %t\n ", res)
 	}
+}
+
+func TestExpressionTernaryNest(t *testing.T) {
+	v, err := ParseExpression(`(string.length("1234") == 4 ? true : false) ? (2 >1 ? (3>2?"Yes":"nono"):"No") : "false"`)
+	if err != nil {
+
+		t.Fatal(err)
+		t.Failed()
+	}
+
+	result, err := v.EvalWithScope(nil, nil)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	assert.Equal(t, "Yes", result)
+
+	v, err = ParseExpression(`(4 == 4 ? true : false) ? "yes" : "no"`)
+	if err != nil {
+
+		t.Fatal(err)
+		t.Failed()
+	}
+
+	result, err = v.EvalWithScope(nil, nil)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	assert.Equal(t, "yes", result)
+
+	v, err = ParseExpression(`(4 == 4 ? true : false) ? 4 < 3 ? "good" :"false" : "no"`)
+	if err != nil {
+
+		t.Fatal(err)
+		t.Failed()
+	}
+
+	result, err = v.EvalWithScope(nil, nil)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	assert.Equal(t, "false", result)
+
+	v, err = ParseExpression(`4 > 3 ? 6<4 ?  "good2" : "false2" : "false"`)
+	if err != nil {
+
+		t.Fatal(err)
+		t.Failed()
+	}
+
+	result, err = v.EvalWithScope(nil, nil)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	assert.Equal(t, "false2", result)
+
+	v, err = ParseExpression(`4 > 5 ? 6<4 ?  "good2" : "false2" : 3>2?"ok":"notok"`)
+	if err != nil {
+
+		t.Fatal(err)
+		t.Failed()
+	}
+
+	result, err = v.EvalWithScope(nil, nil)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	assert.Equal(t, "ok", result)
+
 }
 
 func GetSimpleScope(name, value string) data.Scope {
