@@ -55,7 +55,7 @@ func (resolver *EnvVariableValueResolver) LookupValue(key string) (interface{}, 
 		return os.LookupEnv(keyMapping)
 	}
 
-	// Try to canonical form
+	// Try canonical form
 	value, exists = os.LookupEnv(getCanonicalEnv(key)) // if not found try with the canonical form
 	return value, exists
 }
