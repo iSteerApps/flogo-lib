@@ -204,7 +204,7 @@ func (f *Expression) run(left interface{}, op string, right interface{}) (interf
 	case OR:
 		return or(left, right)
 	case AND:
-		return add(left, right)
+		return and(left, right)
 	case NOT_EQ:
 		return notEquals(left, right)
 	case GT:
@@ -360,7 +360,7 @@ func gt(left interface{}, right interface{}, includeEquals bool) (bool, error) {
 		return false, nil
 	}
 
-	log.Debugf("Greater than condition -> right value [%+v] and Right value: [%+v]", left, right)
+	log.Debugf("Greater than condition -> left value [%+v] and Right value: [%+v]", left, right)
 	rightType := getType(right)
 	switch le := left.(type) {
 	case int:
@@ -552,9 +552,9 @@ func lt(left interface{}, right interface{}, includeEquals bool) (bool, error) {
 	return false, nil
 }
 
-func add(left interface{}, right interface{}) (bool, error) {
+func and(left interface{}, right interface{}) (bool, error) {
 
-	log.Debugf("Add condition -> left expression value %+v, right expression value %+v", left, right)
+	log.Debugf("And condition -> left expression value %+v, right expression value %+v", left, right)
 
 	switch le := left.(type) {
 	case bool:

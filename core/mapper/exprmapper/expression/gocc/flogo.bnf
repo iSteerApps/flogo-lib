@@ -22,7 +22,7 @@ _float_lit : ( _number '.' _number _float_exp )
 
 float : (_float_lit);
 number : (_number) | (_negnumber);
-_function_name:  'a'-'z' | 'A'-'Z' | '0'-'9' | '.' | '_' | '-';
+_function_name:  'a'-'z' | 'A'-'Z' | '0'-'9' | '.' | '_';
 
 _refbracket : '[' {.} ']';
 _ref : 'a'-'z' | 'A'-'Z' | '.' | '0'-'9' | '-' | '[' | ']' | '_' | ' ' | '$' | '{' | '}' | _refbracket;
