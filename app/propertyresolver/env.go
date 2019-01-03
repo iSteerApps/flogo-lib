@@ -13,11 +13,11 @@ var logEnv = logger.GetLogger("app-props-env-resolver")
 
 const EnvAppPropertyEnvConfigKey = "FLOGO_APP_PROPS_ENV"
 
-type PropToEnvMapping struct {
+type PropertyMappings struct {
 	Mappings map[string]string `json:"mappings"`
 }
 
-var mapping PropToEnvMapping
+var mapping PropertyMappings
 
 func init() {
 	app.RegisterPropertyValueResolver("env", &EnvVariableValueResolver{})
