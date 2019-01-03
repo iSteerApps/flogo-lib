@@ -193,12 +193,6 @@ func loadExternalProperties(properties []*data.Attribute) (map[string]interface{
 		}
 	}
 
-	if len(props) > 0 {
-		// Get value using overridden property name
-		for k, v := range props {
-			props[k] = v
-		}
-	}
 	resolverType := config.GetAppPropertiesValueResolver()
 	if resolverType != "" {
 		logger.Infof("'%s' is set to '%s'. ", config.ENV_APP_PROPERTY_RESOLVER_KEY, resolverType)
