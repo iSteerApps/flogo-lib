@@ -10,7 +10,6 @@
 _digit : '0'-'9' ;
 
 _number : _digit {_digit} ;
-_negnumber : ('-' _number);
 
 _float_exp  : ( 'e' | 'E' ) [ '+' | '-' ] _number ;
 
@@ -21,7 +20,8 @@ _float_lit : ( _number '.' _number _float_exp )
    ;
 
 float : (_float_lit);
-number : (_number) | (_negnumber);
+number : (_number);
+
 _function_name:  'a'-'z' | 'A'-'Z' | '0'-'9' | '.' | '_';
 
 _refbracket : '[' {.} ']';
@@ -111,6 +111,7 @@ ExprLiteral
 
 Literal
      : Int                          <<direction.NewIntLit($0)>>
+     | "-"Int                       <<direction.NewNagtiveLit($1)>>
      | Float                        <<direction.NewFloatLit($0)>>
      | Bool                         <<direction.NewBool($0)>>
      | DoubleQString                <<direction.NewDoubleQuoteStringLit($0)>>

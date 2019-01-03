@@ -48,12 +48,12 @@ func TestOperatorPrecedenceForMulAdd(t *testing.T) {
 
 func TestOperatorMod(t *testing.T) {
 	//number.int64($flow.pathParams.id)-2 >=1
-	v, err := ParseExpression(`3+-2`)
+	v, err := ParseExpression(`3-2`)
 	if err != nil {
 		t.Fatal(err)
 		t.Failed()
 	}
 	vv, err := v.EvalWithScope(nil, nil)
 	assert.Nil(t, err)
-	assert.Equal(t, 0, vv)
+	assert.Equal(t, 1, vv)
 }

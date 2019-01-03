@@ -53,6 +53,12 @@ func NewIntLit(lit interface{}) (int, error) {
 	return s, err
 }
 
+func NewNagtiveLit(lit interface{}) (int, error) {
+	str := strings.TrimSpace(string(lit.(*token.Token).Lit))
+	s, err := data.CoerceToInteger(str)
+	return -s, err
+}
+
 func NewFloatLit(lit interface{}) (float64, error) {
 	str := strings.TrimSpace(string(lit.(*token.Token).Lit))
 	s, err := data.CoerceToNumber(str)
