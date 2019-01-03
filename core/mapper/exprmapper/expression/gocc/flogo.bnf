@@ -101,8 +101,14 @@ ArgsList
     ;
 
 TernaryExpr
-    : Expr "?" Expr ":" Expr                    <<direction.NewTernaryExpression($0, $2, $4)>>
+    : TernaryArgument "?" TernaryArgument ":" TernaryArgument                    <<direction.NewTernaryExpression($0, $2, $4)>>
     ;
+
+TernaryArgument
+     :  Expr
+     |  TernaryExpr                              <<direction.NewTernaryArgument($0)>>
+     | "(" TernaryExpr ")"                       <<direction.NewTernaryArgument($1)>>
+     ;
 
 ExprLiteral
     : Literal                                    <<direction.NewLiteralExpr($0)>>
