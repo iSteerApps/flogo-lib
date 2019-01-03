@@ -1,7 +1,6 @@
 package expression
 
 import (
-	_ "git.tibco.com/git/product/ipaas/wi-contrib.git/function/number/Int64"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -46,7 +45,7 @@ func TestOperatorPrecedenceForMulAdd(t *testing.T) {
 
 }
 
-func TestOperatorMod(t *testing.T) {
+func TestOperatorNegative(t *testing.T) {
 	v, err := ParseExpression(`3-2`)
 	if err != nil {
 		t.Fatal(err)
