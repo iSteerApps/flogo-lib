@@ -55,13 +55,16 @@ func (resolver *EnvVariableValueResolver) LookupValue(key string) (interface{}, 
 		return os.LookupEnv(keyMapping)
 	}
 
-	// Try canonical form
-	value, exists = os.LookupEnv(getCanonicalEnv(key)) // if not found try with the canonical form
-	return value, exists
-}
+	// Replace dot with underscore e.g. a.b would be a_b
+	key = strings.Replace(key, ".", "_", -1)
+	value, exists = os.LookupEnv(key)
+	if exists {
+		return value, exists
+	}
 
-func getCanonicalEnv(key string) string {
-	result := strings.Replace(key, ".", "_", -1)
-	result = strings.ToUpper(result)
-	return result
+
+	// Try upper case form e.g. a.b would be A_B
+	key = strings.ToUpper(key)
+	value, exists = os.LookupEnv(key) // if not found try with the canonical form
+	return value, exists
 }
