@@ -116,14 +116,19 @@ ExprLiteral
 
 Literal
      : Int                          <<direction.NewIntLit($0)>>
-     | "-"Int                       <<direction.NewNagtiveLit($1)>>
      | Float                        <<direction.NewFloatLit($0)>>
+     | NegativeLiteral
      | Bool                         <<direction.NewBool($0)>>
      | DoubleQString                <<direction.NewDoubleQuoteStringLit($0)>>
      | SingleQString                <<direction.NewSingleQuoteStringLit($0)>>
      | MappingRef                   <<direction.NewMappingRef($0)>>
      | Nil                          <<direction.NewNilLit($0)>>
      ;
+
+NegativeLiteral
+    : "-"Int                          <<direction.NewNagtiveIntLit($1)>>
+    | "-"Float                        <<direction.NewNagtiveFloatLit($1)>>
+    ;
 
 DoubleQString
     : doublequotes_string

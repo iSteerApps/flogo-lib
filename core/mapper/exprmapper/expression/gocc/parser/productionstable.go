@@ -401,23 +401,23 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Literal : "-" Int	<< direction.NewNagtiveLit(X[1]) >>`,
+		String: `Literal : Float	<< direction.NewFloatLit(X[0]) >>`,
 		Id:         "Literal",
 		NTType:     17,
 		Index:      38,
-		NumSymbols: 2,
+		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
-			return direction.NewNagtiveLit(X[1])
+			return direction.NewFloatLit(X[0])
 		},
 	},
 	ProdTabEntry{
-		String: `Literal : Float	<< direction.NewFloatLit(X[0]) >>`,
+		String: `Literal : NegativeLiteral	<<  >>`,
 		Id:         "Literal",
 		NTType:     17,
 		Index:      39,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
-			return direction.NewFloatLit(X[0])
+			return X[0], nil
 		},
 	},
 	ProdTabEntry{
@@ -471,10 +471,30 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `DoubleQString : doublequotes_string	<<  >>`,
-		Id:         "DoubleQString",
+		String: `NegativeLiteral : "-" Int	<< direction.NewNagtiveIntLit(X[1]) >>`,
+		Id:         "NegativeLiteral",
 		NTType:     18,
 		Index:      45,
+		NumSymbols: 2,
+		ReduceFunc: func(X []Attrib) (Attrib, error) {
+			return direction.NewNagtiveIntLit(X[1])
+		},
+	},
+	ProdTabEntry{
+		String: `NegativeLiteral : "-" Float	<< direction.NewNagtiveFloatLit(X[1]) >>`,
+		Id:         "NegativeLiteral",
+		NTType:     18,
+		Index:      46,
+		NumSymbols: 2,
+		ReduceFunc: func(X []Attrib) (Attrib, error) {
+			return direction.NewNagtiveFloatLit(X[1])
+		},
+	},
+	ProdTabEntry{
+		String: `DoubleQString : doublequotes_string	<<  >>`,
+		Id:         "DoubleQString",
+		NTType:     19,
+		Index:      47,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil
@@ -483,8 +503,8 @@ var productionsTable = ProdTab{
 	ProdTabEntry{
 		String: `SingleQString : singlequote_string	<<  >>`,
 		Id:         "SingleQString",
-		NTType:     19,
-		Index:      46,
+		NTType:     20,
+		Index:      48,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil
@@ -493,8 +513,8 @@ var productionsTable = ProdTab{
 	ProdTabEntry{
 		String: `Int : number	<<  >>`,
 		Id:         "Int",
-		NTType:     20,
-		Index:      47,
+		NTType:     21,
+		Index:      49,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil
@@ -503,26 +523,6 @@ var productionsTable = ProdTab{
 	ProdTabEntry{
 		String: `MappingRef : argument	<<  >>`,
 		Id:         "MappingRef",
-		NTType:     21,
-		Index:      48,
-		NumSymbols: 1,
-		ReduceFunc: func(X []Attrib) (Attrib, error) {
-			return X[0], nil
-		},
-	},
-	ProdTabEntry{
-		String: `Bool : "true"	<<  >>`,
-		Id:         "Bool",
-		NTType:     22,
-		Index:      49,
-		NumSymbols: 1,
-		ReduceFunc: func(X []Attrib) (Attrib, error) {
-			return X[0], nil
-		},
-	},
-	ProdTabEntry{
-		String: `Bool : "false"	<<  >>`,
-		Id:         "Bool",
 		NTType:     22,
 		Index:      50,
 		NumSymbols: 1,
@@ -531,8 +531,8 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Float : float	<<  >>`,
-		Id:         "Float",
+		String: `Bool : "true"	<<  >>`,
+		Id:         "Bool",
 		NTType:     23,
 		Index:      51,
 		NumSymbols: 1,
@@ -541,10 +541,30 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
+		String: `Bool : "false"	<<  >>`,
+		Id:         "Bool",
+		NTType:     23,
+		Index:      52,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Float : float	<<  >>`,
+		Id:         "Float",
+		NTType:     24,
+		Index:      53,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
 		String: `Nil : "nil"	<<  >>`,
 		Id:         "Nil",
-		NTType:     24,
-		Index:      52,
+		NTType:     25,
+		Index:      54,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil
@@ -553,8 +573,8 @@ var productionsTable = ProdTab{
 	ProdTabEntry{
 		String: `Nil : "null"	<<  >>`,
 		Id:         "Nil",
-		NTType:     24,
-		Index:      53,
+		NTType:     25,
+		Index:      55,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil

@@ -745,7 +745,16 @@ func TestExpressionWithNegtiveNumber(t *testing.T) {
 	v, err := e.Eval()
 	assert.Nil(t, err)
 	assert.Equal(t, int(1), v)
-
+	//Negative float
+	e, err = ParseExpression(`-5.4 + -5.5`)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	v, err = e.Eval()
+	assert.Nil(t, err)
+	assert.Equal(t, float64(-10.9), v)
+	//
 	e, err = ParseExpression(`(-2 + 3) + (-3344 + 4444)`)
 	if err != nil {
 		t.Fatal(err)
