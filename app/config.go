@@ -2,16 +2,14 @@ package app
 
 import (
 	"encoding/json"
+	"fmt"
 
 	"os"
 
 	"errors"
-	"fmt"
 	"io/ioutil"
 	"regexp"
 	"strings"
-
-
 
 	"github.com/TIBCOSoftware/flogo-lib/app/resource"
 	"github.com/TIBCOSoftware/flogo-lib/config"
@@ -21,7 +19,6 @@ import (
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 
 	"github.com/TIBCOSoftware/flogo-lib/util"
-
 )
 
 // Config is the configuration for the App
@@ -199,40 +196,32 @@ func loadExternalProperties(properties []*data.Attribute) (map[string]interface{
 	resolverType := config.GetAppPropertiesValueResolver()
 	if resolverType != "" {
 		logger.Infof("'%s' is set to '%s'. ", config.ENV_APP_PROPERTY_RESOLVER_KEY, resolverType)
-		resolver := GetPropertyValueResolver(resolverType)
-		if resolver == nil {
-			errMag := fmt.Sprintf("Unsupported resolver type - %s. Resolver not registered.", resolverType)
-			return nil, errors.New(errMag)
+
+		var resolvers []PropertyValueResolver
+		for _, resName := range strings.Split(resolverType, ",") {
+			resolver := GetPropertyValueResolver(resName)
+			if resolver == nil {
+				errMag := fmt.Sprintf("Unsupported resolver type - %s. Resolver not registered.", resolverType)
+				return nil, errors.New(errMag)
+			}
+			resolvers = append(resolvers, resolver)
 		}
 
-		if len(props) > 0 {
-			// Get value using overridden property name
-			for k, v := range props {
-				strVal, ok := v.(string)
-				if ok {
-					if len(strVal) > 0 && strVal[0] == '$' {
-						// Use resolver
-						newVal, found := resolver.LookupValue(strVal[1:])
-						if found {
-							props[k] = newVal
-						} else {
-							logger.Warnf("Property '%s' could not be resolved using resolver '%s'. Using default value.", strVal[1:], resolverType)
-						}
-					}
-				} else {
-					props[k] = v
+		// Resolver is set. Get values using app prop name
+		for i, _ := range properties {
+			propName := properties[i].Name()
+			found := false
+			for i, _ := range resolvers {
+				// Use resolver
+				newVal, resolved := resolvers[i].LookupValue(propName)
+				if resolved {
+					props[propName] = newVal
+					found = true
+					break
 				}
 			}
-		} else {
-			// Resolver is set. Get values using app prop name
-			for _, prop := range properties {
-				newVal, found := resolver.LookupValue(prop.Name())
-				if found {
-					// Use new value
-					props[prop.Name()] = newVal
-				} else {
-					logger.Warnf("Property - '%s' could not be resolved using resolver - '%s'. Using default value.", prop.Name(), resolverType)
-				}
+			if !found {
+				logger.Warnf("Property '%s' could not be resolved using resolver(s) '%s'. Using default value.", propName, resolverType)
 			}
 		}
 	}
