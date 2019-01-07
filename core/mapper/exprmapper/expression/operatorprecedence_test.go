@@ -44,3 +44,40 @@ func TestOperatorPrecedenceForMulAdd(t *testing.T) {
 	assert.Equal(t, true, vv)
 
 }
+
+func TestOperatorNegative(t *testing.T) {
+	v, err := ParseExpression(`3-2`)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	vv, err := v.EvalWithScope(nil, nil)
+	assert.Nil(t, err)
+	assert.Equal(t, 1, vv)
+
+	v, err = ParseExpression(`3 - 2`)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	vv, err = v.EvalWithScope(nil, nil)
+	assert.Nil(t, err)
+	assert.Equal(t, 1, vv)
+
+	v, err = ParseExpression(`3+-2`)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	vv, err = v.EvalWithScope(nil, nil)
+	assert.Nil(t, err)
+	assert.Equal(t, 1, vv)
+	v, err = ParseExpression(`3- -2`)
+	if err != nil {
+		t.Fatal(err)
+		t.Failed()
+	}
+	vv, err = v.EvalWithScope(nil, nil)
+	assert.Nil(t, err)
+	assert.Equal(t, 5, vv)
+}
