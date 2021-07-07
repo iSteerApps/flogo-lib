@@ -9,6 +9,7 @@ import (
 // Metadata is the metadata for a Trigger
 type Metadata struct {
 	ID       string
+	Version  string
 	Handler  *HandlerMetadata
 	Settings map[string]*data.Attribute
 	Output   map[string]*data.Attribute
@@ -21,6 +22,7 @@ type HandlerMetadata struct {
 }
 
 // NewMetadata creates a Metadata object from the json representation
+//todo should return error instead of panic
 func NewMetadata(jsonMetadata string) *Metadata {
 	md := &Metadata{}
 	err := json.Unmarshal([]byte(jsonMetadata), md)
@@ -36,6 +38,7 @@ func (md *Metadata) UnmarshalJSON(b []byte) error {
 
 	ser := &struct {
 		Name     string            `json:"name"`
+		Version  string            `json:"version"`
 		Ref      string            `json:"ref"`
 		Handler  *HandlerMetadata  `json:"handler"`
 		Settings []*data.Attribute `json:"settings"`
@@ -58,6 +61,8 @@ func (md *Metadata) UnmarshalJSON(b []byte) error {
 		// TODO remove and add a proper error once the BC is removed
 		md.ID = ser.Name
 	}
+
+	md.Version = ser.Version
 
 	if ser.Handler != nil {
 		md.Handler = ser.Handler

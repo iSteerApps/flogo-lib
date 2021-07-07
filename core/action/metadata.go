@@ -2,14 +2,19 @@ package action
 
 import (
 	"encoding/json"
-
 	"github.com/TIBCOSoftware/flogo-lib/core/data"
 )
 
 // Metadata is the metadata for the Activity
 type Metadata struct {
-	ID      string
-	Options map[string]*data.Attribute
+	ID       string `json:"ref"`
+	Version  string
+	Settings map[string]*data.Attribute
+	Input    map[string]*data.Attribute
+	Output   map[string]*data.Attribute
+
+	Async    bool `json:"async"`
+	Passthru bool `json:"passthru"`
 }
 
 // NewMetadata creates the metadata object from its json representation
@@ -23,32 +28,19 @@ func NewMetadata(jsonMetadata string) *Metadata {
 	return md
 }
 
-// MarshalJSON overrides the default MarshalJSON for TaskEnv
-func (md *Metadata) MarshalJSON() ([]byte, error) {
-
-	options := make([]*data.Attribute, 0, len(md.Options))
-
-	for _, value := range md.Options {
-		options = append(options, value)
-	}
-
-	return json.Marshal(&struct {
-		Name    string            `json:"name"`
-		Ref     string            `json:"ref"`
-		Options []*data.Attribute `json:"options"`
-	}{
-		Name:    md.ID,
-		Options: options,
-	})
-}
-
 // UnmarshalJSON overrides the default UnmarshalJSON for TaskEnv
 func (md *Metadata) UnmarshalJSON(b []byte) error {
 
 	ser := &struct {
-		Name    string            `json:"name"`
-		Ref     string            `json:"ref"`
-		Options []*data.Attribute `json:"options"`
+		Name    string `json:"name"`
+		Version string `json:"version"`
+		Ref     string `json:"ref"`
+
+		Settings []*data.Attribute `json:"settings"`
+		Input    []*data.Attribute `json:"input"`
+		Output   []*data.Attribute `json:"output"`
+		Async    bool              `json:"async"`
+		Passthru bool              `json:"passthru"`
 	}{}
 
 	if err := json.Unmarshal(b, ser); err != nil {
@@ -63,10 +55,29 @@ func (md *Metadata) UnmarshalJSON(b []byte) error {
 		md.ID = ser.Name
 	}
 
-	md.Options = make(map[string]*data.Attribute, len(ser.Options))
+	md.Version = ser.Version
 
-	for _, attr := range ser.Options {
-		md.Options[attr.Name()] = attr
+	md.Async = ser.Async
+	md.Passthru = ser.Passthru
+
+	md.Settings = make(map[string]*data.Attribute, len(ser.Settings))
+	md.Input = make(map[string]*data.Attribute, len(ser.Input))
+	md.Output = make(map[string]*data.Attribute, len(ser.Output))
+
+	for _, attr := range ser.Settings {
+		md.Settings[attr.Name()] = attr
+	}
+
+	if len(ser.Input) > 0 {
+		for _, attr := range ser.Input {
+			md.Input[attr.Name()] = attr
+		}
+	}
+
+	if len(ser.Output) > 0 {
+		for _, attr := range ser.Output {
+			md.Output[attr.Name()] = attr
+		}
 	}
 
 	return nil

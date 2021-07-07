@@ -9,9 +9,12 @@ import (
 // Metadata is the metadata for the Activity
 type Metadata struct {
 	ID             string
+	Version        string
+	Settings       map[string]*data.Attribute
 	Input          map[string]*data.Attribute
 	Output         map[string]*data.Attribute
 	ProducesResult bool
+	DynamicIO      bool
 }
 
 // NewMetadata creates the metadata object from its json representation
@@ -29,12 +32,17 @@ func NewMetadata(jsonMetadata string) *Metadata {
 func (md *Metadata) UnmarshalJSON(b []byte) error {
 
 	ser := &struct {
-		Name   string            `json:"name"`
-		Ref    string            `json:"ref"`
-		Input  []*data.Attribute `json:"input"`
-		Output []*data.Attribute `json:"output"`
-		Return bool              `json:"return"`
-		Reply  bool              `json:"reply"`
+		Name    string `json:"name"`
+		Version string `json:"version"`
+		Ref     string `json:"ref"`
+
+		Settings  []*data.Attribute `json:"settings"`
+		Input     []*data.Attribute `json:"input"`
+		Output    []*data.Attribute `json:"output"`
+		Return    bool              `json:"return"`
+		Reply     bool              `json:"reply"`
+		DynamicIO bool              `json:"dynamicIO"`
+
 		//for backwards compatibility
 		Inputs  []*data.Attribute `json:"inputs"`
 		Outputs []*data.Attribute `json:"outputs"`
@@ -52,9 +60,18 @@ func (md *Metadata) UnmarshalJSON(b []byte) error {
 		md.ID = ser.Name
 	}
 
+	md.Version = ser.Version
+
 	md.ProducesResult = ser.Reply || ser.Return
+	md.DynamicIO = ser.DynamicIO
+
+	md.Settings = make(map[string]*data.Attribute, len(ser.Settings))
 	md.Input = make(map[string]*data.Attribute, len(ser.Inputs))
 	md.Output = make(map[string]*data.Attribute, len(ser.Outputs))
+
+	for _, attr := range ser.Settings {
+		md.Settings[attr.Name()] = attr
+	}
 
 	if len(ser.Input) > 0 {
 		for _, attr := range ser.Input {

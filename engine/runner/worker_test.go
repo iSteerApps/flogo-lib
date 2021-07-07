@@ -25,7 +25,7 @@ func TestWorkerInvalidRequestType(t *testing.T) {
 	result := <-actionData.arc
 
 	assert.NotNil(t, result.err)
-	assert.Equal(t, "Unsupported work request type: '-1'", result.err.Error())
+	assert.Equal(t, "unsupported work request type: '-1'", result.err.Error())
 }
 
 //TestWorkerErrorInAction returns an error when the action returns error
@@ -36,7 +36,7 @@ func TestWorkerErrorInAction(t *testing.T) {
 	rc := make(chan *ActionResult)
 
 	action := new(MockFullAction)
-	action.On("Run", nil,  mock.AnythingOfType("[]*data.Attribute"), mock.AnythingOfType("map[string]interface {}"), mock.AnythingOfType("*runner.AsyncResultHandler")).Return(errors.New("Error in action"))
+	action.On("Run", nil, mock.AnythingOfType("map[string]*data.Attribute"), mock.AnythingOfType("*runner.AsyncResultHandler")).Return(errors.New("Error in action"))
 
 	actionData := &ActionData{arc: rc, action: action}
 
@@ -61,7 +61,7 @@ func TestWorkerStartOk(t *testing.T) {
 	rc := make(chan *ActionResult)
 
 	action := new(MockResultAction)
-	action.On("Run", nil, mock.AnythingOfType("[]*data.Attribute"), mock.AnythingOfType("map[string]interface {}"), mock.AnythingOfType("*runner.AsyncResultHandler")).Return(nil)
+	action.On("Run", nil, mock.AnythingOfType("map[string]*data.Attribute"), mock.AnythingOfType("*runner.AsyncResultHandler")).Return(nil)
 
 	actionData := &ActionData{arc: rc, action: action}
 

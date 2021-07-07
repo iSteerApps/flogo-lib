@@ -1,8 +1,9 @@
 package data
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGetResolutionDetails(t *testing.T) {
@@ -15,7 +16,31 @@ func TestGetResolutionDetails(t *testing.T) {
 	assert.Equal(t, "", details.Item)
 	assert.Equal(t, "", details.Path)
 
+	a = "property[Prop1]"
+	details, err = GetResolutionDetails(a)
+	assert.Nil(t, err)
+	assert.Equal(t, "property", details.ResolverName)
+	assert.Equal(t, "Prop1", details.Property)
+	assert.Equal(t, "", details.Item)
+	assert.Equal(t, "", details.Path)
+
+	a = "property[foo.bar.Prop1]"
+	details, err = GetResolutionDetails(a)
+	assert.Nil(t, err)
+	assert.Equal(t, "property", details.ResolverName)
+	assert.Equal(t, "foo.bar.Prop1", details.Property)
+	assert.Equal(t, "", details.Item)
+	assert.Equal(t, "", details.Path)
+
 	a = "env.VAR1"
+	details, err = GetResolutionDetails(a)
+	assert.Nil(t, err)
+	assert.Equal(t, "env", details.ResolverName)
+	assert.Equal(t, "VAR1", details.Property)
+	assert.Equal(t, "", details.Item)
+	assert.Equal(t, "", details.Path)
+
+	a = "env[VAR1]"
 	details, err = GetResolutionDetails(a)
 	assert.Nil(t, err)
 	assert.Equal(t, "env", details.ResolverName)
@@ -33,13 +58,22 @@ func TestGetResolutionDetails(t *testing.T) {
 	assert.Equal(t, "", details.Path)
 
 	// Resolution of second level Activity expression map
-	a = "activity[myactivityId].myMapAttributeName.mapkey"
+	a = "activity[myactivityId].myObjectAttributeName.objectKey"
 	details, err = GetResolutionDetails(a)
 	assert.Nil(t, err)
 	assert.Equal(t, "activity", details.ResolverName)
-	assert.Equal(t, "myMapAttributeName", details.Property)
+	assert.Equal(t, "myObjectAttributeName", details.Property)
 	assert.Equal(t, "myactivityId", details.Item)
-	assert.Equal(t, ".mapkey", details.Path)
+	assert.Equal(t, ".objectKey", details.Path)
+
+	// Resolution of second level Activity expression map
+	a = `activity[myactivityId].myMapAttributeName["a.b"]`
+	details, err = GetResolutionDetails(a)
+	assert.Nil(t, err)
+	assert.Equal(t, "activity", details.ResolverName)
+	assert.Equal(t, "myactivityId", details.Item)
+	assert.Equal(t, "myMapAttributeName", details.Property)
+	assert.Equal(t, `["a.b"]`, details.Path)
 
 	// Resolution of second level Activity expression array
 	a = "activity.myactivityId.myArrayAttributeName[0]"
@@ -60,13 +94,22 @@ func TestGetResolutionDetails(t *testing.T) {
 	assert.Equal(t, "", details.Path)
 
 	// Resolution of second level Activity expression map
-	a = "activity.myactivityId.myMapAttributeName.mapkey"
+	a = "activity.myactivityId.myObjectAttributeName.objectKey"
 	details, err = GetResolutionDetails(a)
 	assert.Nil(t, err)
 	assert.Equal(t, "activity", details.ResolverName)
-	assert.Equal(t, "myMapAttributeName", details.Property)
+	assert.Equal(t, "myObjectAttributeName", details.Property)
 	assert.Equal(t, "myactivityId", details.Item)
-	assert.Equal(t, ".mapkey", details.Path)
+	assert.Equal(t, ".objectKey", details.Path)
+
+	// Resolution of second level Activity expression map
+	a = `activity.myactivityId.myMapAttributeName["a.b"]`
+	details, err = GetResolutionDetails(a)
+	assert.Nil(t, err)
+	assert.Equal(t, "activity", details.ResolverName)
+	assert.Equal(t, "myactivityId", details.Item)
+	assert.Equal(t, "myMapAttributeName", details.Property)
+	assert.Equal(t, `["a.b"]`, details.Path)
 
 	// Resolution of second level Activity expression array
 	a = "activity.myactivityId.myArrayAttributeName[0]"
@@ -77,7 +120,6 @@ func TestGetResolutionDetails(t *testing.T) {
 	assert.Equal(t, "myactivityId", details.Item)
 	assert.Equal(t, "[0]", details.Path)
 }
-
 
 func TestGetResolutionDetailsOld(t *testing.T) {
 
@@ -147,4 +189,28 @@ func TestGetResolutionDetailsOld(t *testing.T) {
 	assert.Equal(t, "myArrayAttributeName", details.Property)
 	assert.Equal(t, "myactivityId", details.Item)
 	assert.Equal(t, "[0]", details.Path)
+}
+
+func TestToGetCurrentScope(t *testing.T) {
+	a := "$.header.Accept"
+	details, err := GetResolutionDetails(a)
+	assert.Nil(t, err)
+	assert.Equal(t, "$.", details.ResolverName)
+	assert.Equal(t, "header", details.Property)
+	assert.Equal(t, ".Accept", details.Path)
+
+	a = "$.array[0]"
+	details, err = GetResolutionDetails(a)
+	assert.Nil(t, err)
+	assert.Equal(t, "$.", details.ResolverName)
+	assert.Equal(t, "array", details.Property)
+	assert.Equal(t, "[0]", details.Path)
+
+	a = "$.headers"
+	details, err = GetResolutionDetails(a)
+	assert.Nil(t, err)
+	assert.Equal(t, "$.", details.ResolverName)
+	assert.Equal(t, "headers", details.Property)
+	assert.Equal(t, "", details.Path)
+
 }

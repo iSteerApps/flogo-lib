@@ -7,65 +7,31 @@ import (
 )
 
 const (
-	LOG_DATE_FORMAT_KEY         = "FLOGO_LOG_DTFORMAT"
-	LOG_DATE_FORMAT_DEFAULT     = "2006-01-02 15:04:05.000"
-	LOG_LEVEL_KEY               = "FLOGO_LOG_LEVEL"
-	LOG_LEVEL_DEFAULT           = "INFO"
-	RUNNER_TYPE_KEY             = "FLOGO_RUNNER_TYPE"
-	RUNNER_TYPE_DEFAULT         = "POOLED"
-	RUNNER_WORKERS_KEY          = "FLOGO_RUNNER_WORKERS"
-	RUNNER_WORKERS_DEFAULT      = 5
-	RUNNER_QUEUE_SIZE_KEY       = "FLOGO_RUNNER_QUEUE"
-	RUNNER_QUEUE_SIZE_DEFAULT   = 50
-	APP_CONFIG_LOCATION_KEY     = "FLOGO_CONFIG_PATH"
-	APP_CONFIG_LOCATION_DEFAULT = "flogo.json"
-	STOP_ENGINE_ON_ERROR_KEY    = "STOP_ENGINE_ON_ERROR"
+	ENV_LOG_DATE_FORMAT_KEY       = "FLOGO_LOG_DTFORMAT"
+	LOG_DATE_FORMAT_DEFAULT       = "2006-01-02 15:04:05.000"
+	ENV_LOG_LEVEL_KEY             = "FLOGO_LOG_LEVEL"
+	ENV_LOG_FORMAT                = "FLOGO_LOG_FORMAT"
+	LOG_FORMAT_DEFAULT            = "TEXT"
+	LOG_LEVEL_DEFAULT             = "INFO"
+	ENV_APP_CONFIG_LOCATION_KEY   = "FLOGO_CONFIG_PATH"
+	APP_CONFIG_LOCATION_DEFAULT   = "flogo.json"
+	ENV_STOP_ENGINE_ON_ERROR_KEY  = "FLOGO_ENGINE_STOP_ON_ERROR"
+	ENV_DATA_SECRET_KEY_KEY       = "FLOGO_DATA_SECRET_KEY"
+	DATA_SECRET_KEY_DEFAULT       = "flogo"
+	ENV_APP_PROPERTY_OVERRIDE_KEY = "FLOGO_APP_PROPS_OVERRIDE"
+	ENV_APP_PROPERTY_RESOLVER_KEY = "FLOGO_APP_PROPS_RESOLVERS"
+	ENV_PUBLISH_AUDIT_EVENTS_KEY  = "FLOGO_PUBLISH_AUDIT_EVENTS"
 )
 
 var defaultLogLevel = LOG_LEVEL_DEFAULT
 
 //GetFlogoConfigPath returns the flogo config path
 func GetFlogoConfigPath() string {
-	flogoConfigPathEnv := os.Getenv(APP_CONFIG_LOCATION_KEY)
+	flogoConfigPathEnv := os.Getenv(ENV_APP_CONFIG_LOCATION_KEY)
 	if len(flogoConfigPathEnv) > 0 {
 		return flogoConfigPathEnv
 	}
 	return APP_CONFIG_LOCATION_DEFAULT
-}
-
-//GetRunnerType returns the runner type
-func GetRunnerType() string {
-	runnerTypeEnv := os.Getenv(RUNNER_TYPE_KEY)
-	if len(runnerTypeEnv) > 0 {
-		return runnerTypeEnv
-	}
-	return RUNNER_TYPE_DEFAULT
-}
-
-//GetRunnerWorkers returns the number of workers to use
-func GetRunnerWorkers() int {
-	numWorkers := RUNNER_WORKERS_DEFAULT
-	workersEnv := os.Getenv(RUNNER_WORKERS_KEY)
-	if len(workersEnv) > 0 {
-		i, err := strconv.Atoi(workersEnv)
-		if err == nil {
-			numWorkers = i
-		}
-	}
-	return numWorkers
-}
-
-//GetRunnerQueueSize returns the runner queue size
-func GetRunnerQueueSize() int {
-	queueSize := RUNNER_QUEUE_SIZE_DEFAULT
-	queueSizeEnv := os.Getenv(RUNNER_QUEUE_SIZE_KEY)
-	if len(queueSizeEnv) > 0 {
-		i, err := strconv.Atoi(queueSizeEnv)
-		if err == nil {
-			queueSize = i
-		}
-	}
-	return queueSize
 }
 
 func SetDefaultLogLevel(logLevel string) {
@@ -74,15 +40,24 @@ func SetDefaultLogLevel(logLevel string) {
 
 //GetLogLevel returns the log level
 func GetLogLevel() string {
-	logLevelEnv := os.Getenv(LOG_LEVEL_KEY)
+	logLevelEnv := os.Getenv(ENV_LOG_LEVEL_KEY)
 	if len(logLevelEnv) > 0 {
 		return logLevelEnv
 	}
 	return defaultLogLevel
 }
 
+//GetLogLevel returns the log level
+func GetLogFormat() string {
+	logFormatEnv := os.Getenv(ENV_LOG_FORMAT)
+	if len(logFormatEnv) > 0 {
+		return logFormatEnv
+	}
+	return LOG_FORMAT_DEFAULT
+}
+
 func GetLogDateTimeFormat() string {
-	logLevelEnv := os.Getenv(LOG_DATE_FORMAT_KEY)
+	logLevelEnv := os.Getenv(ENV_LOG_DATE_FORMAT_KEY)
 	if len(logLevelEnv) > 0 {
 		return logLevelEnv
 	}
@@ -90,10 +65,43 @@ func GetLogDateTimeFormat() string {
 }
 
 func StopEngineOnError() bool {
-	stopEngineOnError := os.Getenv(STOP_ENGINE_ON_ERROR_KEY)
+	stopEngineOnError := os.Getenv(ENV_STOP_ENGINE_ON_ERROR_KEY)
 	if len(stopEngineOnError) == 0 {
 		return true
 	}
 	b, _ := strconv.ParseBool(stopEngineOnError)
 	return b
+}
+
+func GetDataSecretKey() string {
+	key := os.Getenv(ENV_DATA_SECRET_KEY_KEY)
+	if len(key) > 0 {
+		return key
+	}
+	return DATA_SECRET_KEY_DEFAULT
+}
+
+func GetAppPropertiesOverride() string {
+	key := os.Getenv(ENV_APP_PROPERTY_OVERRIDE_KEY)
+	if len(key) > 0 {
+		return key
+	}
+	return ""
+}
+
+func GetAppPropertiesValueResolver() string {
+	key := os.Getenv(ENV_APP_PROPERTY_RESOLVER_KEY)
+	if len(key) > 0 {
+		return key
+	}
+	return ""
+}
+
+func PublishAuditEvents() bool {
+	key := os.Getenv(ENV_PUBLISH_AUDIT_EVENTS_KEY)
+	if len(key) > 0 {
+		publish, _ := strconv.ParseBool(key)
+		return publish
+	}
+	return true
 }

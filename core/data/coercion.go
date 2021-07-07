@@ -3,6 +3,7 @@ package data
 import (
 	"encoding/json"
 	"fmt"
+	"reflect"
 	"strconv"
 	"strings"
 )
@@ -14,24 +15,26 @@ func CoerceToValue(value interface{}, dataType Type) (interface{}, error) {
 	var err error
 
 	switch dataType {
-	case STRING:
-		coerced, err = CoerceToString(value)
-	case INTEGER:
-		coerced, err = CoerceToInteger(value)
-	case NUMBER:
-		coerced, err = CoerceToNumber(value)
-	case BOOLEAN:
-		coerced, err = CoerceToBoolean(value)
-	case OBJECT:
-		coerced, err = CoerceToObject(value)
-	case ARRAY:
-		coerced, err = CoerceToArray(value)
-	case PARAMS:
-		coerced, err = CoerceToParams(value)
-	case COMPLEX_OBJECT:
-		coerced, err = CoerceToComplexObject(value)
-	case ANY:
+	case TypeAny:
 		coerced, err = CoerceToAny(value)
+	case TypeString:
+		coerced, err = CoerceToString(value)
+	case TypeInteger:
+		coerced, err = CoerceToInteger(value)
+	case TypeLong:
+		coerced, err = CoerceToLong(value)
+	case TypeDouble:
+		coerced, err = CoerceToDouble(value)
+	case TypeBoolean:
+		coerced, err = CoerceToBoolean(value)
+	case TypeObject:
+		coerced, err = CoerceToObject(value)
+	case TypeComplexObject:
+		coerced, err = CoerceToComplexObject(value)
+	case TypeArray:
+		coerced, err = CoerceToArrayIfNecessary(value)
+	case TypeParams:
+		coerced, err = CoerceToParams(value)
 	}
 
 	if err != nil {
@@ -41,15 +44,18 @@ func CoerceToValue(value interface{}, dataType Type) (interface{}, error) {
 	return coerced, nil
 }
 
-//todo check int64,float64 on raspberry pi
-
 // CoerceToString coerce a value to a string
 func CoerceToString(val interface{}) (string, error) {
+
 	switch t := val.(type) {
 	case string:
 		return t, nil
 	case int:
 		return strconv.Itoa(t), nil
+	case int64:
+		return strconv.FormatInt(t, 10), nil
+	case float32:
+		return strconv.FormatFloat(float64(t), 'f', -1, 64), nil
 	case float64:
 		return strconv.FormatFloat(t, 'f', -1, 64), nil
 	case json.Number:
@@ -58,20 +64,12 @@ func CoerceToString(val interface{}) (string, error) {
 		return strconv.FormatBool(t), nil
 	case nil:
 		return "", nil
-	case map[string]interface{}:
-		b, err := json.Marshal(t)
-		if err != nil {
-			return "", err
-		}
-		return string(b), nil
 	default:
 		b, err := json.Marshal(t)
 		if err != nil {
-			return "", fmt.Errorf("Unable to Coerce %#v to string", t)
+			return "", fmt.Errorf("unable to Coerce %#v to string", t)
 		}
 		return string(b), nil
-
-		//return "", fmt.Errorf("Unable to Coerce %#v to string", t)
 	}
 }
 
@@ -101,8 +99,40 @@ func CoerceToInteger(val interface{}) (int, error) {
 	}
 }
 
-// CoerceToNumber coerce a value to a number
+// CoerceToInteger coerce a value to an integer
+func CoerceToLong(val interface{}) (int64, error) {
+	switch t := val.(type) {
+	case int:
+		return int64(t), nil
+	case int64:
+		return t, nil
+	case float32:
+		return int64(t), nil
+	case float64:
+		return int64(t), nil
+	case json.Number:
+		return t.Int64()
+	case string:
+		return strconv.ParseInt(t, 10, 64)
+	case bool:
+		if t {
+			return 1, nil
+		}
+		return 0, nil
+	case nil:
+		return 0, nil
+	default:
+		return 0, fmt.Errorf("Unable to coerce %#v to integer", val)
+	}
+}
+
+// Deprecated: Use CoerceToDouble()
 func CoerceToNumber(val interface{}) (float64, error) {
+	return CoerceToDouble(val)
+}
+
+// CoerceToDouble coerce a value to a double/float64
+func CoerceToDouble(val interface{}) (float64, error) {
 	switch t := val.(type) {
 	case int:
 		return float64(t), nil
@@ -131,9 +161,7 @@ func CoerceToBoolean(val interface{}) (bool, error) {
 	switch t := val.(type) {
 	case bool:
 		return t, nil
-	case int:
-		return t != 0, nil
-	case int64:
+	case int, int64:
 		return t != 0, nil
 	case float64:
 		return t != 0.0, nil
@@ -145,7 +173,11 @@ func CoerceToBoolean(val interface{}) (bool, error) {
 	case nil:
 		return false, nil
 	default:
-		return false, fmt.Errorf("Unable to coerce %#v to bool", val)
+		str, err := CoerceToString(val)
+		if err != nil {
+			return false, fmt.Errorf("unable to coerce %#v to bool", val)
+		}
+		return strconv.ParseBool(str)
 	}
 }
 
@@ -155,28 +187,35 @@ func CoerceToObject(val interface{}) (map[string]interface{}, error) {
 	switch t := val.(type) {
 	case map[string]interface{}:
 		return t, nil
+	case map[string]string:
+		ret := make(map[string]interface{}, len(t))
+		for key, value := range t {
+			ret[key] = value
+		}
+		return ret, nil
 	case string:
 		m := make(map[string]interface{})
 		if t != "" {
 			err := json.Unmarshal([]byte(t), &m)
 			if err != nil {
-				return nil, fmt.Errorf("Unable to coerce %#v to map[string]interface{}", val)
+				return nil, fmt.Errorf("unable to coerce %#v to map[string]interface{}", val)
 			}
 		}
 		return m, nil
 	case nil:
 		return nil, nil
 	default:
-		return nil, fmt.Errorf("Unable to coerce %#v to map[string]interface{}", val)
+		return nil, fmt.Errorf("unable to coerce %#v to map[string]interface{}", val)
 	}
 }
 
-// CoerceToArray coerce a value to an array
+// CoerceToArray coerce a value to an array of empty interface values
 func CoerceToArray(val interface{}) ([]interface{}, error) {
 
 	switch t := val.(type) {
 	case []interface{}:
 		return t, nil
+
 	case []map[string]interface{}:
 		var a []interface{}
 		for _, v := range t {
@@ -188,24 +227,60 @@ func CoerceToArray(val interface{}) ([]interface{}, error) {
 		if t != "" {
 			err := json.Unmarshal([]byte(t), &a)
 			if err != nil {
-				return nil, fmt.Errorf("Unable to coerce %#v to map[string]interface{}", val)
+				return nil, fmt.Errorf("unable to coerce %#v to map[string]interface{}", val)
 			}
 		}
 		return a, nil
 	case nil:
 		return nil, nil
 	default:
-		return nil, fmt.Errorf("Unable to coerce %#v to []interface{}", val)
+		s := reflect.ValueOf(val)
+		if s.Kind() == reflect.Slice {
+			a := make([]interface{}, s.Len())
+
+			for i := 0; i < s.Len(); i++ {
+				a[i] = s.Index(i).Interface()
+			}
+			return a, nil
+		}
+		return nil, fmt.Errorf("unable to coerce %#v to []interface{}", val)
 	}
 }
 
-// CoerceToArray coerce a value to an array
+// CoerceToArrayIfNecessary coerce a value to an array if it isn't one already
+func CoerceToArrayIfNecessary(val interface{}) (interface{}, error) {
+
+	if val == nil {
+		return nil, nil
+	}
+
+	rt := reflect.TypeOf(val).Kind()
+
+	if rt == reflect.Array || rt == reflect.Slice {
+		return val, nil
+	}
+
+	switch t := val.(type) {
+	case string:
+		a := make([]interface{}, 0)
+		if t != "" {
+			err := json.Unmarshal([]byte(t), &a)
+			if err != nil {
+				return nil, fmt.Errorf("unable to coerce %#v to map[string]interface{}", val)
+			}
+		}
+		return a, nil
+	default:
+		return nil, fmt.Errorf("unable to coerce %#v to []interface{}", val)
+	}
+}
+
+// CoerceToAny coerce a value to generic value
 func CoerceToAny(val interface{}) (interface{}, error) {
 
 	switch t := val.(type) {
 
 	case json.Number:
-
 		if strings.Contains(t.String(), ".") {
 			return t.Float64()
 		} else {
@@ -227,7 +302,7 @@ func CoerceToParams(val interface{}) (map[string]string, error) {
 		if t != "" {
 			err := json.Unmarshal([]byte(t), &m)
 			if err != nil {
-				return nil, fmt.Errorf("Unable to coerce %#v to params", val)
+				return nil, fmt.Errorf("unable to coerce %#v to params", val)
 			}
 		}
 		return m, nil
@@ -275,7 +350,7 @@ func CoerceToParams(val interface{}) (map[string]string, error) {
 	case nil:
 		return nil, nil
 	default:
-		return nil, fmt.Errorf("Unable to coerce %#v to map[string]string", val)
+		return nil, fmt.Errorf("unable to coerce %#v to map[string]string", val)
 	}
 }
 
@@ -295,7 +370,6 @@ func CoerceToComplexObject(val interface{}) (*ComplexObject, error) {
 			err := json.Unmarshal([]byte(t), complexObject)
 			if err != nil {
 				return nil, err
-
 			}
 			return handleComplex(complexObject), nil
 		}
@@ -313,7 +387,7 @@ func CoerceToComplexObject(val interface{}) (*ComplexObject, error) {
 	case *ComplexObject:
 		return handleComplex(val.(*ComplexObject)), nil
 	default:
-		return nil, fmt.Errorf("Unable to coerce %#v to complex object", val)
+		return nil, fmt.Errorf("unable to coerce %#v to complex object", val)
 	}
 }
 
@@ -326,82 +400,82 @@ func handleComplex(complex *ComplexObject) *ComplexObject {
 	return complex
 }
 
-var mapHelper *MapHelper = &MapHelper{}
-
-func GetMapHelper() *MapHelper {
-	return mapHelper
-}
-
-type MapHelper struct {
-}
-
-func (h *MapHelper) GetInt(data map[string]interface{}, key string) (int, bool) {
-	mapVal, exists := data[key]
-	if exists {
-		value, ok := mapVal.(int)
-
-		if ok {
-			return value, true
-		}
-	}
-
-	return 0, false
-}
-
-func (h *MapHelper) GetString(data map[string]interface{}, key string) (string, bool) {
-	mapVal, exists := data[key]
-	if exists {
-		value, ok := mapVal.(string)
-
-		if ok {
-			return value, true
-		}
-	}
-
-	return "", false
-}
-
-func (h *MapHelper) GetBool(data map[string]interface{}, key string) (bool, bool) {
-	mapVal, exists := data[key]
-	if exists {
-		value, ok := mapVal.(bool)
-
-		if ok {
-			return value, true
-		}
-	}
-
-	return false, false
-}
-
-func (h *MapHelper) ToAttributes(data map[string]interface{}, metadata []*Attribute, ignoreExtras bool) []*Attribute {
-
-	size := len(metadata)
-	if !ignoreExtras {
-		size = len(data)
-	}
-	attrs := make([]*Attribute, 0, size)
-
-	metadataMap := make(map[string]*Attribute)
-	for _, attr := range metadata {
-		metadataMap[attr.Name()] = attr
-	}
-
-	//todo do special handling for complex_object metadata (merge or ref it)
-	for key, value := range data {
-		mdAttr, exists := metadataMap[key]
-
-		if !exists {
-			if !ignoreExtras {
-				//todo handle error
-				attr, _ := NewAttribute(key, ANY, value)
-				attrs = append(attrs, attr)
-			}
-		} else {
-			attr, _ := NewAttribute(key, mdAttr.Type(), value)
-			attrs = append(attrs, attr)
-		}
-	}
-
-	return attrs
-}
+//var mapHelper *MapHelper = &MapHelper{}
+//
+//func GetMapHelper() *MapHelper {
+//	return mapHelper
+//}
+//
+//type MapHelper struct {
+//}
+//
+//func (h *MapHelper) GetInt(data map[string]interface{}, key string) (int, bool) {
+//	mapVal, exists := data[key]
+//	if exists {
+//		value, ok := mapVal.(int)
+//
+//		if ok {
+//			return value, true
+//		}
+//	}
+//
+//	return 0, false
+//}
+//
+//func (h *MapHelper) GetString(data map[string]interface{}, key string) (string, bool) {
+//	mapVal, exists := data[key]
+//	if exists {
+//		value, ok := mapVal.(string)
+//
+//		if ok {
+//			return value, true
+//		}
+//	}
+//
+//	return "", false
+//}
+//
+//func (h *MapHelper) GetBool(data map[string]interface{}, key string) (bool, bool) {
+//	mapVal, exists := data[key]
+//	if exists {
+//		value, ok := mapVal.(bool)
+//
+//		if ok {
+//			return value, true
+//		}
+//	}
+//
+//	return false, false
+//}
+//
+//func (h *MapHelper) ToAttributes(data map[string]interface{}, metadata []*Attribute, ignoreExtras bool) []*Attribute {
+//
+//	size := len(metadata)
+//	if !ignoreExtras {
+//		size = len(data)
+//	}
+//	attrs := make([]*Attribute, 0, size)
+//
+//	metadataMap := make(map[string]*Attribute)
+//	for _, attr := range metadata {
+//		metadataMap[attr.Name()] = attr
+//	}
+//
+//	//todo do special handling for complex_object metadata (merge or ref it)
+//	for key, value := range data {
+//		mdAttr, exists := metadataMap[key]
+//
+//		if !exists {
+//			if !ignoreExtras {
+//				//todo handle error
+//				attr, _ := NewAttribute(key, TypeAny, value)
+//				attrs = append(attrs, attr)
+//			}
+//		} else {
+//			attr, _ := NewAttribute(key, mdAttr.Type(), value)
+//			attrs = append(attrs, attr)
+//		}
+//	}
+//
+//	return attrs
+//}

@@ -14,6 +14,7 @@ type Logger interface {
 	Error(args ...interface{})
 	Errorf(format string, args ...interface{})
 	SetLogLevel(Level)
+	GetLogLevel() Level
 }
 
 type LoggerFactory interface {
@@ -58,7 +59,7 @@ func GetLogger(name string) Logger {
 func GetLevelForName(name string) (Level, error) {
 	levelForName, ok := levelNames[name]
 	if !ok {
-		return 0, fmt.Errorf("Unsupported Log Level '%s'", name)
+		return 0, fmt.Errorf("unsupported Log Level '%s'", name)
 	}
 	return levelForName, nil
 }

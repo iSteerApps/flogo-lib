@@ -1,8 +1,8 @@
 package mapper
 
 import (
-	"testing"
 	"github.com/TIBCOSoftware/flogo-lib/core/data"
+	"testing"
 )
 
 func Test_evalExpr(t *testing.T) {

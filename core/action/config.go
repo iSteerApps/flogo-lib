@@ -2,41 +2,23 @@ package action
 
 import (
 	"encoding/json"
+
 	"github.com/TIBCOSoftware/flogo-lib/core/data"
 )
 
 // Config is the configuration for the Action
 type Config struct {
-	Id       string          `json:"id"`
-	Ref      string          `json:"ref"`
-	Data     json.RawMessage `json:"data"`
-	Metadata *ConfigMetadata `json:"metadata"`
+	//inline action
+	Ref      string                 `json:"ref"`
+	Settings map[string]interface{} `json:"settings"`
+	Data     json.RawMessage        `json:"data"`
+
+	//referenced action
+	Id string `json:"id"`
+
+	// Deprecated: No longer used
+	Metadata *data.IOMetadata `json:"metadata"`
 }
 
-// Metadata is the configuration metadata for the Action
-type ConfigMetadata struct {
-	Input  []*data.Attribute `json:"input"`
-	Output []*data.Attribute `json:"output"`
-}
+//do we need a call that will "fix up" the config, coerce to the right attr, using the metadata?
 
-func GetConfigInputMetadata(act Action) []*data.Attribute {
-
-	if act.Config() != nil {
-		if act.Config().Metadata != nil {
-			return act.Config().Metadata.Input
-		}
-	}
-
-	return nil
-}
-
-func GetConfigOutputMetadata(act Action) []*data.Attribute {
-
-	if act.Config() != nil {
-		if act.Config().Metadata != nil {
-			return act.Config().Metadata.Output
-		}
-	}
-
-	return nil
-}
